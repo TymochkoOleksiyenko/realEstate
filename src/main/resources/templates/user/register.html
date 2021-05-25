@@ -285,11 +285,11 @@
                         <!-- Register Form -->
                         <div class="login-form register-form">
                             <!--Login Form-->
-                            <form method="post" action="#">
+                            <form method="post" action="/register" enctype="multipart/form-data">
 
                                 <div class="avatar-upload">
                                     <div class="avatar-edit">
-                                        <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                                        <input type='file' id="imageUpload" name="multipartFile" accept=".png, .jpg, .jpeg" />
                                         <label for="imageUpload"></label>
                                     </div>
                                     <div class="avatar-preview">
@@ -301,17 +301,17 @@
 
                                 <div class="form-group">
                                     <label>ПІБ</label>
-                                    <input type="text" name="name" placeholder="ПІБ..." required>
+                                    <input type="text" name="fullName" placeholder="ПІБ..." required>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="email" name="email" placeholder="Email..." required>
+                                    <input type="email" name="mail" placeholder="Email..." required>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Телефон</label>
-                                    <input type="tel" name="username" placeholder="Телефон..." required value="+380" class="phone_number">
+                                    <input type="tel" name="phone" placeholder="Телефон..." required value="+380" class="phone_number">
                                 </div>
 
                                 <div class="form-group">

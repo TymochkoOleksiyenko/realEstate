@@ -27,7 +27,10 @@ public class UsersServiceImpl implements UsersService {
     public Users save(Users user, MultipartFile multipartFile) {
         Image image =imageService.save(multipartFile);
         user.setImage(image);
-        return save(user);
+        user = save(user);
+        image.setUser(user);
+        imageService.save(image);
+        return user;
     }
 
     @Override
@@ -37,7 +40,7 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public Users update(Users user, MultipartFile multipartFile) {
-        Image image =imageService.save(multipartFile);
+        Image image = imageService.save(multipartFile);
         user.setImage(image);
         return update(user);
     }

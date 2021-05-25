@@ -12,12 +12,12 @@ public class LoginController {
     @GetMapping
     public String get(Model model,String message){
         model.addAttribute("message",message);
-        return "";
+        return "user/login";
     }
 
-    @PostMapping
-    public String post(){
-        return "";
-    }
+//    @PostMapping
+//    public String post(){
+//        return "user/login";
+//    }
 
 }

@@ -1,5 +1,6 @@
 package com.realEstate.controller.user;
 
+import com.realEstate.entity.Role;
 import com.realEstate.entity.Users;
 import com.realEstate.service.UsersService;
 import lombok.AllArgsConstructor;
@@ -23,6 +24,7 @@ public class RegistrationController {
 
     @PostMapping
     public String post(Users users, MultipartFile multipartFile){
+        users.setRole(Role.USER);
         Users savedUser = usersService.register(users,multipartFile);
         if(savedUser==null){
             return "redirect:/register?error=Користувач з таким е-mail вже існує";
