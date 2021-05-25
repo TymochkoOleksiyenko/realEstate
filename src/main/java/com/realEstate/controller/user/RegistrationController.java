@@ -18,7 +18,7 @@ public class RegistrationController {
     @GetMapping
     public String get(Model model,String error){
         model.addAttribute("error",error);
-        return "";
+        return "user/register";
     }
 
     @PostMapping
