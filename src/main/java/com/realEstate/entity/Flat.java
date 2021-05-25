@@ -14,7 +14,7 @@ public class Flat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToMany(mappedBy = "flat")
+    @OneToMany(mappedBy = "flat",cascade = CascadeType.REMOVE)
     private List<Image> images;
     private String name;
     @Lob
