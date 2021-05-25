@@ -40,6 +40,11 @@ public class FlatServiceImpl implements FlatService {
     }
 
     @Override
+    public List<Flat> findByCreatedById(int id) {
+        return flatJPA.findByCreatedById(id);
+    }
+
+    @Override
     public List<Flat> findAll() {
         return flatJPA.findAll();
     }

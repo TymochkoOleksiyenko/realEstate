@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,6 +22,14 @@ public class FlatController {
     private final FlatService flatService;
     private final DistrictService districtService;
     private final InfrastructureService infService;
+
+
+    @GetMapping("/myFlats-{userId}")
+    public String myFlats(@PathVariable int userId, Model model){
+        model.addAttribute("listOfDistricts",districtService.findAll());
+        model.addAttribute("listOfInfrastructure",infService.findAll());
+        return "";
+    }
 
     @GetMapping("/create")
     public String get(Model model){

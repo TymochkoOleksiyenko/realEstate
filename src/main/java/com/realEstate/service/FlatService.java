@@ -10,6 +10,7 @@ public interface FlatService {
     Flat save(List<MultipartFile> fileList,Flat flat);
     Flat update(Flat flat);
     Flat findById(int id);
+    List<Flat> findByCreatedById(int id);
     List<Flat> findAll();
     void deleteByID(int id);
 }

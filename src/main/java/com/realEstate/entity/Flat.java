@@ -32,4 +32,7 @@ public class Flat {
     @ManyToMany(mappedBy = "flats")
     private List<Infrastructure> infrastructureList;
 
+    @OneToOne
+    private Users createdBy;
+
 }
