@@ -397,8 +397,9 @@
                                                 <div class="form-group col-lg-3 col-md-6 col-sm-12 " th:each="inf : ${listOfInfrastructure}">
                                                     <div class="check-box">
                                                         <input type="checkbox" name="shipping-option"
-                                                               th:id="'service-'+${inf.getId()}">
+                                                               th:id="'service-'+${inf.getId()}" onchange="setHiddenId(this)">
                                                         <label th:for="'service-'+${inf.getId()}" th:text="${inf.getName()}">Air Conditioning</label>
+                                                        <input type="number" class="choosen-service" name="listOfInf" hidden="hidden">
                                                     </div>
                                                 </div>
                                             </div>
@@ -623,6 +624,15 @@
         $(btnObj).parent().parent().remove();
         if(!document.getElementById('addImageBtn')){
             $('#galleryItems').append(addBtn);
+        }
+    }
+
+    function setHiddenId(input){
+        if ($(input).is(':checked')===true){
+            let id = ($(input).attr('id').replace( /^\D+/g, '')).toString()
+            $(input).parent().find('.choosen-service').attr('value', id);
+        }else {
+            $(input).parent().find('.choosen-service').removeAttr('value');
         }
     }
 </script>
