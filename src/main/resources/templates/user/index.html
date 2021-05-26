@@ -1,36 +1,37 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
-    <title>Find Home - Real Estate HTML Template</title>
+    <title>Головна</title>
 
     <!-- Stylesheets -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="plugins/revolution/css/settings.css" rel="stylesheet" type="text/css"><!-- REVOLUTION SETTINGS STYLES -->
-    <link href="plugins/revolution/css/layers.css" rel="stylesheet" type="text/css"><!-- REVOLUTION LAYERS STYLES -->
-    <link href="plugins/revolution/css/navigation.css" rel="stylesheet" type="text/css"><!-- REVOLUTION NAVIGATION STYLES -->
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+    <link th:href="@{/plugins/revolution/css/settings.css}" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION SETTINGS STYLES -->
+    <link th:href="@{/plugins/revolution/css/layers.css}" rel="stylesheet" type="text/css"><!-- REVOLUTION LAYERS STYLES -->
+    <link th:href="@{/plugins/revolution/css/navigation.css}" rel="stylesheet" type="text/css">
+    <!-- REVOLUTION NAVIGATION STYLES -->
 
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/responsive.css}" rel="stylesheet">
 
     <!--Color Switcher Mockup-->
-    <link href="css/color-switcher-design.css" rel="stylesheet">
+    <link th:href="@{/css/color-switcher-design.css}" rel="stylesheet">
     <!--Color Themes-->
-    <link id="theme-color-file" href="css/color-themes/default-theme.css" rel="stylesheet">
+    <link id="theme-color-file" th:href="@{/css/color-themes/default-theme.css}" rel="stylesheet">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" th:href="@{/images/favicon.png}" type="image/x-icon">
+    <link rel="icon" th:href="@{/images/favicon.png}" type="image/x-icon">
     <!-- Responsive -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 </head>
 
 <body>
-  <button id="back-to-top-btn"><i class="la la-angle-double-up"></i></button>
-  <div class="page-wrapper">
+<button id="back-to-top-btn"><i class="la la-angle-double-up"></i></button>
+<div class="page-wrapper">
     <!-- Preloader -->
     <div class="preloader"></div>
 
@@ -49,260 +50,203 @@
                     </div>
                     <div class="top-right">
 
-                     <div class="social-links">
-                        <ul class="social-icon-three">
-                            <li><a href="#"><i class="la la-instagram"></i></a></li>
-                            <li><a href="#"><i class="la la-twitter"></i></a></li>
-                            <li><a href="#"><i class="la la-google-plus"></i></a></li>
-                            <li><a href="#"><i class="la la-github"></i></a></li>
-                            <li><a href="#"><i class="la la-pinterest"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Header Top -->
-
-    <!-- Header Lower -->
-    <div class="header-lower">
-        <div class="main-box">
-            <div class="auto-container">
-                <div class="inner-container clearfix">
-                    <div class="logo-box">
-                        <div class="logo"><a href="index-2.html"><img src="images/logo.png" alt="" title=""></a></div>
-                    </div>
-
-                    <div class="nav-outer">
-                        <!-- Main Menu -->
-                        <nav class="main-menu navbar-expand-md navbar-light">
-                            <div class="navbar-header">
-                                <!-- Toggle Button -->      
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span class="icon flaticon-menu-1"></span>
-                                </button>
-                            </div>
-
-                            <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
-                                <ul class="navigation clearfix">
-                                    <li class="dropdown current"><a href="#">Home</a>
-                                        <ul>
-                                            <li><a href="index.html">Home Page 1</a></li>
-                                            <li><a href="index-2.html">Home Page 2</a></li>
-                                            <li><a href="index-3.html">Home Page 3</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li class="dropdown"><a href="#">Agents</a>
-                                        <ul>
-                                            <li><a href="agents.html">Agents</a></li>
-                                            <li><a href="agent-detail.html">Agent Detail</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="#">Properties</a>
-                                        <ul>
-                                            <li><a href="property-grid-view.html">Property Grid View</a></li>
-                                            <li><a href="property-list-view.html">Property List View</a></li>
-                                            <li><a href="property-modern-view.html">Property Modern View</a></li>
-                                            <li><a href="property-detail.html">Property Detail</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="#">Blog</a>
-                                        <ul>
-                                            <li><a href="blog-grid.html">Blog Grid View</a></li>
-                                            <li><a href="blog-list.html">Blog List View</a></li>
-                                            <li><a href="blog-detail.html">Blog Detail</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="#">Pages</a>   
-                                        <ul>
-                                            <li><a href="faq.html">FAQ's</a></li>
-                                            <li><a href="testimonial.html">Testimonials</a></li>
-                                            <li><a href="addFlat.html">Submit Property</a></li>
-                                            <li><a href="coming-soon.html">Coming Soon</a></li>
-                                            <li><a href="login.html">Login</a></li>
-                                            <li><a href="error-page.html">404 Page</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                </ul>              
-                            </div>
-                        </nav><!-- Main Menu End-->
-
-                        <!-- Main Menu End-->
-                        <div class="outer-box clearfix">
-                            <!--Search Box-->
-                            <div class="btn-box"><a href="admin/submit-property.html" class="theme-btn btn-style-one">Submit Property</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--End Header Lower-->
-
-    <!-- Sticky Header  -->
-    <div class="sticky-header">
-        <div class="auto-container clearfix">
-            <!--Logo-->
-            <div class="logo pull-left">
-                <a href="index-2.html" title=""><img src="images/logo.png" alt="" title=""></a>
-            </div>
-            <!--Right Col-->
-            <div class="pull-right">
-              <!-- Main Menu -->
-              <nav class="main-menu">
-                <div class="navbar-collapse show collapse clearfix">
-                    <ul class="navigation clearfix">
-                        <li class="dropdown current"><a href="index.html">Home</a>
-                         <ul>
-                            <li><a href="index.html">Home Page 1</a></li>
-                            <li><a href="index-2.html">Home Page 2</a></li>
-                            <li><a href="index-3.html">Home Page 3</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="about.html">About</a></li>
-                    <li class="dropdown"><a href="#">Agents</a>
-                        <ul>
-                            <li><a href="agents.html">Agents</a></li>
-                            <li><a href="agent-detail.html">Agent Detail</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><a href="#">Properties</a>
-                        <ul>
-                           <li><a href="property-grid-view.html">Property Grid View</a></li>
-                           <li><a href="property-list-view.html">Property List View</a></li>
-                           <li><a href="property-modern-view.html">Property Modern View</a></li>
-                           <li><a href="property-detail.html">Property Detail</a></li>
-                       </ul>
-                   </li>
-                   <li class="dropdown"><a href="#">Blog</a>
-                    <ul>
-                     <li><a href="blog-grid.html">Blog Grid View</a></li>
-                     <li><a href="blog-list.html">Blog List View</a></li>
-                     <li><a href="blog-detail.html">Blog Detail</a></li>
-                 </ul>
-             </li>
-             <li class="dropdown"><a href="#">Pages</a>   
-                <ul>
-                    <li><a href="faq.html">FAQ's</a></li>
-                    <li><a href="testimonial.html">Testimonials</a></li>
-                    <li><a href="addFlat.html">Submit Property</a></li>
-                    <li><a href="coming-soon.html">Coming Soon</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="error-page.html">404 Page</a></li>
-                </ul>
-            </li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </div>
-</nav><!-- Main Menu End-->
-</div>
-</div>
-</div><!-- End Sticky Menu -->
-</header>
-<!--End Main Header -->
-
-<!--Main Slider-->
-<section class="main-slider">
-    <div class="rev_slider_wrapper fullwidthbanner-container"  id="rev_slider_one_wrapper" data-source="gallery">
-        <div class="rev_slider fullwidthabanner" id="rev_slider_one" data-version="5.4.1">
-            <ul>
-                <!-- Slide 1 -->
-                <li data-description="Slide Description" data-easein="default" data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade" data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-1689" data-masterspeed="default" data-param1="" data-param10="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-rotate="0" data-saveperformance="off" data-slotamount="default" data-thumb="images/main-slider/banner-01.jpg" data-title="Slide Title" data-transition="parallaxvertical">
-
-                    <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10" data-bgposition="center center" data-bgrepeat="no-repeat" data-kenburns="on" data-duration="10000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" src="images/main-slider/banner-01.jpg"> 
-
-                    <div class="tp-caption" 
-                    data-paddingbottom="[0,0,0,0]"
-                    data-paddingleft="[0,0,0,0]"
-                    data-paddingright="[0,0,0,0]"
-                    data-paddingtop="[0,0,0,0]"
-                    data-responsive_offset="on"
-                    data-type="text"
-                    data-height="none"
-                    data-whitespace="nowrap"
-                    data-width="auto"
-                    data-text-align="center"
-                    data-hoffset="['10','50','0','0']"
-                    data-voffset="['-20','-20','-20','-20']"
-                    data-x="['right','right','center','center']"
-                    data-y="['middle','middle','middle','middle']"
-                    data-frames='[{"delay":1500,"speed":1000,"frame":"0","from":"x:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"x:50px;opacity:0;","ease":"Power3.easeInOut"}]'>
-                    <div class="content-box">
-                        <div class="inner-box">
-                            <div class="title-box">
-                                <h3>Modern Apartment</h3>
-                                <p>121, King St, VIC 3000, New York</p>
-                            </div>
-                            <ul class="info-list">
-                                <li><span>2560</span>Area Sq-ft</li>
-                                <li><span>03</span>Bed Room</li>
-                                <li><span>02</span>Kitchen</li>
+                        <div class="social-links">
+                            <ul class="social-icon-three">
+                                <li><a href="#"><i class="la la-instagram"></i></a></li>
+                                <li><a href="#"><i class="la la-twitter"></i></a></li>
+                                <li><a href="#"><i class="la la-google-plus"></i></a></li>
+                                <li><a href="#"><i class="la la-github"></i></a></li>
+                                <li><a href="#"><i class="la la-pinterest"></i></a></li>
                             </ul>
-                            <div class="price">$16, 100,00</div>
-                            <div class="btn-box"><a href="agent-detail.html" class="theme-btn btn-style-one">CONTACT AGENT</a></div>
                         </div>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Slide 1 -->
-            <li data-description="Slide Description" data-easein="default" data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade" data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-1690" data-masterspeed="default" data-param1="" data-param10="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-rotate="0" data-saveperformance="off" data-slotamount="default" data-thumb="images/main-slider/banner-02.jpg" data-title="Slide Title" data-transition="parallaxvertical">
-
-                <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10" data-bgposition="center center" data-bgrepeat="no-repeat"  data-kenburns="on" data-duration="10000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" src="images/main-slider/banner-02.jpg"> 
-
-                <div class="tp-caption" 
-                data-paddingbottom="[0,0,0,0]"
-                data-paddingleft="[0,0,0,0]"
-                data-paddingright="[0,0,0,0]"
-                data-paddingtop="[0,0,0,0]"
-                data-responsive_offset="on"
-                data-type="text"
-                data-height="none"
-                data-whitespace="nowrap"
-                data-width="auto"
-                data-text-align="center"
-                data-hoffset="['10','50','0','0']"
-                data-voffset="['-20','-20','-20','-20']"
-                data-x="['right','right','center','center']"
-                data-y="['middle','middle','middle','middle']"
-                data-frames='[{"delay":1500,"speed":1000,"frame":"0","from":"x:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"x:50px;opacity:0;","ease":"Power3.easeInOut"}]'>
-                <div class="content-box">
-                    <div class="inner-box">
-                        <div class="title-box">
-                            <h3>Modern Apartment</h3>
-                            <p>9658 Lorem Ave, San Diego, USA</p>
-                        </div>
-                        <ul class="info-list">
-                            <li><span>2560</span>Area Sq-ft</li>
-                            <li><span>03</span>Bed Room</li>
-                            <li><span>02</span>Kitchen</li>
-                        </ul>
-                        <div class="price">$16, 100,00</div>
-                        <div class="btn-box"><a href="agent-detail.html" class="theme-btn btn-style-one">CONTACT AGENT</a></div>
                     </div>
                 </div>
             </div>
-        </li>
-    </ul>
-</div>
-</div>
-</section>
-<!--End Main Slider-->
+        </div>
+        <!-- End Header Top -->
 
-<!-- Property Search Section -->
-<section class="property-search-section">
-    <div class="auto-container">
-        <div class="property-search-tabs tabs-box">
-            <ul class="tab-buttons">
-                <li data-tab="#sale" class="tab-btn active-btn">Sale</li>
-                <li data-tab="#rent" class="tab-btn">Rent</li>
-            </ul>
+        <!-- Header Lower -->
+        <div class="header-lower">
+            <div class="main-box">
+                <div class="auto-container">
+                    <div class="inner-container clearfix">
+                        <div class="logo-box">
+                            <div class="logo"><a href="index-2.html"><img src="images/logo.png" alt="" title=""></a>
+                            </div>
+                        </div>
 
-            <div class="tabs-content">
-                <!--Tab / Active Tab-->
-                <div class="tab active-tab" id="sale">                         
+                        <div class="nav-outer">
+                            <!-- Main Menu -->
+                            <nav class="main-menu navbar-expand-md navbar-light">
+                                <div class="navbar-header">
+                                    <!-- Toggle Button -->
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                            aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="icon flaticon-menu-1"></span>
+                                    </button>
+                                </div>
+
+                                <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
+                                    <ul class="navigation clearfix">
+                                        <li class="current"><a href="index.html">Головна</a></li>
+                                        <li><a href="property-grid-view.html">Нерухомість</a></li>
+                                        <li><a href="agents.html">Агенти</a></li>
+
+                                        <li class="dropdown" style="padding-left: 1rem;"><a href="#">Профіль</a>
+                                            <ul>
+                                                <li><a href="faq.html">Акаунт</a></li>
+                                                <li><a href="submit-property.html">Мої квартири</a></li>
+                                                <li><a href="testimonial.html">Обрані</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav><!-- Main Menu End-->
+
+                            <!-- Main Menu End-->
+                            <div class="outer-box clearfix">
+                                <!--Search Box-->
+                                <div class="btn-box"><a href="admin/submit-property.html"
+                                                        class="theme-btn btn-style-one">Submit Property</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Header Lower-->
+
+        <!-- Sticky Header  -->
+        <div class="sticky-header">
+            <div class="auto-container clearfix">
+                <!--Logo-->
+                <div class="logo pull-left">
+                    <a href="index-2.html" title=""><img src="images/logo.png" alt="" title=""></a>
+                </div>
+                <!--Right Col-->
+                <div class="pull-right">
+                    <!-- Main Menu -->
+                    <nav class="main-menu">
+                        <div class="navbar-collapse show collapse clearfix">
+                            <ul class="navigation clearfix">
+                                <li class="current"><a href="index.html">Головна</a></li>
+                                <li><a href="property-grid-view.html">Нерухомість</a></li>
+                                <li><a href="agents.html">Агенти</a></li>
+
+                                <li class="dropdown"><a href="#">Профіль</a>
+                                    <ul>
+                                        <li><a href="faq.html">Акаунт</a></li>
+                                        <li><a href="submit-property.html">Мої квартири</a></li>
+                                        <li><a href="testimonial.html">Обрані</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav><!-- Main Menu End-->
+                </div>
+            </div>
+        </div><!-- End Sticky Menu -->
+    </header>
+    <!--End Main Header -->
+
+    <!--Main Slider-->
+    <section class="main-slider">
+        <div class="rev_slider_wrapper fullwidthbanner-container" id="rev_slider_one_wrapper" data-source="gallery">
+            <div class="rev_slider fullwidthabanner" id="rev_slider_one" data-version="5.4.1">
+                <ul>
+                    <!-- Slide 1 -->
+                    <li data-description="Slide Description" data-easein="default" data-easeout="default"
+                        data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade"
+                        data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-1689"
+                        data-masterspeed="default" data-param1="" data-param10="" data-param2="" data-param3=""
+                        data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9=""
+                        data-rotate="0" data-saveperformance="off" data-slotamount="default"
+                        data-thumb="images/main-slider/banner-01.jpg" data-title="Slide Title"
+                        data-transition="parallaxvertical">
+
+                        <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10"
+                             data-bgposition="center center" data-bgrepeat="no-repeat" data-kenburns="on"
+                             data-duration="10000" data-ease="Linear.easeNone" data-scalestart="100"
+                             data-scaleend="120" src="images/main-slider/banner-01.jpg">
+
+                        <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
+                             data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
+                             data-type="text" data-height="none" data-whitespace="nowrap" data-width="auto"
+                             data-text-align="center" data-hoffset="['10','50','0','0']"
+                             data-voffset="['-20','-20','-20','-20']" data-x="['right','right','center','center']"
+                             data-y="['middle','middle','middle','middle']"
+                             data-frames='[{"delay":1500,"speed":1000,"frame":"0","from":"x:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"x:50px;opacity:0;","ease":"Power3.easeInOut"}]'>
+                            <div class="content-box">
+                                <div class="inner-box">
+                                    <div class="title-box">
+                                        <h3>Modern Apartment</h3>
+                                        <p>121, King St, VIC 3000, New York</p>
+                                    </div>
+                                    <ul class="info-list">
+                                        <li><span>2560</span>Area Sq-ft</li>
+                                        <li><span>03</span>Bed Room</li>
+                                        <li><span>02</span>Kitchen</li>
+                                    </ul>
+                                    <div class="price">$16, 100,00</div>
+                                    <div class="btn-box"><a href="agent-detail.html"
+                                                            class="theme-btn btn-style-one">CONTACT AGENT</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- Slide 1 -->
+                    <li data-description="Slide Description" data-easein="default" data-easeout="default"
+                        data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade"
+                        data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-1690"
+                        data-masterspeed="default" data-param1="" data-param10="" data-param2="" data-param3=""
+                        data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9=""
+                        data-rotate="0" data-saveperformance="off" data-slotamount="default"
+                        data-thumb="images/main-slider/banner-02.jpg" data-title="Slide Title"
+                        data-transition="parallaxvertical">
+
+                        <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10"
+                             data-bgposition="center center" data-bgrepeat="no-repeat" data-kenburns="on"
+                             data-duration="10000" data-ease="Linear.easeNone" data-scalestart="100"
+                             data-scaleend="120" src="images/main-slider/banner-02.jpg">
+
+                        <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
+                             data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
+                             data-type="text" data-height="none" data-whitespace="nowrap" data-width="auto"
+                             data-text-align="center" data-hoffset="['10','50','0','0']"
+                             data-voffset="['-20','-20','-20','-20']" data-x="['right','right','center','center']"
+                             data-y="['middle','middle','middle','middle']"
+                             data-frames='[{"delay":1500,"speed":1000,"frame":"0","from":"x:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"x:50px;opacity:0;","ease":"Power3.easeInOut"}]'>
+                            <div class="content-box">
+                                <div class="inner-box">
+                                    <div class="title-box">
+                                        <h3>Modern Apartment</h3>
+                                        <p>9658 Lorem Ave, San Diego, USA</p>
+                                    </div>
+                                    <ul class="info-list">
+                                        <li><span>2560</span>Area Sq-ft</li>
+                                        <li><span>03</span>Bed Room</li>
+                                        <li><span>02</span>Kitchen</li>
+                                    </ul>
+                                    <div class="price">$16, 100,00</div>
+                                    <div class="btn-box"><a href="agent-detail.html"
+                                                            class="theme-btn btn-style-one">CONTACT AGENT</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--End Main Slider-->
+
+    <!-- Property Search Section -->
+    <section class="property-search-section">
+        <div class="auto-container">
+            <div class="property-search-tabs tabs-box">
+                <div class="tabs-content">
                     <div class="property-search-form">
                         <form method="post" action="#">
                             <div class="row">
@@ -363,7 +307,8 @@
                                     <div class="range-slider-one clearfix">
                                         <label>Area</label>
                                         <div class="area-range-slider"></div>
-                                        <div class="input"><input type="text" class="property-amount" name="field-name" readonly></div>
+                                        <div class="input"><input type="text" class="property-amount"
+                                                                  name="field-name" readonly></div>
                                         <div class="title">m<sup>2</sup></div>
                                     </div>
                                 </div>
@@ -373,89 +318,8 @@
                                     <div class="range-slider-one clearfix">
                                         <label>Price Filter</label>
                                         <div class="price-range-slider"></div>
-                                        <div class="input"><input type="text" class="price-amount" name="field-name" readonly></div>
-                                        <div class="title">US Doller</div>
-                                    </div>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <button type="submit" class="theme-btn btn-style-two">Search</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <!--Tab -->
-                <div class="tab" id="rent">
-                    <div class="property-search-form">
-                        <form method="post" action="#">
-                            <div class="row">
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>city</label>
-                                    <select class="custom-select-box">
-                                        <option>Any</option>
-                                        <option>New York</option>
-                                        <option>Los Angeles</option>
-                                        <option>Chicago</option>
-                                        <option>Houston</option>
-                                    </select>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>search by property id</label>
-                                    <input type="text" name="text" placeholder="Search ID" required>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>search by Address</label>
-                                    <input type="text" name="text" placeholder="Search ID" required>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>Location</label>
-                                    <select class="custom-select-box">
-                                        <option>Any</option>
-                                        <option>New York</option>
-                                        <option>Los Angeles</option>
-                                        <option>Chicago</option>
-                                        <option>Houston</option>
-                                    </select>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>country</label>
-                                    <select class="custom-select-box">
-                                        <option>Any</option>
-                                        <option>California</option>
-                                        <option>Florida</option>
-                                        <option>Georgia</option>
-                                        <option>New York</option>
-                                        <option>Texas</option>
-                                    </select>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <div class="range-slider-one clearfix">
-                                        <label>Area</label>
-                                        <div class="area-range-slider"></div>
-                                        <div class="input"><input type="text" class="property-amount" name="field-name" readonly></div>
-                                        <div class="title">m<sup>2</sup></div>
-                                    </div>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <div class="range-slider-one clearfix">
-                                        <label>Price Filter</label>
-                                        <div class="price-range-slider"></div>
-                                        <div class="input"><input type="text" class="price-amount" name="field-name" readonly></div>
+                                        <div class="input"><input type="text" class="price-amount" name="field-name"
+                                                                  readonly></div>
                                         <div class="title">US Doller</div>
                                     </div>
                                 </div>
@@ -470,759 +334,438 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- End Property Search Section -->
+    </section>
+    <!-- End Property Search Section -->
 
-<!-- Property Section Two -->
-<section class="property-section-two">
- <div class="auto-container">
-  <div class="sec-title">
-   <span class="title">FIND NOW YOUR DREAM HOUSE</span>
-   <h2>About New Property</h2>
-</div>
 
-<div class="property-carousel owl-carousel owl-theme">
-   <!-- New Property -->
-   <div class="new-property">
-    <div class="row">
-     <!-- Content Column -->
-     <div class="content-column col-lg-6 col-md-12 col-sm-12">
-      <div class="inner-column">
-       <span class="status">FOR SALE</span>
-       <h3><a href="property-detail.html">Modern Apartment In City Center</a></h3>
-       <div class="start-from"><span>START FROM</span> $ 125,345</div>
-       <div class="lucation"><i class="la la-map-marker"></i>121, King St, VIC 3000, New York, United States</div>
-
-       <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-
-       <ul class="property-info clearfix">
-          <li><i class="flaticon-dimension"></i> 328 Sq-Ft</li>
-          <li><i class="flaticon-bed"></i> 4 Bedrooms</li>
-          <li><i class="flaticon-car"></i> 2 Garage</li>
-          <li><i class="flaticon-bathtub"></i> 3 Bathroom</li>
-      </ul>
-  </div>
-</div>
-
-<!-- Image column -->
-<div class="image-column col-lg-6 col-md-12 col-sm-12">
-  <div class="inner-column">
-   <figure class="image"><img src="images/resource/recenty_1.jpg" alt=""></figure>
-</div>
-</div>
-</div>
-</div>
-
-<!-- New Property -->
-<div class="new-property">
-    <div class="row">
-     <!-- Content Column -->
-     <div class="content-column col-lg-6 col-md-12 col-sm-12">
-      <div class="inner-column">
-       <span class="status">FOR RENT</span>
-       <h3><a href="property-detail.html">Modern Apartment In City Center</a></h3>
-       <div class="start-from">$ 300 <span>/ Monthly</span></div>
-       <div class="lucation"><i class="la la-map-marker"></i>121, King St, VIC 3000, New York, United States</div>
-
-       <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-
-       <ul class="property-info clearfix">
-          <li><i class="flaticon-dimension"></i> 250 Sq-Ft</li>
-          <li><i class="flaticon-bed"></i> 4 Bedrooms</li>
-          <li><i class="flaticon-car"></i> 2 Garage</li>
-          <li><i class="flaticon-bathtub"></i> 3 Bathroom</li>
-      </ul>
-  </div>
-</div>
-
-<!-- Image column -->
-<div class="image-column col-lg-6 col-md-12 col-sm-12">
-  <div class="inner-column">
-   <figure class="image"><img src="images/resource/recently_2.jpg" alt=""></figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!--End Property Section Two -->
-
-<!-- Property Filter Section -->
-<section class="property-filter-section">
-    <div class="auto-container">
-        <!--MixitUp Galery-->
-        <div class="mixitup-gallery">
-            <div class="upper-box clearfix">
-                <div class="sec-title">
-                    <span class="title">FIND YOUR HOUSE IN YOUR CITY</span>
-                    <h2>PROPERTY TYPES</h2>
-                </div>
-
-                <!--Filter-->
-                <div class="filters">
-                    <ul class="filter-tabs filter-btns clearfix">
-                        <li class="active filter" data-role="button" data-filter="all">All</li>
-                        <li class="filter" data-role="button" data-filter=".sale">For Sale</li>
-                        <li class="filter" data-role="button" data-filter=".rent">For Rent</li>
-                    </ul>                                    
-                </div>
-            </div>
-
-            <div class="filter-list row">
-                <!-- Property Block -->
-                <div class="property-block all mix sale col-lg-4 col-md-6 col-sm-12">
-                    <div class="inner-box">
-                        <div class="image-box">
-                            <figure class="image"><img src="images/resource/property-1.jpg" alt=""></figure>
-                            <span class="for">FOR SALE</span>
-                            <span class="featured">FEATURED</span>
-                            <ul class="info clearfix">
-                                <li><i class="la la-calendar-minus-o"></i>2 Years Ago</li>
-                            </ul>
-                        </div>
-                        <div class="lower-content">
-                            <ul class="tags">
-                                <li><a href="property-detail.html">Apartment</a>,</li>
-                                <li><a href="property-detail.html">Modern Villa</a></li>
-                            </ul>
-                            <div class="thumb"><img src="images/resource/thumb-3.jpg" alt=""></div>
-                            <h3><a href="property-detail.html">Modern Apartment in City Center</a></h3>
-                            <div class="lucation"><i class="la la-map-marker"></i> 121, King St, VIC 3000, New York, United States</div>
-                            <ul class="property-info clearfix">
-                                <li><i class="flaticon-money"></i>$ 1,51,000</li>
-                                <li><i class="flaticon-bed"></i> 4 Bedrooms</li>
-                                <li><i class="flaticon-car"></i> 2 Garage</li>
-                                <li><i class="flaticon-bathtub"></i> 3 Bathroom</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property Block -->
-                <div class="property-block all mix rent col-lg-4 col-md-6 col-sm-12">
-                    <div class="inner-box">
-                        <div class="image-box">
-                            <figure class="image"><img src="images/resource/property-2.jpg" alt=""></figure>
-                            <span class="for">FOR RENT</span>
-
-
-                            <ul class="info clearfix">
-                                <li><i class="la la-calendar-minus-o"></i>2 Years Ago</li>
-                            </ul>
-                        </div>
-                        <div class="lower-content">
-                            <ul class="tags">
-                                <li><a href="property-detail.html">Apartment</a>,</li>
-                                <li><a href="property-detail.html">Family House</a></li>                               
-                            </ul>
-                            <div class="thumb"><img src="images/resource/thumb-4.jpg" alt=""></div>
-                            <h3><a href="property-detail.html">Apartment Morden 1243, W No...</a></h3>
-                            <div class="lucation"><i class="la la-map-marker"></i> 121, King St, VIC 3000, New York, United States</div>
-                            <ul class="property-info clearfix">
-                                <li><i class="flaticon-money"></i> $ 1300 / Mo</li>
-                                <li><i class="flaticon-bed"></i> 4 Bedrooms</li>
-                                <li><i class="flaticon-car"></i> 2 Garage</li>
-                                <li><i class="flaticon-bathtub"></i> 3 Bathroom</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property Block -->
-                <div class="property-block all mix sale col-lg-4 col-md-6 col-sm-12">
-                    <div class="inner-box">
-                        <div class="image-box">
-                            <figure class="image"><img src="images/resource/property-3.jpg" alt=""></figure>
-                            <span class="for">FOR SALE</span>
-                            <span class="featured">FEATURED</span>
-
-                            <ul class="info clearfix">
-                                <li><i class="la la-calendar-minus-o"></i>2 Years Ago</li>
-                            </ul>
-                        </div>
-                        <div class="lower-content">
-                            <ul class="tags">
-                                <li><a href="property-detail.html">Apartment</a>,</li>
-                                <li><a href="property-detail.html">Town House</a></li>
-                            </ul>
-                            <div class="thumb"><img src="images/resource/thumb-5.png" alt=""></div>
-                            <h3><a href="property-detail.html">Great Home for Single family</a></h3>
-                            <div class="lucation"><i class="la la-map-marker"></i> 121, King St, VIC 3000, New York, United States</div>
-                            <ul class="property-info clearfix">
-                                <li><i class="flaticon-money"></i>$ 2,56,000</li>
-                                <li><i class="flaticon-bed"></i> 4 Bedrooms</li>
-                                <li><i class="flaticon-car"></i> 2 Garage</li>
-                                <li><i class="flaticon-bathtub"></i> 3 Bathroom</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property Block -->
-                <div class="property-block all mix rent col-lg-4 col-md-6 col-sm-12">
-                    <div class="inner-box">
-                        <div class="image-box">
-                            <figure class="image"><img src="images/resource/property-4.jpg" alt=""></figure>
-                            <span class="for">FOR RENT</span>
-
-
-                            <ul class="info clearfix">
-                                <li><i class="la la-calendar-minus-o"></i>2 Years Ago</li>
-                            </ul>
-                        </div>
-                        <div class="lower-content">
-                            <ul class="tags">
-                                <li><a href="property-detail.html">Family House</a>,</li>
-                                <li><a href="property-detail.html">Condo</a></li>
-                            </ul>
-                            <div class="thumb"><img src="images/resource/thumb-8.jpg" alt=""></div>
-                            <h3><a href="property-detail.html">Royal Town House With Pool</a></h3>
-                            <div class="lucation"><i class="la la-map-marker"></i> 121, King St, VIC 3000, New York, United States</div>
-                            <ul class="property-info clearfix">
-                                <li><i class="flaticon-money"></i> $ 2200 / Mo</li>
-                                <li><i class="flaticon-bed"></i> 4 Bedrooms</li>
-                                <li><i class="flaticon-car"></i> 2 Garage</li>
-                                <li><i class="flaticon-bathtub"></i> 3 Bathroom</li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property Block -->
-                <div class="property-block all mix sale col-lg-4 col-md-6 col-sm-12">
-                    <div class="inner-box">
-                        <div class="image-box">
-                            <figure class="image"><img src="images/resource/property-5.jpg" alt=""></figure>
-                            <span class="for">FOR SALE</span>
-                            <span class="featured">FEATURED</span>
-
-                            <ul class="info clearfix">
-                                <li><i class="la la-calendar-minus-o"></i>2 Years Ago</li>
-                            </ul>
-                        </div>
-                        <div class="lower-content">
-                            <ul class="tags">
-                                <li><a href="property-detail.html">Apartment</a>,</li>
-                                <li><a href="property-detail.html">Town House</a>,</li>
-                            </ul>
-                            <div class="thumb"><img src="images/resource/thumb-6.png" alt=""></div>
-                            <h3><a href="property-detail.html">Apartment Morden 1243, W No...</a></h3>
-                            <div class="lucation"><i class="la la-map-marker"></i> 121, King St, VIC 3000, New York, United States</div>
-                            <ul class="property-info clearfix">
-                                <li><i class="flaticon-money"></i> $ 57,000</li>
-                                <li><i class="flaticon-bed"></i> 4 Bedrooms</li>
-                                <li><i class="flaticon-car"></i> 2 Garage</li>
-                                <li><i class="flaticon-bathtub"></i> 3 Bathroom</li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property Block -->
-                <div class="property-block all mix sale col-lg-4 col-md-6 col-sm-12">
-                    <div class="inner-box">
-                        <div class="image-box">
-                            <figure class="image"><img src="images/resource/property-6.jpg" alt=""></figure>
-                            <span class="for">FOR SALE</span>
-                            <span class="featured">FEATURED</span>
-
-                            <ul class="info clearfix">
-                                <li><i class="la la-calendar-minus-o"></i>2 Years Ago</li>
-                            </ul>
-                        </div>
-                        <div class="lower-content">
-                            <ul class="tags">
-                                <li><a href="property-detail.html">Apartment</a>,</li>
-                                <li><a href="property-detail.html">House</a></li>
-                            </ul>
-                            <div class="thumb"><img src="images/resource/thumb-7.png" alt=""></div>
-                            <h3><a href="property-detail.html">Great Home for Single family</a></h3>
-                            <div class="lucation"><i class="la la-map-marker"></i> 121, King St, VIC 3000, New York, United States</div>
-                            <ul class="property-info clearfix">
-                                <li><i class="flaticon-money"></i>$ 75, 500</li>
-                                <li><i class="flaticon-bed"></i> 4 Bedrooms</li>
-                                <li><i class="flaticon-car"></i> 2 Garage</li>
-                                <li><i class="flaticon-bathtub"></i> 3 Bathroom</li>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Load More -->
-            <div class="load-more-btn text-center">
-                <a href="property-grid-view.html" class="theme-btn btn-style-two">Load More</a>
-            </div>
-        </div>
-    </div>
-</section>
-<!--End Property Filter Section -->
-
-
-<!--Popular Places Section-->
-<section class="popular-places-section-two" style="background-image: url(images/background/7.jpg);">
-    <div class="auto-container">
-        <div class="sec-title light">
-            <span class="title">FIND YOUR DREAM HOUSE IN YOUR CITY</span>
-            <h2>MOST POPULAR PLACES</h2>
-        </div>
-    </div>
-
-    <div class="popular-places-carousel owl-carousel owl-theme">
-        <!-- Popular item two -->
-        <div class="popular-item-two">
-            <div class="inner-box">
-                <div class="image-box">
-                    <figure class="image"><img src="images/gallery/2-1.jpg" alt=""></figure>
-                    <div class="overlay-box">
-                        <h3 class="place"><a href="property-grid-view.html">New York City</a></h3>
-                        <div class="view-all"><a href="property-grid-view.html">View All</a></div>
-                    </div>
-                </div>
-                <div class="info-box">
-                    <h4 class="category"><a href="property-grid-view.html">Demanding Farm</a></h4>
-                    <span class="properties">3 Properties</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Popular item two -->
-        <div class="popular-item-two">
-            <div class="inner-box">
-                <div class="image-box">
-                    <figure class="image"><img src="images/gallery/2-2.jpg" alt=""></figure>
-                    <div class="overlay-box">
-                        <h3 class="place"><a href="property-grid-view.html">New York City</a></h3>
-                        <div class="view-all"><a href="property-grid-view.html">View All</a></div>
-                    </div>
-                </div>
-                <div class="info-box">
-                    <h4 class="category"><a href="property-grid-view.html">Laxury Apartment</a></h4>
-                    <span class="properties">7 Properties</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Popular item two -->
-        <div class="popular-item-two">
-            <div class="inner-box">
-                <div class="image-box">
-                    <figure class="image"><img src="images/gallery/2-3.jpg" alt=""></figure>
-                    <div class="overlay-box">
-                        <h3 class="place"><a href="property-grid-view.html">New York City</a></h3>
-                        <div class="view-all"><a href="property-grid-view.html">View All</a></div>
-                    </div>
-                </div>
-                <div class="info-box">
-                    <h4 class="category"><a href="property-grid-view.html">Great Restaurant</a></h4>
-                    <span class="properties">5 Properties</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Popular item two -->
-        <div class="popular-item-two">
-            <div class="inner-box">
-                <div class="image-box">
-                    <figure class="image"><img src="images/gallery/2-4.jpg" alt=""></figure>
-                    <div class="overlay-box">
-                        <h3 class="place"><a href="property-grid-view.html">New York City</a></h3>
-                        <div class="view-all"><a href="property-grid-view.html">View All</a></div>
-                    </div>
-                </div>
-                <div class="info-box">
-                    <h4 class="category"><a href="property-grid-view.html">Demanding Farm</a></h4>
-                    <span class="properties">3 Properties</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Popular item two -->
-        <div class="popular-item-two">
-            <div class="inner-box">
-                <div class="image-box">
-                    <figure class="image"><img src="images/gallery/2-5.jpg" alt=""></figure>
-                    <div class="overlay-box">
-                        <h3 class="place"><a href="property-grid-view.html">New York City</a></h3>
-                        <div class="view-all"><a href="property-grid-view.html">View All</a></div>
-                    </div>
-                </div>
-                <div class="info-box">
-                    <h4 class="category"><a href="property-grid-view.html">Beautiful Villa</a></h4>
-                    <span class="properties">6 Properties</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Popular item two -->
-        <div class="popular-item-two">
-            <div class="inner-box">
-                <div class="image-box">
-                    <figure class="image"><img src="images/gallery/2-2.jpg" alt=""></figure>
-                    <div class="overlay-box">
-                        <h3 class="place"><a href="property-grid-view.html">New York City</a></h3>
-                        <div class="view-all"><a href="property-grid-view.html">View All</a></div>
-                    </div>
-                </div>
-                <div class="info-box">
-                    <h4 class="category"><a href="property-grid-view.html">Laxury House</a></h4>
-                    <span class="properties">8 Properties</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--Popular Places End-->
-
-
-<!-- News Section -->
-<section class="news-section">
-    <div class="auto-container">
-        <div class="sec-title">
-            <span class="title">ALL ABOUT LATEST Find Home UPDATES</span>
-            <h2>NEWS & STORIES</h2>
-        </div>
-
-        <div class="row">
-            <!-- News Block -->
-            <div class="news-block col-lg-4 col-md-6 col-sm-12">
-                <div class="inner-box">
-                    <div class="image-box">
-                        <figure class="image"><a href="blog-detail.html"><img src="images/resource/news-1.jpg" alt=""></a></figure>
-                    </div>
-                    <div class="lower-content">
-                       <ul class="info">
-                        <li><i class="la la-user"></i> By <span>Admin</span></li>
-                        <li><i class="la la-calendar"></i> Feb 20, 2020</li>
-                        <li><i class="la la-comments"></i> 8 Comments</li>
-                    </ul>
-                    <h3><a href="blog-detail.html">Things to Know About Selling Your home</a></h3>
-
-                </div>
-            </div>
-        </div>
-
-        <!-- News Block -->
-        <div class="news-block col-lg-4 col-md-6 col-sm-12">
-            <div class="inner-box">
-                <div class="image-box">
-                    <figure class="image"><a href="blog-detail.html"><img src="images/resource/news-2.jpg" alt=""></a></figure>
-
-                </div>
-                <div class="lower-content">
-                    <ul class="info">
-                       <li><i class="la la-user"></i> By <span>Admin</span></li>
-                       <li><i class="la la-calendar"></i> Feb 20, 2020</li>
-                       <li><i class="la la-comments"></i> 8 Comments</li>
-                   </ul>
-                   <h3><a href="blog-detail.html">Things to Know About Selling Your home</a></h3>
-
-               </div>
-           </div>
-       </div>
-
-       <!-- News Block -->
-       <div class="news-block col-lg-4 col-md-6 col-sm-12">
-        <div class="inner-box">
-            <div class="image-box">
-                <figure class="image"><a href="blog-detail.html"><img src="images/resource/news-3.jpg" alt=""></a></figure>
-                <!--  <div class="icon-box"><span class="icon la la-play"></span></div> -->
-            </div>
-            <div class="lower-content">
-             <ul class="info">
-               <li><i class="la la-user"></i> By <span>Admin</span></li>
-               <li><i class="la la-calendar"></i> Feb 20, 2020</li>
-               <li><i class="la la-comments"></i> 8 Comments</li>
-           </ul>
-           <h3><a href="blog-detail.html">Things to Know About Selling Your home</a></h3>
-
-       </div>
-   </div>
-</div>
-</div>
-</div>
-</section>
-<!--End News Section -->
-
-<!-- Testimonial Section -->
-<section class="testimonial-section" style="background-image: url(images/background/clients.jpg);">
- <div class="auto-container">
-  <div class="sec-title light">
-   <span class="title">Testimonials</span>
-   <h2>what clients says</h2>
-</div>
-
-<div class="testimonial-carousel owl-carousel owl-theme">
-   <!-- Testimonial Block -->
-   <div class="testimonial-block">
-    <div class="inner-box">
-     <div class="image-box">
-      <figure class="image"><img src="images/resource/thumb-3.jpg" alt=""></figure>
-  </div>
-  <div class="content-box">
-      <div class="text">Leverage agile frameworks to provide a robust synopsis for high level overviews. Organically grow the holistic world view of disruptive diversity.</div>
-      <div class="namstar">
-          <h4 class="name">John Doe</h4>
-          <div class="rating">
-           <span class="la la-star"></span><span class="la la-star"></span><span class="la la-star"></span><span class="la la-star"></span><span class="la la-star-o"></span>
-       </div>
-   </div>
-   <span class="city">New York</span>
-
-   <span class="icon la la-quote-right"></span>
-</div>
-</div>
-</div>
-
-<!-- Testimonial Block -->
-<div class="testimonial-block">
-    <div class="inner-box">
-     <div class="image-box">
-      <figure class="image"><img src="images/resource/thumb-4.jpg" alt=""></figure>
-  </div>
-  <div class="content-box">
-
-      <div class="text">Leverage agile frameworks to provide a robust synopsis for high level overviews. Organically grow the holistic world view of disruptive diversity.</div>
-      <div class="namstar">
-          <h4 class="name">Olivia Evie</h4>
-          <div class="rating">
-           <span class="la la-star"></span><span class="la la-star"></span><span class="la la-star"></span><span class="la la-star"></span><span class="la la-star-o"></span>
-       </div>
-   </div>
-   <span class="city">New York</span>
-   <span class="icon la la-quote-right"></span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!--End Testimonial Section -->
-
-<!--Clients Section-->
-<section class="clients-section style-two">
-    <div class="auto-container">
-        <div class="sponsors-outer">
-            <!--Sponsors Carousel-->
-            <ul class="sponsors-carousel owl-carousel owl-theme">
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/sponsor1.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/sponsor2.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/sponsor3.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/sponsor4.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/sponsor5.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/sponsor6.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/sponsor7.png" alt=""></a></figure></li>
-                <li class="slide-item"><figure class="image-box"><a href="#"><img src="images/clients/sponsor8.png" alt=""></a></figure></li>
-            </ul>
-        </div>
-    </div>
-</section>
-<!--End Clients Section-->
-
-
-<!-- Main Footer -->
-<footer class="main-footer" style="background-image: url(images/background/10.jpg);">
-    <div class="auto-container">
-        <div class="upper-box">
-            <div class="row">
-                <!-- Upper column -->
-                <div class="upper-column col-lg-3 col-md-12 col-sm-12">
-                    <div class="footer-logo">
-                        <figure class="image"><a href="index.html"><img src="images/logo-2.png" alt=""></a></figure>
-                    </div>
-                </div>
-
-                <!-- Upper column -->
-                <div class="upper-column col-lg-6 col-md-12 col-sm-12">
-                    <div class="subscribe-form">
-                        <form method="post" action="#">
-                            <div class="form-group">
-                                <input type="email" name="email" value="" placeholder="Enter Your Email" required="">
-                                <button type="submit" class="theme-btn btn-style-four">Submit</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Upper column -->
-                <div class="upper-column col-lg-3 col-md-12 col-sm-12">
-                    <div class="social-links">
-                        <ul class="social-icon-two">
-                            <li><a href="#"><i class="la la-instagram"></i></a></li>
-                            <li><a href="#"><i class="la la-twitter"></i></a></li>
-                            <li><a href="#"><i class="la la-google-plus"></i></a></li>
-                            <li><a href="#"><i class="la la-github"></i></a></li>
-                            <li><a href="#"><i class="la la-pinterest"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!--Widgets Section-->
-        <div class="widgets-section">
-            <div class="row">
-                <!--Big Column-->
-                <div class="big-column col-xl-6 col-lg-12 col-md-12 col-sm-12">
-                    <div class="row">
-                        <!--Footer Column-->
-                        <div class="footer-column col-lg-6 col-md-6 col-sm-12">
-                            <div class="footer-widget">
-                                <h2 class="widget-title">About Us</h2>
-                                <p> Lorem ipsum dolor sit amet, consectetuer a the adipiscing elit. Aenean commodo ligulai dolor. Aenean massa Lorem ipsum dolor sit amet, consectetuer a the adipiscing elit. Aenean commodo ligulai dolor.</p>
-                            </div>
-                        </div>
-
-                        <!--Footer Column-->
-                        <div class="footer-column col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                            <div class="footer-widget links-widget">
-                                <h2 class="widget-title">Services</h2>
-                                <div class="widget-content">
-                                    <ul class="list clearfix">
-                                        <li><a href="property-grid-view.html">Browse All Places</a></li>
-                                        <li><a href="property-grid-view.html">Browse all Categories</a></li>
-                                        <li><a href="faq.html">FAQ & Support</a></li>
-                                        <li><a href="#">Terms of use</a></li>
-                                        <li><a href="#">Privacy Policy</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!--Big Column-->
-                <div class="big-column col-xl-6 col-lg-12 col-md-12 col-sm-12">
-                    <div class="row clearfix">
-                        <div class="footer-column col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                            <!--Footer Column-->
-                            <div class="footer-widget popular-posts">
-                                <h2 class="widget-title">Popular Posts</h2>
-                                <!--Footer Column-->
-                                <div class="widget-content">
-                                    <div class="post">
-                                        <div class="thumb"><a href="blog-detail.html"><img src="images/resource/post-thumb-1.jpg" alt=""></a></div>
-                                        <h4><a href="blog-detail.html">Modern Design Building </a></h4>
-                                        <span class="date">1 March, 2020</span>
-                                    </div>
-
-                                    <div class="post">
-                                        <div class="thumb"><a href="blog-detail.html"><img src="images/resource/post-thumb-2.jpg" alt=""></a></div>
-                                        <h4><a href="blog-detail.html">Real Estate Expo 2020</a></h4>
-                                        <span class="date">10 March, 2020</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--Footer Column-->
-                        <div class="footer-column col-lg-6 col-md-6 col-sm-12">
-                            <div class="footer-widget contact-widget">
-                                <h2 class="widget-title">Get in Touch</h2>
-                                <div class="widget-content">
-                                    <ul class="contact-list">
-                                        <li><span class="la la-map-marker"></span> 121, King St, VIC 3000, <br>NY. United States Of America.</li>
-                                        <li><span class="la la-phone"></span>(001) 123456 - (002) 1234567</li>
-                                        <li><span class="la la-envelope"></span><a href="mailto:info@example.com">info@example.com</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--Footer Bottom-->
-    <div class="footer-bottom">
+    <!-- Property Filter Section -->
+    <section class="property-filter-section">
         <div class="auto-container">
+            <!--MixitUp Galery-->
+            <div class="mixitup-gallery">
+                <div class="upper-box clearfix">
+                    <div class="sec-title">
+                        <span class="title">FIND YOUR HOUSE IN YOUR CITY</span>
+                        <h2>PROPERTY TYPES</h2>
+                    </div>
+
+                </div>
+
+                <div class="filter-list row">
+                    <!-- Property Block -->
+                    <div class="property-block all mix sale col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image"><img src="images/resource/property-1.jpg" alt=""></figure>
+                                <a class="for">ДО ОБРАНИХ</a>
+                                <!-- <span class="featured">FEATURED</span> -->
+                            </div>
+                            <div class="lower-content">
+                                <div class="thumb"><img src="images/resource/thumb-3.jpg" alt=""></div>
+                                <h3><a href="property-detail.html">Modern Apartment in City Center</a></h3>
+                                <div class="lucation"><i class="la la-map-marker"></i> 121, King St, VIC 3000, New
+                                    York, United States</div>
+                                <ul class="property-info clearfix">
+                                    <li><i class="flaticon-money"></i>$ 1,51,000</li>
+                                    <li><i class="flaticon-bed"></i> 4 Bedrooms</li>
+                                    <li><i class="flaticon-car"></i> 2 Garage</li>
+                                    <li><i class="flaticon-bathtub"></i> 3 Bathroom</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Load More -->
+                <div class="load-more-btn text-center">
+                    <a href="property-grid-view.html" class="theme-btn btn-style-two">Переглянути всі</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Property Filter Section -->
 
 
-            <div class="inner-container clearfix">
-               <div class="copyright-text">
-                <p>Copyright ©      <script>
-                    var d=new Date();
-                    document.write(d.getFullYear());
-                </script> Made by Fairy Meadows Themes.</p>
+    <!-- Testimonial Section -->
+    <section class="testimonial-section" style="background-image: url(images/background/clients.jpg);">
+        <div class="auto-container">
+            <div class="sec-title light">
+                <span class="title">Testimonials</span>
+                <h2>what clients says</h2>
+            </div>
+
+            <div class="testimonial-carousel owl-carousel owl-theme">
+                <!-- Testimonial Block -->
+                <div class="testimonial-block">
+                    <div class="inner-box">
+                        <div class="image-box">
+                            <figure class="image"><img src="images/resource/thumb-3.jpg" alt=""></figure>
+                        </div>
+                        <div class="content-box">
+                            <div class="text">Leverage agile frameworks to provide a robust synopsis for high level
+                                overviews. Organically grow the holistic world view of disruptive diversity.</div>
+                            <div class="namstar">
+                                <h4 class="name">John Doe</h4>
+                                <div class="rating">
+                                    <span class="la la-star"></span><span class="la la-star"></span><span
+                                        class="la la-star"></span><span class="la la-star"></span><span
+                                        class="la la-star-o"></span>
+                                </div>
+                            </div>
+                            <span class="city">New York</span>
+
+                            <span class="icon la la-quote-right"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Block -->
+                <div class="testimonial-block">
+                    <div class="inner-box">
+                        <div class="image-box">
+                            <figure class="image"><img src="images/resource/thumb-4.jpg" alt=""></figure>
+                        </div>
+                        <div class="content-box">
+
+                            <div class="text">Leverage agile frameworks to provide a robust synopsis for high level
+                                overviews. Organically grow the holistic world view of disruptive diversity.</div>
+                            <div class="namstar">
+                                <h4 class="name">Olivia Evie</h4>
+                                <div class="rating">
+                                    <span class="la la-star"></span><span class="la la-star"></span><span
+                                        class="la la-star"></span><span class="la la-star"></span><span
+                                        class="la la-star-o"></span>
+                                </div>
+                            </div>
+                            <span class="city">New York</span>
+                            <span class="icon la la-quote-right"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Testimonial Section -->
+
+    <!-- Agents Section -->
+    <div class="agents-section">
+        <div class="auto-container">
+            <div class="sec-title">
+                <span class="title">MEET OUR PROFESSIONAL AGENTS</span>
+                <h2>MEET OUR AGENTS</h2>
+            </div>
+
+            <div class="agents-carousel owl-carousel owl-theme">
+                <!-- Agent Block -->
+                <div class="agent-block">
+                    <div class="inner-box">
+                        <div class="image-box">
+                            <figure class="image"><a href="agent-detail.html"><img src="images/resource/team-01.jpg"
+                                                                                   alt=""></a></figure>
+                        </div>
+                        <div class="info-box">
+                            <h4 class="name"><a href="agent-detail.html">JOHN DOE</a></h4>
+                            <span class="designation">Real Estate Agent</span>
+                            <ul class="social-links">
+                                <li><a href="#"><i class="la la-facebook-f"></i><span>Facebook</span></a></li>
+                                <li><a href="#"><i class="la la-twitter"></i><span>Twitter</span></a></li>
+                                <li><a href="#"><i class="la la-google-plus"><span>google+</span></i></a></li>
+                                <li><a href="#"><i class="la la-dribbble"></i><span>Dribbble</span></a></li>
+                                <li><a href="#"><i class="la la-pinterest"></i><span>Pinterest</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agent Block -->
+                <div class="agent-block">
+                    <div class="inner-box">
+                        <div class="image-box">
+                            <figure class="image"><a href="agent-detail.html"><img src="images/resource/team-02.jpg"
+                                                                                   alt=""></a></figure>
+                        </div>
+                        <div class="info-box">
+                            <h4 class="name"><a href="agent-detail.html">ALVIS MILAN</a></h4>
+                            <span class="designation">Real Estate Agent</span>
+                            <ul class="social-links">
+                                <li><a href="#"><i class="la la-facebook-f"></i><span>Facebook</span></a></li>
+                                <li><a href="#"><i class="la la-twitter"></i><span>Twitter</span></a></li>
+                                <li><a href="#"><i class="la la-google-plus"><span>google+</span></i></a></li>
+                                <li><a href="#"><i class="la la-dribbble"></i><span>Dribbble</span></a></li>
+                                <li><a href="#"><i class="la la-pinterest"></i><span>Pinterest</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agent Block -->
+                <div class="agent-block">
+                    <div class="inner-box">
+                        <div class="image-box">
+                            <figure class="image"><a href="agent-detail.html"><img src="images/resource/team-03.jpg"
+                                                                                   alt=""></a></figure>
+                        </div>
+                        <div class="info-box">
+                            <h4 class="name"><a href="agent-detail.html">JEAMS ADAM</a></h4>
+                            <span class="designation">Real Estate Agent</span>
+                            <ul class="social-links">
+                                <li><a href="#"><i class="la la-facebook-f"></i><span>Facebook</span></a></li>
+                                <li><a href="#"><i class="la la-twitter"></i><span>Twitter</span></a></li>
+                                <li><a href="#"><i class="la la-google-plus"><span>google+</span></i></a></li>
+                                <li><a href="#"><i class="la la-dribbble"></i><span>Dribbble</span></a></li>
+                                <li><a href="#"><i class="la la-pinterest"></i><span>Pinterest</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agent Block -->
+                <div class="agent-block">
+                    <div class="inner-box">
+                        <div class="image-box">
+                            <figure class="image"><a href="agent-detail.html"><img src="images/resource/team-01.jpg"
+                                                                                   alt=""></a></figure>
+                        </div>
+                        <div class="info-box">
+                            <h4 class="name"><a href="agent-detail.html">HUGO SMITH</a></h4>
+                            <span class="designation">Real Estate Agent</span>
+                            <ul class="social-links">
+                                <li><a href="#"><i class="la la-facebook-f"></i><span>Facebook</span></a></li>
+                                <li><a href="#"><i class="la la-twitter"></i><span>Twitter</span></a></li>
+                                <li><a href="#"><i class="la la-google-plus"><span>google+</span></i></a></li>
+                                <li><a href="#"><i class="la la-dribbble"></i><span>Dribbble</span></a></li>
+                                <li><a href="#"><i class="la la-pinterest"></i><span>Pinterest</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agent Block -->
+                <div class="agent-block">
+                    <div class="inner-box">
+                        <div class="image-box">
+                            <figure class="image"><a href="agent-detail.html"><img src="images/resource/team-02.jpg"
+                                                                                   alt=""></a></figure>
+                        </div>
+                        <div class="info-box">
+                            <h4 class="name"><a href="agent-detail.html">JOHN DOE</a></h4>
+                            <span class="designation">Real Estate Agent</span>
+                            <ul class="social-links">
+                                <li><a href="#"><i class="la la-facebook-f"></i><span>Facebook</span></a></li>
+                                <li><a href="#"><i class="la la-twitter"></i><span>Twitter</span></a></li>
+                                <li><a href="#"><i class="la la-google-plus"><span>google+</span></i></a></li>
+                                <li><a href="#"><i class="la la-dribbble"></i><span>Dribbble</span></a></li>
+                                <li><a href="#"><i class="la la-pinterest"></i><span>Pinterest</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agent Block -->
+                <div class="agent-block">
+                    <div class="inner-box">
+                        <div class="image-box">
+                            <figure class="image"><a href="agent-detail.html"><img src="images/resource/team-03.jpg"
+                                                                                   alt=""></a></figure>
+                        </div>
+                        <div class="info-box">
+                            <h4 class="name"><a href="agent-detail.html">ALVIS MILAN</a></h4>
+                            <span class="designation">Real Estate Agent</span>
+                            <ul class="social-links">
+                                <li><a href="#"><i class="la la-facebook-f"></i><span>Facebook</span></a></li>
+                                <li><a href="#"><i class="la la-twitter"></i><span>Twitter</span></a></li>
+                                <li><a href="#"><i class="la la-google-plus"><span>google+</span></i></a></li>
+                                <li><a href="#"><i class="la la-dribbble"></i><span>Dribbble</span></a></li>
+                                <li><a href="#"><i class="la la-pinterest"></i><span>Pinterest</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-</footer>
-<!-- End Main Footer -->
+    <!-- End Agents Section -->
+
+
+    <!-- Main Footer -->
+    <footer class="main-footer" style="background-image: url(images/background/10.jpg);">
+        <div class="auto-container">
+            <div class="upper-box">
+                <div class="row">
+                    <!-- Upper column -->
+                    <div class="upper-column col-lg-3 col-md-12 col-sm-12">
+                        <div class="footer-logo">
+                            <figure class="image"><a href="index.html"><img src="images/logo-2.png" alt=""></a>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <!-- Upper column -->
+                    <div class="upper-column col-lg-6 col-md-12 col-sm-12">
+                        <div class="subscribe-form">
+                            <form method="post" action="#">
+                                <div class="form-group">
+                                    <input type="email" name="email" value="" placeholder="Enter Your Email"
+                                           required="">
+                                    <button type="submit" class="theme-btn btn-style-four">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Upper column -->
+                    <div class="upper-column col-lg-3 col-md-12 col-sm-12">
+                        <div class="social-links">
+                            <ul class="social-icon-two">
+                                <li><a href="#"><i class="la la-instagram"></i></a></li>
+                                <li><a href="#"><i class="la la-twitter"></i></a></li>
+                                <li><a href="#"><i class="la la-google-plus"></i></a></li>
+                                <li><a href="#"><i class="la la-github"></i></a></li>
+                                <li><a href="#"><i class="la la-pinterest"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Widgets Section-->
+            <div class="widgets-section">
+                <div class="row">
+                    <!--Big Column-->
+                    <div class="big-column col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                        <div class="row">
+                            <!--Footer Column-->
+                            <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                                <div class="footer-widget">
+                                    <h2 class="widget-title">About Us</h2>
+                                    <p> Lorem ipsum dolor sit amet, consectetuer a the adipiscing elit. Aenean
+                                        commodo ligulai dolor. Aenean massa Lorem ipsum dolor sit amet, consectetuer
+                                        a the adipiscing elit. Aenean commodo ligulai dolor.</p>
+                                </div>
+                            </div>
+
+                            <!--Footer Column-->
+                            <div class="footer-column col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                <div class="footer-widget links-widget">
+                                    <h2 class="widget-title">Services</h2>
+                                    <div class="widget-content">
+                                        <ul class="list clearfix">
+                                            <li><a href="property-grid-view.html">Browse All Places</a></li>
+                                            <li><a href="property-grid-view.html">Browse all Categories</a></li>
+                                            <li><a href="faq.html">FAQ & Support</a></li>
+                                            <li><a href="#">Terms of use</a></li>
+                                            <li><a href="#">Privacy Policy</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!--Big Column-->
+                    <div class="big-column col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                        <div class="row clearfix">
+                            <div class="footer-column col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                                <!--Footer Column-->
+                                <div class="footer-widget popular-posts">
+                                    <h2 class="widget-title">Popular Posts</h2>
+                                    <!--Footer Column-->
+                                    <div class="widget-content">
+                                        <div class="post">
+                                            <div class="thumb"><a href="blog-detail.html"><img
+                                                    src="images/resource/post-thumb-1.jpg" alt=""></a></div>
+                                            <h4><a href="blog-detail.html">Modern Design Building </a></h4>
+                                            <span class="date">1 March, 2020</span>
+                                        </div>
+
+                                        <div class="post">
+                                            <div class="thumb"><a href="blog-detail.html"><img
+                                                    src="images/resource/post-thumb-2.jpg" alt=""></a></div>
+                                            <h4><a href="blog-detail.html">Real Estate Expo 2020</a></h4>
+                                            <span class="date">10 March, 2020</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Footer Column-->
+                            <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                                <div class="footer-widget contact-widget">
+                                    <h2 class="widget-title">Get in Touch</h2>
+                                    <div class="widget-content">
+                                        <ul class="contact-list">
+                                            <li><span class="la la-map-marker"></span> 121, King St, VIC 3000,
+                                                <br>NY. United States Of America.</li>
+                                            <li><span class="la la-phone"></span>(001) 123456 - (002) 1234567</li>
+                                            <li><span class="la la-envelope"></span><a
+                                                    href="mailto:info@example.com">info@example.com</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Footer Bottom-->
+        <div class="footer-bottom">
+            <div class="auto-container">
+
+
+                <div class="inner-container clearfix">
+                    <div class="copyright-text">
+                        <p>Copyright © <script>
+                            var d = new Date();
+                            document.write(d.getFullYear());
+                        </script> Made by Fairy Meadows Themes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Main Footer -->
 </div>
 <!--End pagewrapper-->
 
-<!-- Color Palate / Color Switcher -->
-<div class="color-palate">
-    <div class="color-trigger">
-        <i class="la la-cog"></i>
-    </div>
-    <div class="color-palate-head">
-        <h6>Choose Your Color</h6>
-    </div>
-    <div class="various-color clearfix">
-        <div class="colors-list">
-            <span class="palate default-color active" data-theme-file="css/color-themes/default-theme.css"></span>
-            <span class="palate green-color" data-theme-file="css/color-themes/green-theme.css"></span>
-            <span class="palate blue-color" data-theme-file="css/color-themes/blue-theme.css"></span>
-            <span class="palate orange-color" data-theme-file="css/color-themes/orange-theme.css"></span>
-            <span class="palate purple-color" data-theme-file="css/color-themes/purple-theme.css"></span>
-            <span class="palate teal-color" data-theme-file="css/color-themes/teal-theme.css"></span>
-            <span class="palate brown-color" data-theme-file="css/color-themes/brown-theme.css"></span>
-            <span class="palate redd-color" data-theme-file="css/color-themes/redd-color.css"></span>
-        </div>
-    </div>
-  
-    <div class="palate-foo">
-        <span>This color picker is used only for demonstration purposes.</span>
-    </div>
-   
-</div><!-- End Color Switcher -->
 
 
-<script src="js/jquery.js"></script> 
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script th:src="@{/js/jquery.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
 
 <!--Revolution Slider-->
-<script src="plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>
-<script src="plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
-<script src="plugins/revolution/js/extensions/revolution.extension.actions.min.js"></script>
-<script src="plugins/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-<script src="plugins/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-<script src="plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-<script src="plugins/revolution/js/extensions/revolution.extension.migration.min.js"></script>
-<script src="plugins/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-<script src="plugins/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-<script src="plugins/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-<script src="plugins/revolution/js/extensions/revolution.extension.video.min.js"></script>
-<script src="js/main-slider-script.js"></script>
+<script th:src="@{/plugins/revolution/js/jquery.themepunch.revolution.min.js}"></script>
+<script th:src="@{/plugins/revolution/js/jquery.themepunch.tools.min.js}"></script>
+<script th:src="@{/plugins/revolution/js/extensions/revolution.extension.actions.min.js}"></script>
+<script th:src="@{/plugins/revolution/js/extensions/revolution.extension.carousel.min.js}"></script>
+<script th:src="@{/plugins/revolution/js/extensions/revolution.extension.kenburn.min.js}"></script>
+<script th:src="@{/plugins/revolution/js/extensions/revolution.extension.layeranimation.min.js}"></script>
+<script th:src="@{/plugins/revolution/js/extensions/revolution.extension.migration.min.js}"></script>
+<script th:src="@{/plugins/revolution/js/extensions/revolution.extension.navigation.min.js}"></script>
+<script th:src="@{/plugins/revolution/js/extensions/revolution.extension.parallax.min.js}"></script>
+<script th:src="@{/plugins/revolution/js/extensions/revolution.extension.slideanims.min.js}"></script>
+<script th:src="@{/plugins/revolution/js/extensions/revolution.extension.video.min.js}"></script>
+<script th:src="@{/js/main-slider-script.js}"></script>
 <!--End Revolution Slider-->
 
 
-<script src="js/jquery-ui.js"></script>
-<script src="js/jquery.fancybox.js"></script>
-<script src="js/owl.js"></script>
-<script src="js/wow.js"></script>
-<script src="js/isotope.js"></script>
-<script src="js/mixitup.js"></script>
-<script src="js/appear.js"></script>
-<script src="js/validate.js"></script>
-<script src="js/script.js"></script>
-<script src="js/scroll.js"></script>
-<script src="js/map-script.js"></script>
+<script th:src="@{/js/jquery-ui.js}"></script>
+<script th:src="@{/js/jquery.fancybox.js}"></script>
+<script th:src="@{/js/owl.js}"></script>
+<script th:src="@{/js/wow.js}"></script>
+<script th:src="@{/js/isotope.js}"></script>
+<script th:src="@{/js/mixitup.js}"></script>
+<script th:src="@{/js/appear.js}"></script>
+<script th:src="@{/js/validate.js}"></script>
+<script th:src="@{/js/script.js}"></script>
+<script th:src="@{/js/scroll.js}"></script>
+<script th:src="@{/js/map-script.js}"></script>
 <!-- Color Setting -->
-<script src="js/color-settings.js"></script>
+<script th:src="@{/js/color-settings.js}"></script>
 </body>
 
 </html>
