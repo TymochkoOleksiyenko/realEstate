@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<title>Find Home - Real Estate HTML Template </title>
+<!-- Stylesheets -->
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+<link th:href="@{/css/style.css}" rel="stylesheet">
+<link th:href="@{/css/responsive.css}" rel="stylesheet">
+
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+<link rel="icon" href="images/favicon.png" type="image/x-icon">
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+</head>
+
+<body>
+      <button id="back-to-top-btn"><i class="la la-angle-double-up"></i></button>
+<div class="page-wrapper">
+    <!-- Preloader -->
+    <div class="preloader"></div>
+    
+     <!-- Main Header-->
+    <header class="main-header header-style-three">
+                <!--Header Top-->
+        <div class="header-top">
+            <div class="auto-container">
+                <div class="inner-container clearfix">
+                    <div class="top-left">
+                      <div class="social-links">
+                        <ul class="social-icon-one">
+                            <li><a href="#"><i class="la la-instagram"></i></a></li>
+                            <li><a href="#"><i class="la la-twitter"></i></a></li>
+                            <li><a href="#"><i class="la la-google-plus"></i></a></li>
+                            <li><a href="#"><i class="la la-github"></i></a></li>
+                            <li><a href="#"><i class="la la-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                    </div>
+                    <div class="top-right clearfix">
+                        <ul class="clearfix">
+                            <li><a href="login.html"><span class="la la-sign-in"></span> Login</a></li>
+                            <li><a href="login.html"><span class="la la-user"></span> Register</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Header Top -->
+        <!-- Header Upper -->
+        <div class="header-upper">
+            <div class="auto-container">
+                <div class="clearfix">
+
+                    <div class="logo-outer">
+                        <div class="logo"><a href="index-2.html"><img src="images/logo.png" alt="" title=""></a></div>
+                    </div>
+                    
+                    <div class="upper-right clearfix">
+
+                        <!--Info Box-->
+                        <div class="upper-column info-box">
+                            <div class="icon-box"><span class="la la-envelope-o"></span></div>
+                            <ul>
+                                <li><span>Email:</span></li>
+                                <li>info@example.com</li>
+                            </ul>
+
+                        </div>
+
+                        <!--Info Box-->
+                        <div class="upper-column info-box">
+                            <div class="icon-box"><span class="la la-phone"></span></div>
+                            <ul>
+                                <li><span>Phone:</span></li>
+                                <li>(+1) 123 456 7891</li>
+                            </ul>
+                        </div>
+
+                        <!--Info Box-->
+                        <div class="upper-column info-box">
+                            <div class="icon-box"><span class="la la-home"></span></div>
+                            <ul>
+                                <li><span>Address:</span></li>
+                                <li>121, King St, VIC 3000, New York</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Upper -->
+
+
+        <!-- Header Lower -->
+        <div class="header-lower">
+            <div class="auto-container">
+                <div class="main-box clearfix">
+                    <div class="nav-outer clearfix">
+                        <!-- Main Menu -->
+                        <nav class="main-menu navbar-expand-md navbar-dark">
+                            <div class="navbar-header">
+                                <!-- Toggle Button -->      
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="icon flaticon-menu-1"></span>
+                                </button>
+                            </div>
+                            
+                            <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
+                                <ul class="navigation clearfix">
+                                    <li class="dropdown"><a href="#">Home</a>
+                                        <ul>
+                                            <li><a href="index.html">Home Page 1</a></li>
+                                            <li><a href="index-2.html">Home Page 2</a></li>
+                                            <li><a href="index-3.html">Home Page 3</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li class="dropdown"><a href="#">Agents</a>
+                                        <ul>
+                                            <li><a href="agents.html">Agents</a></li>
+                                            <li><a href="agent-detail.html">Agent Detail</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown current"><a href="#">Properties</a>
+                                        <ul>
+                                            <li><a href="property-grid-view.html">Property Grid View</a></li>
+                                            <li><a href="property-list-view.html">Property List View</a></li>
+                                            <li><a href="property-modern-view.html">Property Modern View</a></li>
+                                            <li><a href="property-detail.html">Property Detail</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a href="#">Blog</a>
+                                        <ul>
+                                            <li><a href="blog-grid.html">Blog Grid View</a></li>
+                                            <li><a href="blog-list.html">Blog List View</a></li>
+                                            <li><a href="blog-detail.html">Blog Detail</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a href="#">Pages</a>   
+                                        <ul>
+                                            <li><a href="faq.html">FAQ's</a></li>
+                                            <li><a href="testimonial.html">Testimonials</a></li>
+                                            <li><a href="submit-property.html">Submit Property</a></li>
+                                            <li><a href="coming-soon.html">Coming Soon</a></li>
+                                            <li><a href="login.html">Login</a></li>
+                                            <li><a href="error-page.html">404 Page</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>              
+                            </div>
+                        </nav><!-- Main Menu End-->
+                        
+                        <!-- Main Menu End-->
+                        <div class="outer-box">
+                         <div class="btn-box">
+                             <a href="#" class="theme-btn btn-style-four">Submit Property</a>
+                         </div>
+
+                         <!--Search Box-->
+                         <div class="search-box-outer">
+                            <div class="dropdown">
+                                <button class="search-box-btn dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="la la-search"></span></button>
+                                <ul class="dropdown-menu pull-right search-panel" aria-labelledby="dropdownMenu3">
+                                    <li class="panel-outer">
+                                        <div class="form-container">
+                                            <form method="post" action="http://expert-themes.com/html/willies/blog.html">
+                                                <div class="form-group">
+                                                    <input type="search" name="field-name" value="" placeholder="Search Here" required>
+                                                    <button type="submit" class="search-btn"><span class="la la-search"></span></button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Header Lower-->
+
+    <!-- Sticky Header  -->
+    <div class="sticky-header">
+        <div class="auto-container clearfix">
+            <!--Logo-->
+            <div class="logo pull-left">
+                <a href="index-2.html" title=""><img src="images/logo.png" alt="" title=""></a>
+            </div>
+            <!--Right Col-->
+            <div class="pull-right">
+               <!-- Main Menu -->
+               <nav class="main-menu">
+                <div class="navbar-collapse show collapse clearfix">
+                    <ul class="navigation clearfix">
+                        <li class="dropdown"><a href="index.html">Home</a>
+                           <ul>
+                            <li><a href="index.html">Home Page 1</a></li>
+                            <li><a href="index-2.html">Home Page 2</a></li>
+                            <li><a href="index-3.html">Home Page 3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html">About</a></li>
+                    <li class="dropdown"><a href="#">Agents</a>
+                        <ul>
+                            <li><a href="agents.html">Agents</a></li>
+                            <li><a href="agent-detail.html">Agent Detail</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown current"><a href="#">Properties</a>
+                        <ul>
+                         <li><a href="property-grid-view.html">Property Grid View</a></li>
+                         <li><a href="property-list-view.html">Property List View</a></li>
+                         <li><a href="property-modern-view.html">Property Modern View</a></li>
+                         <li><a href="property-detail.html">Property Detail</a></li>
+                     </ul>
+                 </li>
+                 <li class="dropdown"><a href="#">Blog</a>
+                    <ul>
+                       <li><a href="blog-grid.html">Blog Grid View</a></li>
+                       <li><a href="blog-list.html">Blog List View</a></li>
+                       <li><a href="blog-detail.html">Blog Detail</a></li>
+                   </ul>
+               </li>
+               <li class="dropdown"><a href="#">Pages</a>   
+                <ul>
+                    <li><a href="faq.html">FAQ's</a></li>
+                    <li><a href="testimonial.html">Testimonials</a></li>
+                    <li><a href="submit-property.html">Submit Property</a></li>
+                    <li><a href="coming-soon.html">Coming Soon</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="error-page.html">404 Page</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</nav><!-- Main Menu End-->
+</div>
+</div>
+</div><!-- End Sticky Menu -->
+</header>
+<!--End Main Header -->
+
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url(images/background/7.jpg);">
+        <div class="auto-container">
+            <div class="inner-container clearfix">
+                <h1>Property Detail</h1>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="index.html">Home</a></li>
+                    <li>Property Detail</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--End Page Title-->
+
+    <!-- Sidebar Page Container -->
+    <div class="sidebar-page-container">
+        <div class="auto-container">
+            <div class="upper-info-box">
+                <div class="row">
+                    <div class="about-property col-lg-8 col-md-12 col-sm-12">
+                        <h2>Modern Apartment in City Center</h2>
+                        <div class="location"><i class="la la-map-marker"></i> 121, King St, VIC 3000, New York, United States</div>
+                        <ul class="property-info clearfix">
+                            <li><i class="flaticon-dimension"></i> 356 Sq-Ft</li>
+                            <li><i class="flaticon-bed"></i> 4 Bedrooms</li>
+                            <li><i class="flaticon-car"></i> 2 Garage</li>
+                            <li><i class="flaticon-bathtub"></i> 3 Bathroom</li>
+                        </ul>
+                    </div>
+                    <div class="price-column col-lg-4 col-md-12 col-sm-12">
+                        <div class="price">$ 13,65,000</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row clearfix">
+                <!--Content Side-->
+                <div class="content-side col-lg-8 col-md-12 col-sm-12">
+                    <div class="property-detail">
+                        <div class="upper-box">
+                            <div class="carousel-outer">
+                                <ul class="image-carousel owl-carousel owl-theme">
+                                    <li><img src="images/resource/property-detail.jpg" alt=""></a></li>
+
+                                    <li><img src="images/resource/property-detail-2.jpg" alt=""></a></li>
+
+                                    <li><img src="images/resource/property-detail-3.jpg" alt=""></a></li>
+
+                                    <li><img src="images/resource/property-detail-4.jpg" alt=""></a></li>
+
+                                    <li><img src="images/resource/property-detail-5.jpg" alt=""></a></li>
+                                </ul>
+                                
+                                <ul class="thumbs-carousel owl-carousel owl-theme">
+                                    <li><img src="images/resource/property-thumb-9.jpg" alt=""></li>
+                                    <li><img src="images/resource/property-thumb-5.jpg" alt=""></li>
+                                    <li><img src="images/resource/property-thumb-8.jpg" alt=""></li>
+                                    <li><img src="images/resource/property-thumb-7.jpg" alt=""></li>
+                                    <li><img src="images/resource/property-thumb-6.jpg" alt=""></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="lower-content">
+                            <h4>Опис</h4>
+                            <p>I just hit a lot of land plots in the high tide station near Lidico North of National Highway 32, area 75m2 and 80m2, price 54 million / m2 legal clarity because the source is auctioned Public listing is transparent throughout the city (2050 plan) directly to the people (those who pay a high price will be awarded the lot after 30 days after the full red book) land in time For long term use, this area is located just outside the urban area.</p>
+                            <blockquote>Main bath has been remodeled including a large shower with a tiled sitting bench. Back yard patio includes no-maintenance cover with built in lights. extra storage inside and out.</blockquote>
+                            <p>So all amenities of the city such as schools, shopping centers, swimming pools and fitness centers are not available. 50 m, sidewalks 7 m, convenient to open office, business, electricity and water, water, Song Da water, 4 Tram stop and administrative center district 200 meters, This is a good investment opportunity before the district becomes a district, the number of land lots is not much, the vip, high level environment..</p>
+                        </div>
+
+                        <!-- Property Infrastructure -->
+                        <div class="property-features">
+                            <h4>Інфраструктура</h4>
+                            <ul class="list-style-one">
+                                <li>Price: $500,000,0</li>
+                                <li>For: Sale</li>
+                                <li>Property Types: Resident</li>
+                                <li>Area: 1000SQFT</li>
+                                <li>Country: USA </li>
+                                <li>City: Sterling</li>
+                                <li>Garages: 3 </li>
+                                <li>Bedrooms: 6 </li>
+                                <li>Bathrooms: 4</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+ 
+                <!--Sidebar Side-->
+                <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
+                    <aside class="sidebar default-sidebar">
+
+                        <!-- Agent Widget -->
+                        <div class="sidebar-widget agent-widget">
+                            <div class="sidebar-title"><h2>ПРО ВЛАСНИКА</h2></div>
+                            <div class="widget-content">
+                                <div class="image-box">
+                                    <figure class="image"><img src="images/resource/team-02.jpg" alt=""></figure>
+                                </div>
+                                <div class="info-box">
+                                    <h4 class="name">Olivia Jeams</h4>
+                                    <span class="designation"></span>
+                                    <ul class="contact-info">
+                                        <li><strong>Phone:</strong> +92 123 4567 890</li>
+                                        <li style="margin-bottom: 0;"><strong>Email:</strong> info@example.com</li>
+                                    </ul>
+                                    <div class="follow-us">
+                                        <ul class="social-links">
+                                            <li class="link">Follow Us:</li>
+                                            <li><a href="#"><i class="la la-instagram"></i></a></li>
+                                            <li><a href="#"><i class="la la-twitter"></i></a></li>
+                                            <li><a href="#"><i class="la la-google-plus"></i></a></li>
+                                            <li><a href="#"><i class="la la-dribbble"></i></a></li>
+                                            <li><a href="#"><i class="la la-pinterest"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="sidebar-widget agent-widget">
+                            <div class="widget-content">
+                                <div class="info-box" style="padding: 0;">
+                                    <div class="btn-box">
+                                        <a href="#" style="margin-bottom: 0;" class="theme-btn btn-style-one">ДО ОБРАНИХ</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>     
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Sidebar Container -->
+
+   
+<!-- Main Footer -->
+<footer class="main-footer" style="background-image: url(images/background/10.jpg);">
+    <div class="auto-container">
+        <div class="upper-box">
+            <div class="row">
+                <!-- Upper column -->
+                <div class="upper-column col-lg-3 col-md-12 col-sm-12">
+                    <div class="footer-logo">
+                        <figure class="image"><a href="index.html"><img src="images/logo-2.png" alt=""></a></figure>
+                    </div>
+                </div>
+
+                <!-- Upper column -->
+                <div class="upper-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="subscribe-form">
+                        <form method="post" action="#">
+                            <div class="form-group">
+                                <input type="email" name="email" value="" placeholder="Enter Your Email" required="">
+                                <button type="submit" class="theme-btn btn-style-four">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Upper column -->
+                <div class="upper-column col-lg-3 col-md-12 col-sm-12">
+                    <div class="social-links">
+                        <ul class="social-icon-two">
+                            <li><a href="#"><i class="la la-instagram"></i></a></li>
+                            <li><a href="#"><i class="la la-twitter"></i></a></li>
+                            <li><a href="#"><i class="la la-google-plus"></i></a></li>
+                            <li><a href="#"><i class="la la-github"></i></a></li>
+                            <li><a href="#"><i class="la la-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Widgets Section-->
+        <div class="widgets-section">
+            <div class="row">
+                <!--Big Column-->
+                <div class="big-column col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                    <div class="row">
+                        <!--Footer Column-->
+                        <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                            <div class="footer-widget">
+                                <h2 class="widget-title">About Us</h2>
+                                <p> Lorem ipsum dolor sit amet, consectetuer a the adipiscing elit. Aenean commodo ligulai dolor. Aenean massa Lorem ipsum dolor sit amet, consectetuer a the adipiscing elit. Aenean commodo ligulai dolor.</p>
+                            </div>
+                        </div>
+
+                        <!--Footer Column-->
+                        <div class="footer-column col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <div class="footer-widget links-widget">
+                                <h2 class="widget-title">Services</h2>
+                                <div class="widget-content">
+                                    <ul class="list clearfix">
+                                        <li><a href="property-grid-view.html">Browse All Places</a></li>
+                                        <li><a href="property-grid-view.html">Browse all Categories</a></li>
+                                        <li><a href="faq.html">FAQ & Support</a></li>
+                                        <li><a href="#">Terms of use</a></li>
+                                        <li><a href="#">Privacy Policy</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--Big Column-->
+                <div class="big-column col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                    <div class="row clearfix">
+                        <div class="footer-column col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <!--Footer Column-->
+                            <div class="footer-widget popular-posts">
+                                <h2 class="widget-title">Popular Posts</h2>
+                                <!--Footer Column-->
+                                <div class="widget-content">
+                                    <div class="post">
+                                        <div class="thumb"><a href="blog-detail.html"><img src="images/resource/post-thumb-1.jpg" alt=""></a></div>
+                                        <h4><a href="blog-detail.html">Modern Design Building </a></h4>
+                                        <span class="date">1 March, 2020</span>
+                                    </div>
+
+                                    <div class="post">
+                                        <div class="thumb"><a href="blog-detail.html"><img src="images/resource/post-thumb-2.jpg" alt=""></a></div>
+                                        <h4><a href="blog-detail.html">Real Estate Expo 2020</a></h4>
+                                        <span class="date">10 March, 2020</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Footer Column-->
+                        <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                            <div class="footer-widget contact-widget">
+                                <h2 class="widget-title">Get in Touch</h2>
+                                <div class="widget-content">
+                                    <ul class="contact-list">
+                                        <li><span class="la la-map-marker"></span> 121, King St, VIC 3000, <br>NY. United States Of America.</li>
+                                        <li><span class="la la-phone"></span>(001) 123456 - (002) 1234567</li>
+                                        <li><span class="la la-envelope"></span><a href="mailto:info@example.com">info@example.com</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer Bottom-->
+    <div class="footer-bottom">
+        <div class="auto-container">
+            <div class="inner-container clearfix">
+               <div class="copyright-text">
+                <p>Copyright ©      <script>
+                    var d=new Date();
+                    document.write(d.getFullYear());
+                </script> Made by Fairy Meadows Themes.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</footer>
+<!-- End Main Footer -->
+
+</div>
+<!--End pagewrapper-->
+
+<script th:src="@{/js/jquery.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/jquery-ui.js}"></script>
+<script th:src="@{/js/jquery.fancybox.js}"></script>
+<script th:src="@{/js/owl.js}"></script>
+<script th:src="@{/js/wow.js}"></script>
+<script th:src="@{/js/isotope.js}"></script>
+<script th:src="@{/js/mixitup.js}"></script>
+<script th:src="@{/js/appear.js}"></script>
+<script th:src="@{/js/script.js}"></script>
+<script th:src="@{/js/scroll.js}"></script>
+</body>
+
+</html>
