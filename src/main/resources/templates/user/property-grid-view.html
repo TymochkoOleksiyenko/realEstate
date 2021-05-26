@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Find Home - Real Estate HTML Template</title>
+    <!-- Stylesheets -->
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/responsive.css}" rel="stylesheet">
+
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+</head>
+
+<body>
+    <button id="back-to-top-btn"><i class="la la-angle-double-up"></i></button>
+    <div class="page-wrapper">
+        <!-- Preloader -->
+        <div class="preloader"></div>
+
+        <!-- Main Header-->
+        <div th:replace="~{user/fragments/fragUserHeader.html}"></div>
+        <!--End Main Header -->
+
+        <!--Page Title-->
+        <section class="page-title" style="background-image:url(images/background/7.jpg);">
+            <div class="auto-container">
+                <div class="inner-container clearfix">
+                    <h1>Property Grid View</h1>
+                    <ul class="bread-crumb clearfix">
+                        <li><a href="index.html">Home</a></li>
+                        <li>Property Grid View</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!--End Page Title-->
+
+        <!-- Sidebar Page Container -->
+        <div class="sidebar-page-container">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <!--Content Side-->
+                    <div class="content-side col-lg-8 col-md-12 col-sm-12">
+                        <div class="property-grid-view">
+                            <div class="upper-box clearfix">
+                                <div class="sec-title">
+                                    <span class="title">FIND YOUR HOUSE IN YOUR CITY</span>
+                                    <h2>PROPERTY GRID</h2>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!-- Property Block -->
+                                <div class="property-block col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                    <div class="inner-box">
+                                        <div class="image-box">
+                                            <figure class="image"><img src="images/resource/property-1.jpg" alt="">
+                                            </figure>
+                                            <a class="for">ДО ОБРАНИХ</a>
+                                        </div>
+                                        <div class="lower-content">
+                                            <div class="thumb"><img src="images/resource/thumb-3.jpg" alt=""></div>
+                                            <h3><a href="property-detail.html">Single House Near Orland Park.</a></h3>
+                                            <div class="lucation"><i class="la la-map-marker"></i> 121, King St, VIC
+                                                3000, New York, United States</div>
+                                            <ul class="property-info clearfix">
+                                                <li><i class="flaticon-money"></i> $ 13,65,000</li>
+                                                <li><i class="flaticon-bed"></i> 4 Bedrooms</li>
+                                                <li><i class="flaticon-car"></i> 2 Garage</li>
+                                                <li><i class="flaticon-bathtub"></i> 3 Bathroom</li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Pagination -->
+                            <div class="styled-pagination">
+                                <ul class="clearfix">
+                                    <li class="prev"><a href="#"><span>Prev</span></a></li>
+                                    <li><a href="#"><span>1</span></a></li>
+                                    <li class="active"><a href="#"><span>2</span></a></li>
+                                    <li><a href="#"><span>3</span></a></li>
+                                    <li><a href="#"><span>4</span></a></li>
+                                    <li class="next"><a href="#"><span>Next</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Sidebar Side-->
+                    <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
+                        <aside class="sidebar default-sidebar">
+
+                            <!--search box-->
+                            <!-- <div class="sidebar-widget sort-by">
+                                <select class="custom-select-box">
+                                    <option>Sort By</option>
+                                    <option>Residential</option>
+                                    <option>Commercial</option>
+                                    <option>Industrial</option>
+                                    <option>Apartments</option>
+                                </select>
+                            </div> -->
+
+                            <!-- Categories -->
+                            <div class="sidebar-widget search-properties">
+                                <div class="sidebar-title">
+                                    <h2>Фільтрація</h2>
+                                </div>
+                                <!-- Property Search Form -->
+                                <div class="property-search-form style-three">
+                                    <form method="post" action="#">
+                                        <div class="row no-gutters">
+                                            <!-- Form Group -->
+                                            <div class="form-group">
+                                                <label style="margin-bottom: 10px;">Район</label>
+                                                <select class="custom-select-box">
+                                                    <option value="0">Всі райони</option>
+                                                    <option>New York</option>
+                                                    <option>Los Angeles</option>
+                                                    <option>Chicago</option>
+                                                    <option>Houston</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Form Group -->
+                                            <div class="form-group">
+                                                <input type="number" hidden="hidden" value="10" id="priceSliderStartRangePoint" name="minPrice">
+                                                <input type="number" hidden="hidden" value="20" id="priceSliderEndRangePoint" name="maxPrice">
+
+                                                <input type="number" hidden="hidden" value="10" id="priceSliderSelectedStartRangePoint" name="minSelectedPrice">
+                                                <input type="number" hidden="hidden" value="20" id="priceSliderSelectedEndRangePoint" name="maxSelectedPrice">
+
+                                                <div class="range-slider-one clearfix">
+                                                    <label>Ціна</label>
+                                                    <div class="price-range-slider"></div>
+                                                    <div class="input">
+                                                        <input type="text" class="price-amount" name="field-name" readonly></div>
+                                                    <div class="title">USD</div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Form Group -->
+                                            <div class="form-group">
+                                                <input type="number" hidden="hidden" value="2000" id="yearSliderStartRangePoint" name="minYear">
+                                                <input type="number" hidden="hidden" value="2021" id="yearSliderEndRangePoint" name="maxYear">
+
+                                                <input type="number" hidden="hidden" value="2000" id="yearSliderSelectedStartRangePoint" name="minSelectedYear">
+                                                <input type="number" hidden="hidden" value="2021" id="yearSliderSelectedEndRangePoint" name="maxSelectedYear">
+
+                                                <div class="range-slider-one clearfix">
+                                                    <label>Рік здачі будинку</label>
+                                                    <div class="year-range-slider"></div>
+                                                    <div class="input">
+                                                        <input type="text" class="year-amount" name="field-name" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Form Group -->
+                                            <div class="form-group">
+                                                <input type="number" hidden="hidden" value="1" id="roomsSliderStartRangePoint" name="minRooms">
+                                                <input type="number" hidden="hidden" value="10" id="roomsSliderEndRangePoint" name="maxRooms">
+
+                                                <input type="number" hidden="hidden" value="1" id="roomsSliderSelectedStartRangePoint" name="minSelectedRooms">
+                                                <input type="number" hidden="hidden" value="10" id="roomsSliderSelectedEndRangePoint" name="maxSelectedRooms">
+
+                                                <div class="range-slider-one clearfix">
+                                                    <label>Кількість кімнат</label>
+                                                    <div class="rooms-range-slider"></div>
+                                                    <div class="input">
+                                                        <input type="text" class="rooms-amount" name="field-name" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Form Group -->
+                                            <div class="form-group">
+                                                <input type="number" hidden="hidden" value="1" id="floorSliderStartRangePoint" name="minFloor">
+                                                <input type="number" hidden="hidden" value="15" id="floorSliderEndRangePoint" name="maxFloor">
+
+                                                <input type="number" hidden="hidden" value="1" id="floorSliderSelectedStartRangePoint" name="minSelectedFloor">
+                                                <input type="number" hidden="hidden" value="15" id="floorSliderSelectedEndRangePoint" name="maxSelectedFloor">
+
+                                                <div class="range-slider-one clearfix">
+                                                    <label>Поверх</label>
+                                                    <div class="floor-range-slider"></div>
+                                                    <div class="input">
+                                                        <input type="text" class="floor-amount" name="field-name" readonly>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Form Group -->
+                                            <div class="form-group">
+                                                <label style="margin-bottom: 10px;">Інфраструктура</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <ul class="filter-submit-form">
+                                                    <li class="check-box">
+                                                        <input type="checkbox" name="shipping-option" id="service-1" onchange="setHiddenId(this)">
+                                                        <label for="service-1">Air Conditioning</label>
+                                                        <input type="text" class="choosen-service" name="listOfInf" hidden="hidden">
+                                                    </li>
+
+                                                    <li class="check-box">
+                                                        <input type="checkbox" name="shipping-option" id="service-2" onchange="setHiddenId(this)">
+                                                        <label for="service-2">Air Conditioning</label>
+                                                        <input type="text" class="choosen-service" name="listOfInf" hidden="hidden">
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <!-- Form Group -->
+                                            <div class="form-group">
+                                                <button type="submit" class="theme-btn btn-style-one">Знайти</button>
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- End Form -->
+                            </div>
+
+
+                            <!-- Recent Properties -->
+                            <div class="sidebar-widget recent-properties">
+                                <div class="sidebar-title">
+                                    <h2>Recent Properties</h2>
+                                </div>
+                                <div class="widget-content">
+                                    <!-- Post -->
+                                    <article class="post">
+                                        <div class="post-thumb">
+                                            <a href="blog-detail.html">
+                                                <img src="images/resource/property-thumb-1.jpg" alt="">
+                                                <span class="status">Rent</span>
+                                            </a>
+                                        </div>
+                                        <span class="location">London, UK</span>
+                                        <h3><a href="blog-detail.html">Laxury Balles Villa</a></h3>
+                                        <div class="price">$ 760,000</div>
+                                    </article>
+
+                                    <!-- Post -->
+                                    <article class="post">
+                                        <div class="post-thumb">
+                                            <a href="blog-detail.html">
+                                                <img src="images/resource/property-thumb-2.jpg" alt="">
+                                                <span class="status">Rent</span>
+                                            </a>
+                                        </div>
+                                        <span class="location">London, UK</span>
+                                        <h3><a href="blog-detail.html">Laxury Balles Villa</a></h3>
+                                        <div class="price">$ 760,000</div>
+                                    </article>
+
+                                    <!-- Post -->
+                                    <article class="post">
+                                        <div class="post-thumb">
+                                            <a href="blog-detail.html">
+                                                <img src="images/resource/property-thumb-3.jpg" alt="">
+                                                <span class="status hot">hot</span>
+                                            </a>
+                                        </div>
+                                        <span class="location">London, UK</span>
+                                        <h3><a href="blog-detail.html">Laxury Balles Villa</a></h3>
+                                        <div class="price">$ 760,000</div>
+                                    </article>
+
+                                    <!-- Post -->
+                                    <article class="post">
+                                        <div class="post-thumb">
+                                            <a href="blog-detail.html">
+                                                <img src="images/resource/property-thumb-4.jpg" alt="">
+                                                <span class="status">Rent</span>
+                                            </a>
+                                        </div>
+                                        <span class="location">London, UK</span>
+                                        <h3><a href="blog-detail.html">Laxury Balles Villa</a></h3>
+                                        <div class="price">$ 760,000</div>
+                                    </article>
+                                </div>
+                            </div>
+
+
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Sidebar Container -->
+
+
+        <!-- Main Footer -->
+        <div th:replace="~{user/fragments/fragUserFooter.html}"></div>
+        <!-- End Main Footer -->
+
+    </div>
+    <!--End pagewrapper-->
+
+    <script th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/jquery-ui.js}"></script>
+    <script th:src="@{/js/jquery.fancybox.js}"></script>
+    <script th:src="@{/js/owl.js}"></script>
+    <script th:src="@{/js/wow.js}"></script>
+    <script th:src="@{/js/isotope.js}"></script>
+    <script th:src="@{/js/mixitup.js}"></script>
+    <script th:src="@{/js/appear.js}"></script>
+    <script th:src="@{/js/script.js}"></script>
+    <script th:src="@{/js/scroll.js}"></script>
+    <script>
+        function setHiddenId(input){
+            if ($(input).is(':checked')===true){
+                let id = ($(input).attr('id').replace( /^\D+/g, '')).toString()
+                $(input).parent().find('.choosen-service').attr('value', id);
+            }else {
+                $(input).parent().find('.choosen-service').removeAttr('value');
+            }
+        }
+    </script>
+</body>
+
+</html>
