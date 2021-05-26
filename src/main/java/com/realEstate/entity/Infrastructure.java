@@ -20,4 +20,12 @@ public class Infrastructure {
             inverseJoinColumns = @JoinColumn(name = "flat_id",referencedColumnName = "id")
     )
     private List<Flat> flats;
+
+    @Override
+    public String toString() {
+        return "Infrastructure{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

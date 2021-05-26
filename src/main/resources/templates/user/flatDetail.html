@@ -47,17 +47,17 @@
             <div class="upper-info-box">
                 <div class="row">
                     <div class="about-property col-lg-8 col-md-12 col-sm-12">
-                        <h2>Modern Apartment in City Center</h2>
-                        <div class="location"><i class="la la-map-marker"></i> 121, King St, VIC 3000, New York, United States</div>
+                        <h2 th:text="${flat.getName()}">Modern Apartment in City Center</h2>
+                        <div class="location"><i class="la la-map-marker"></i> <span th:text="${flat.getAddress()}">121, King St, VIC 3000, New York, United States</span></div>
                         <ul class="property-info clearfix">
-                            <li><i class="flaticon-dimension"></i> 356 Sq-Ft</li>
-                            <li><i class="flaticon-bed"></i> 4 Bedrooms</li>
-                            <li><i class="flaticon-car"></i> 2 Garage</li>
-                            <li><i class="flaticon-bathtub"></i> 3 Bathroom</li>
+                            <li><i class="flaticon-dimension"></i> <span th:text="${flat.getArea().doubleValue()}">356 Sq-Ft</span></li>
+                            <li><i class="flaticon-bed"></i><span th:text="${flat.getCountOfRooms()}"></span></li>
+                            <li><i class="flaticon-car"></i><span th:text="${flat.getFloor()}"></span> </li>
+                            <li><i class="flaticon-bathtub"></i> <span th:text="${flat.getDistrict()}"></span></li>
                         </ul>
                     </div>
                     <div class="price-column col-lg-4 col-md-12 col-sm-12">
-                        <div class="price">$ 13,65,000</div>
+                        <div class="price" th:text="${flat.getPrice().setScale(3)}">$ 13,65,000</div>
                     </div>
                 </div>
             </div>
@@ -68,47 +68,25 @@
                         <div class="upper-box">
                             <div class="carousel-outer">
                                 <ul class="image-carousel owl-carousel owl-theme">
-                                    <li><img src="images/resource/property-detail.jpg" alt=""></a></li>
-
-                                    <li><img src="images/resource/property-detail-2.jpg" alt=""></a></li>
-
-                                    <li><img src="images/resource/property-detail-3.jpg" alt=""></a></li>
-
-                                    <li><img src="images/resource/property-detail-4.jpg" alt=""></a></li>
-
-                                    <li><img src="images/resource/property-detail-5.jpg" alt=""></a></li>
+                                    <li th:each="img : ${flat.getImages()}"><img th:src="@{'/getImg-'+${img.getId()}}" alt=""></li>
                                 </ul>
                                 
                                 <ul class="thumbs-carousel owl-carousel owl-theme">
-                                    <li><img src="images/resource/property-thumb-9.jpg" alt=""></li>
-                                    <li><img src="images/resource/property-thumb-5.jpg" alt=""></li>
-                                    <li><img src="images/resource/property-thumb-8.jpg" alt=""></li>
-                                    <li><img src="images/resource/property-thumb-7.jpg" alt=""></li>
-                                    <li><img src="images/resource/property-thumb-6.jpg" alt=""></li>
+                                    <li th:each="img : ${flat.getImages()}"><img th:src="@{'/getImg-'+${img.getId()}}" alt=""></li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="lower-content">
                             <h4>Опис</h4>
-                            <p>I just hit a lot of land plots in the high tide station near Lidico North of National Highway 32, area 75m2 and 80m2, price 54 million / m2 legal clarity because the source is auctioned Public listing is transparent throughout the city (2050 plan) directly to the people (those who pay a high price will be awarded the lot after 30 days after the full red book) land in time For long term use, this area is located just outside the urban area.</p>
-                            <blockquote>Main bath has been remodeled including a large shower with a tiled sitting bench. Back yard patio includes no-maintenance cover with built in lights. extra storage inside and out.</blockquote>
-                            <p>So all amenities of the city such as schools, shopping centers, swimming pools and fitness centers are not available. 50 m, sidewalks 7 m, convenient to open office, business, electricity and water, water, Song Da water, 4 Tram stop and administrative center district 200 meters, This is a good investment opportunity before the district becomes a district, the number of land lots is not much, the vip, high level environment..</p>
+                            <p th:text="${flat.getDescription()}">I just hit a lot of land plots in the high tide station near Lidico North of National Highway 32, area 75m2 and 80m2, price 54 million / m2 legal clarity because the source is auctioned Public listing is transparent throughout the city (2050 plan) directly to the people (those who pay a high price will be awarded the lot after 30 days after the full red book) land in time For long term use, this area is located just outside the urban area.</p>
                         </div>
 
                         <!-- Property Infrastructure -->
                         <div class="property-features">
                             <h4>Інфраструктура</h4>
                             <ul class="list-style-one">
-                                <li>Price: $500,000,0</li>
-                                <li>For: Sale</li>
-                                <li>Property Types: Resident</li>
-                                <li>Area: 1000SQFT</li>
-                                <li>Country: USA </li>
-                                <li>City: Sterling</li>
-                                <li>Garages: 3 </li>
-                                <li>Bedrooms: 6 </li>
-                                <li>Bathrooms: 4</li>
+                                <li th:each="inf : ${flat.getInfrastructureList()}" th:text="${inf.getName()}">Price</li>
                             </ul>
                         </div>
                     </div>
@@ -123,32 +101,28 @@
                             <div class="sidebar-title"><h2>ПРО ВЛАСНИКА</h2></div>
                             <div class="widget-content">
                                 <div class="image-box">
-                                    <figure class="image"><img src="images/resource/team-02.jpg" alt=""></figure>
+                                    <figure class="image"><img th:src="@{'/getImg-'+${flat?.getCreatedBy()?.getImage()?.getId()}}" alt=""></figure>
                                 </div>
                                 <div class="info-box">
-                                    <h4 class="name">Olivia Jeams</h4>
+                                    <h4 class="name" th:text="${flat?.getCreatedBy()?.getFullName()}">Olivia Jeams</h4>
                                     <span class="designation"></span>
                                     <ul class="contact-info">
-                                        <li><strong>Phone:</strong> +92 123 4567 890</li>
-                                        <li style="margin-bottom: 0;"><strong>Email:</strong> info@example.com</li>
+                                        <li><strong>Phone:</strong><span th:text="${flat?.getCreatedBy()?.getPhone()}"></span></li>
+                                        <li style="margin-bottom: 0;"><strong>Email:</strong> <span th:text="${flat?.getCreatedBy()?.getMail()}"></span></li>
                                     </ul>
-                                    <div class="follow-us">
-                                        <ul class="social-links">
-                                            <li class="link">Follow Us:</li>
-                                            <li><a href="#"><i class="la la-instagram"></i></a></li>
-                                            <li><a href="#"><i class="la la-twitter"></i></a></li>
-                                            <li><a href="#"><i class="la la-google-plus"></i></a></li>
-                                            <li><a href="#"><i class="la la-dribbble"></i></a></li>
-                                            <li><a href="#"><i class="la la-pinterest"></i></a></li>
-                                        </ul>
-                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="sidebar-widget agent-widget">
+                            <div class="widget-content">
+                                <div class="info-box" style="padding: 0;">
                                     <div class="btn-box">
                                         <a href="#" class="theme-btn btn-style-one">ПРОФІЛЬ ВЛАСНИКА</a>
                                         <a href="#" class="theme-btn btn-style-six">ДО ОБРАНИХ</a>
                                     </div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
 <!--                        <div class="sidebar-widget agent-widget">-->
 <!--                            <div class="widget-content">-->
 <!--                                <div class="info-box" style="padding: 0;">-->

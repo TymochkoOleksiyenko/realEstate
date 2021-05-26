@@ -35,14 +35,31 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public Users update(Users user) {
-        return usersJPA.save(user);
+        Users userDB = findById(user.getId());
+        if(userDB!=null){
+            userDB.setFullName(user.getFullName());
+            userDB.setMail(user.getMail());
+            userDB.setPhone(user.getPhone());
+            if(user.getPassword().length()>3){
+                userDB.setPassword(user.getPassword());
+            }
+        }
+        return usersJPA.save(userDB);
     }
 
     @Override
     public Users update(Users user, MultipartFile multipartFile) {
-        Image image = imageService.save(multipartFile);
-        user.setImage(image);
-        return update(user);
+        user = update(user);
+        if(multipartFile!=null && multipartFile.getSize()>0) {
+            if(user.getImage()!=null) {
+                imageService.deleteById(user.getImage().getId());
+            }
+            Image image = imageService.save(multipartFile);
+            user.setImage(image);
+            image.setUser(user);
+            imageService.save(image);
+        }
+        return save(user);
     }
 
     @Override

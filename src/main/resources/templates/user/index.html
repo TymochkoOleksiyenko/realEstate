@@ -353,23 +353,22 @@
 
                 <div class="filter-list row">
                     <!-- Property Block -->
-                    <div class="property-block all mix sale col-lg-4 col-md-6 col-sm-12">
+                    <div class="property-block all mix sale col-lg-4 col-md-6 col-sm-12" th:each="flat : ${listOfFlats}">
                         <div class="inner-box">
                             <div class="image-box">
-                                <figure class="image"><img src="images/resource/property-1.jpg" alt=""></figure>
+                                <figure class="image"><img th:if="${flat.getImages().size()>0}" th:src="@{'/getImg-'+${flat.getImages()?.get(0)?.getId()}}" alt=""></figure>
                                 <a class="for">ДО ОБРАНИХ</a>
                                 <!-- <span class="featured">FEATURED</span> -->
                             </div>
                             <div class="lower-content">
-                                <div class="thumb"><img src="images/resource/thumb-3.jpg" alt=""></div>
-                                <h3><a href="property-detail.html">Modern Apartment in City Center</a></h3>
-                                <div class="lucation"><i class="la la-map-marker"></i> 121, King St, VIC 3000, New
-                                    York, United States</div>
+                                <div class="thumb"><img th:src="@{'/getImg-'+${flat.getCreatedBy()?.getImage()?.getId()}}" alt=""></div>
+                                <h3><a th:href="@{'/flat-'+${flat.getId()}}" th:text="${flat.getName()}">Modern Apartment in City Center</a></h3>
+                                <div class="lucation"><i class="la la-map-marker"></i> <span th:text="${flat.getName()}"></span></div>
                                 <ul class="property-info clearfix">
-                                    <li><i class="flaticon-money"></i>$ 1,51,000</li>
-                                    <li><i class="flaticon-bed"></i> 4 Bedrooms</li>
-                                    <li><i class="flaticon-car"></i> 2 Garage</li>
-                                    <li><i class="flaticon-bathtub"></i> 3 Bathroom</li>
+                                    <li><i class="flaticon-money"></i><span th:text="${flat.getPrice()}"></span> USD</li>
+                                    <li><i class="flaticon-bed"></i> <span th:text="${flat.getCountOfRooms()}"></span></li>
+                                    <li><i class="flaticon-car"></i> <span th:text="${flat.getFloor()}"></span> поверх</li>
+                                    <li><i class="flaticon-bathtub"></i> <span th:text="${flat.getFloor()}"></span> рік</li>
                                 </ul>
                             </div>
                         </div>
@@ -378,7 +377,7 @@
 
                 <!-- Load More -->
                 <div class="load-more-btn text-center">
-                    <a href="property-grid-view.html" class="theme-btn btn-style-two">Переглянути всі</a>
+                    <a href="allFlats.html" class="theme-btn btn-style-two">Переглянути всі</a>
                 </div>
             </div>
         </div>
@@ -451,8 +450,8 @@
     <div class="agents-section">
         <div class="auto-container">
             <div class="sec-title">
-                <span class="title">MEET OUR PROFESSIONAL AGENTS</span>
-                <h2>MEET OUR AGENTS</h2>
+<!--                <span class="title">MEET OUR PROFESSIONAL AGENTS</span>-->
+                <h2>Наші експерти</h2>
             </div>
 
             <div class="agents-carousel owl-carousel owl-theme">
