@@ -35,7 +35,7 @@ public class FlatController {
     public String get(Model model){
         model.addAttribute("listOfDistricts",districtService.findAll());
         model.addAttribute("listOfInfrastructure",infService.findAll());
-        return "";
+        return "user/addFlat";
     }
 
     @PostMapping("/create")
