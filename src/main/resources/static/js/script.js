@@ -497,7 +497,7 @@
 			range: true,
 			min: parseFloat($('#priceSliderStartRangePoint').val()),
 			max: parseFloat($('#priceSliderEndRangePoint').val()),
-			values: [ parseFloat($('#priceSliderStartRangePoint').val()), parseFloat($('#priceSliderEndRangePoint').val()) ],
+			values: [ parseFloat($('#priceSliderSelectedStartRangePoint').val()), parseFloat($('#priceSliderSelectedEndRangePoint').val()) ],
 			slide: function( event, ui ) {
 				$( "input.price-amount" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
 				$("#priceSliderSelectedStartRangePoint").attr("value", (parseInt(ui.values[0])));
@@ -514,7 +514,7 @@
 			range: true,
 			min: parseFloat($('#yearSliderStartRangePoint').val()),
 			max: parseFloat($('#yearSliderEndRangePoint').val()),
-			values: [ parseFloat($('#yearSliderStartRangePoint').val()), parseFloat($('#yearSliderEndRangePoint').val()) ],
+			values: [ parseFloat($('#yearSliderSelectedStartRangePoint').val()), parseFloat($('#yearSliderSelectedEndRangePoint').val()) ],
 			slide: function( event, ui ) {
 				$( "input.year-amount" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
 				$("#yearSliderSelectedStartRangePoint").attr("value", (parseInt(ui.values[0])));
@@ -531,7 +531,7 @@
 			range: true,
 			min: parseFloat($('#roomsSliderStartRangePoint').val()),
 			max: parseFloat($('#roomsSliderEndRangePoint').val()),
-			values: [ parseFloat($('#roomsSliderStartRangePoint').val()), parseFloat($('#roomsSliderEndRangePoint').val()) ],
+			values: [ parseFloat($('#roomsSliderSelectedStartRangePoint').val()), parseFloat($('#roomsSliderSelectedEndRangePoint').val()) ],
 			slide: function( event, ui ) {
 				$( "input.rooms-amount" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
 				$("#roomsSliderSelectedStartRangePoint").attr("value", (parseInt(ui.values[0])));
@@ -548,7 +548,7 @@
 			range: true,
 			min: parseFloat($('#floorSliderStartRangePoint').val()),
 			max: parseFloat($('#floorSliderEndRangePoint').val()),
-			values: [ parseFloat($('#floorSliderStartRangePoint').val()), parseFloat($('#floorSliderEndRangePoint').val()) ],
+			values: [ parseFloat($('#floorSliderSelectedStartRangePoint').val()), parseFloat($('#floorSliderSelectedEndRangePoint').val()) ],
 			slide: function( event, ui ) {
 				$( "input.floor-amount" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
 				$("#floorSliderSelectedStartRangePoint").attr("value", (parseInt(ui.values[0])));
