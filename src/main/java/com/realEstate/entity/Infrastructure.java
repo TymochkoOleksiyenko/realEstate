@@ -16,8 +16,8 @@ public class Infrastructure {
     @ManyToMany
     @JoinTable(
             name = "flat_infrastructure",
-            joinColumns = @JoinColumn(name = "flat", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "item",referencedColumnName = "id")
+            joinColumns = @JoinColumn(name = "inf_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "flat_id",referencedColumnName = "id")
     )
     private List<Flat> flats;
 }

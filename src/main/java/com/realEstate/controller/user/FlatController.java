@@ -1,10 +1,13 @@
 package com.realEstate.controller.user;
 
 import com.realEstate.entity.Flat;
+import com.realEstate.entity.Users;
 import com.realEstate.service.DistrictService;
 import com.realEstate.service.FlatService;
 import com.realEstate.service.InfrastructureService;
+import com.realEstate.service.UsersService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +23,7 @@ import java.util.Arrays;
 @AllArgsConstructor
 public class FlatController {
     private final FlatService flatService;
+    private final UsersService usersService;
     private final DistrictService districtService;
     private final InfrastructureService infService;
 
@@ -38,10 +42,11 @@ public class FlatController {
     }
 
     @PostMapping("/create")
-    public String create(Flat flat, MultipartFile[] files){
+    public String create(Flat flat, MultipartFile[] files,String[] listOfInf){
+        String mail = SecurityContextHolder.getContext().getAuthentication().getName();
+        usersService.findByMail(mail).ifPresent(flat::setCreatedBy);
         if(files!=null) {
-            System.out.println("Files " + files.length);
-            flatService.save(Arrays.asList(files), flat);
+            flatService.save(Arrays.asList(files), flat,listOfInf);
         }else {
             flatService.save(flat);
         }
