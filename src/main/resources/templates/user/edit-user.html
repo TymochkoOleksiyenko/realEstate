@@ -57,43 +57,43 @@
                         <!-- Register Form -->
                         <div class="login-form register-form">
                             <!--Login Form-->
-                            <form method="post" action="XXX">
-
+                            <form method="post" action="/account" enctype="multipart/form-data">
+                                <input type="number" name="id" th:value="${user.getId()}" hidden="hidden">
                                 <div class="avatar-upload">
                                     <div class="avatar-edit">
-                                        <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                                        <input type='file' id="imageUpload" name="multipartFile" accept=".png, .jpg, .jpeg" />
                                         <label for="imageUpload"></label>
                                     </div>
                                     <div class="avatar-preview">
                                         <div id="imagePreview"
-                                            style="background-image: url('images/icons/user-default.png');">
+                                            th:style="'background-image: url(\'/getImg-'+${user?.getImage()?.getId()}+'\');'">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label>ПІБ</label>
-                                    <input type="text" name="name" placeholder="ПІБ..." required>
+                                    <input type="text" name="fullName" placeholder="ПІБ..." th:value="${user.getId()}" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="email" name="email" placeholder="Email..." required>
+                                    <input type="email" name="mail" placeholder="Email..." th:value="${user.getMail()}" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Телефон</label>
-                                    <input type="tel" name="username" placeholder="Телефон..." required value="+380" class="phone_number">
+                                    <input type="tel" name="phone" placeholder="Телефон..." required th:value="${user.getPhone()}" class="phone_number">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Новий пароль</label>
-                                    <input type="password" name="password" placeholder="Пароль..." required>
+                                    <input type="password" name="password" placeholder="Пароль..." >
                                 </div>
 
                                 <div class="form-group">
                                     <label>Підтвердження паролю</label>
-                                    <input type="password" name="confirmPassword" placeholder="Пароль..." required>
+                                    <input type="password" name="confirmPassword" placeholder="Пароль..." >
                                 </div>
 
                                 <div class="form-group centered">

@@ -1,15 +1,19 @@
 package com.realEstate.entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Type;
+import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
-@Data
-public class Flat {
+@Getter
+@Setter
+public class Flat implements Comparable<Flat>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -35,4 +39,27 @@ public class Flat {
     @OneToOne
     private Users createdBy;
 
+    @Override
+    public String toString() {
+        return "Flat{" +
+                "id=" + id +
+                ", images=" + images.size() +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", address='" + address + '\'' +
+                ", price=" + price +
+                ", countOfRooms=" + countOfRooms +
+                ", district=" + district.getId() +
+                ", floor=" + floor +
+                ", area=" + area +
+                ", yearOfEndingDevelopment=" + yearOfEndingDevelopment +
+                ", infrastructureList=" + infrastructureList +
+                ", createdBy=" + createdBy +
+                '}';
+    }
+
+    @Override
+    public int compareTo(@NotNull Flat o) {
+        return this.getId()-o.getId();
+    }
 }

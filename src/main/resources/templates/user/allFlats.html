@@ -57,7 +57,7 @@
 
                             <div class="row">
                                 <!-- Property Block -->
-                                <div class="property-block col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                                <div class="property-block col-xl-6 col-lg-12 col-md-12 col-sm-12" th:each="flat : ${listOfFlats}">
                                     <div class="inner-box">
                                         <div class="image-box">
                                             <figure class="image"><img src="images/resource/property-1.jpg" alt="">
@@ -65,17 +65,16 @@
                                             <a class="for">ДО ОБРАНИХ</a>
                                         </div>
                                         <div class="lower-content">
-                                            <div class="thumb"><img src="images/resource/thumb-3.jpg" alt=""></div>
-                                            <h3><a href="property-detail.html">Single House Near Orland Park.</a></h3>
-                                            <div class="lucation"><i class="la la-map-marker"></i> 121, King St, VIC
-                                                3000, New York, United States</div>
+                                            <div class="thumb"><img th:if="${flat.getImages().size()>0}" th:src="@{'/getImg-'+${flat.getImages()?.get(0)?.getId()}}" alt=""></div>
+                                            <h3><a th:href="@{'/flat-'+${flat.getId()}}" th:text="${flat.getName()}">Modern Apartment in City Center</a></h3>
+                                            <div class="lucation"><i class="la la-map-marker"></i> 121, King St, VIC 3000, New York, United States</div>
+                                            <div class="lucation"><i class="la la-map-marker"></i> <span th:text="${flat.getName()}"></span></div>
                                             <ul class="property-info clearfix">
-                                                <li><i class="flaticon-money"></i> $ 13,65,000</li>
-                                                <li><i class="flaticon-bed"></i> 4 Bedrooms</li>
-                                                <li><i class="flaticon-car"></i> 2 Garage</li>
-                                                <li><i class="flaticon-bathtub"></i> 3 Bathroom</li>
+                                                <li><i class="flaticon-money"></i><span th:text="${flat.getPrice()}"></span> USD</li>
+                                                <li><i class="flaticon-bed"></i> <span th:text="${flat.getCountOfRooms()}"></span></li>
+                                                <li><i class="flaticon-car"></i> <span th:text="${flat.getFloor()}"></span> поверх</li>
+                                                <li><i class="flaticon-bathtub"></i> <span th:text="${flat.getFloor()}"></span> рік</li>
                                             </ul>
-
                                         </div>
                                     </div>
                                 </div>
@@ -85,12 +84,12 @@
                             <!-- Pagination -->
                             <div class="styled-pagination">
                                 <ul class="clearfix">
-                                    <li class="prev"><a href="#"><span>Prev</span></a></li>
-                                    <li><a href="#"><span>1</span></a></li>
-                                    <li class="active"><a href="#"><span>2</span></a></li>
-                                    <li><a href="#"><span>3</span></a></li>
-                                    <li><a href="#"><span>4</span></a></li>
-                                    <li class="next"><a href="#"><span>Next</span></a></li>
+                                    <li class="prev" th:if="${page>1}"><a th:href="${currentLinkWithoutPage}+'&page='+${page - 1}"><span>Попередня</span></a></li>
+                                    <li><span>/</span></li>
+<!--                                    <li class="active"><a href="#"><span>2</span></a></li>-->
+<!--                                    <li><a href="#"><span>3</span></a></li>-->
+<!--                                    <li><a href="#"><span>4</span></a></li>-->
+                                    <li class="next" th:if="${page<countOfPages}"><a th:href="${currentLinkWithoutPage}+'&page='+${page + 1}"><span>Наступна</span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -118,87 +117,84 @@
                                 </div>
                                 <!-- Property Search Form -->
                                 <div class="property-search-form style-three">
-                                    <form method="post" action="#">
+                                    <form method="get" action="/allFlats">
                                         <div class="row no-gutters">
                                             <!-- Form Group -->
                                             <div class="form-group">
                                                 <label style="margin-bottom: 10px;">Район</label>
-                                                <select class="custom-select-box">
+                                                <select class="custom-select-box" name="districtsId">
                                                     <option value="0">Всі райони</option>
-                                                    <option>New York</option>
-                                                    <option>Los Angeles</option>
-                                                    <option>Chicago</option>
-                                                    <option>Houston</option>
+                                                    <option th:each="d : ${listOfDistricts}" th:value="${d.getId()}" th:text="${d.getName()}" th:selected="${d.getId()==districtId}">New York</option>
                                                 </select>
                                             </div>
 
                                             <!-- Form Group -->
                                             <div class="form-group">
-                                                <input type="number" hidden="hidden" value="10" id="priceSliderStartRangePoint" name="minPrice">
-                                                <input type="number" hidden="hidden" value="20" id="priceSliderEndRangePoint" name="maxPrice">
+                                                <input type="number" hidden="hidden" value="10" id="priceSliderStartRangePoint"  th:value="${priceMinInit}">
+                                                <input type="number" hidden="hidden" value="20" id="priceSliderEndRangePoint"  th:value="${priceMaxInit}">
 
-                                                <input type="number" hidden="hidden" value="10" id="priceSliderSelectedStartRangePoint" name="minSelectedPrice">
-                                                <input type="number" hidden="hidden" value="20" id="priceSliderSelectedEndRangePoint" name="maxSelectedPrice">
+                                                <input type="number" hidden="hidden" value="10" id="priceSliderSelectedStartRangePoint" name="priceMin" th:value="${priceMin}">
+                                                <input type="number" hidden="hidden" value="20" id="priceSliderSelectedEndRangePoint" name="priceMax" th:value="${priceMax}">
 
                                                 <div class="range-slider-one clearfix">
                                                     <label>Ціна</label>
                                                     <div class="price-range-slider"></div>
                                                     <div class="input">
-                                                        <input type="text" class="price-amount" name="field-name" readonly></div>
+                                                        <input type="text" class="price-amount" readonly></div>
                                                     <div class="title">USD</div>
                                                 </div>
                                             </div>
 
                                             <!-- Form Group -->
                                             <div class="form-group">
-                                                <input type="number" hidden="hidden" value="2000" id="yearSliderStartRangePoint" name="minYear">
-                                                <input type="number" hidden="hidden" value="2021" id="yearSliderEndRangePoint" name="maxYear">
+                                                <input type="number" hidden="hidden" value="2000" id="yearSliderStartRangePoint" th:value="${yearMinInit}">
+                                                <input type="number" hidden="hidden" value="2021" id="yearSliderEndRangePoint" th:value="${yearMaxInit}">
 
-                                                <input type="number" hidden="hidden" value="2000" id="yearSliderSelectedStartRangePoint" name="minSelectedYear">
-                                                <input type="number" hidden="hidden" value="2021" id="yearSliderSelectedEndRangePoint" name="maxSelectedYear">
+                                                <input type="number" hidden="hidden" value="2000" id="yearSliderSelectedStartRangePoint" name="yearMin" th:value="${yearMin}">
+                                                <input type="number" hidden="hidden" value="2021" id="yearSliderSelectedEndRangePoint" name="yearMax" th:value="${yearMax}">
 
                                                 <div class="range-slider-one clearfix">
                                                     <label>Рік здачі будинку</label>
                                                     <div class="year-range-slider"></div>
                                                     <div class="input">
-                                                        <input type="text" class="year-amount" name="field-name" readonly>
+                                                        <input type="text" class="year-amount" readonly>
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <!-- Form Group -->
                                             <div class="form-group">
-                                                <input type="number" hidden="hidden" value="1" id="roomsSliderStartRangePoint" name="minRooms">
-                                                <input type="number" hidden="hidden" value="10" id="roomsSliderEndRangePoint" name="maxRooms">
+                                                <input type="number" hidden="hidden" value="1" id="roomsSliderStartRangePoint" th:value="${roomsMinInit}">
+                                                <input type="number" hidden="hidden" value="10" id="roomsSliderEndRangePoint" th:value="${roomsMaxInit}">
 
-                                                <input type="number" hidden="hidden" value="1" id="roomsSliderSelectedStartRangePoint" name="minSelectedRooms">
-                                                <input type="number" hidden="hidden" value="10" id="roomsSliderSelectedEndRangePoint" name="maxSelectedRooms">
+                                                <input type="number" hidden="hidden" value="1" id="roomsSliderSelectedStartRangePoint" name="countOfRoomsMin" th:value="${roomsMin}">
+                                                <input type="number" hidden="hidden" value="10" id="roomsSliderSelectedEndRangePoint" name="countOfRoomsMax" th:value="${roomsMax}">
 
                                                 <div class="range-slider-one clearfix">
                                                     <label>Кількість кімнат</label>
                                                     <div class="rooms-range-slider"></div>
                                                     <div class="input">
-                                                        <input type="text" class="rooms-amount" name="field-name" readonly>
+                                                        <input type="text" class="rooms-amount" readonly>
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <!-- Form Group -->
-                                            <div class="form-group">
-                                                <input type="number" hidden="hidden" value="1" id="floorSliderStartRangePoint" name="minFloor">
-                                                <input type="number" hidden="hidden" value="15" id="floorSliderEndRangePoint" name="maxFloor">
+<!--                                            <div class="form-group">-->
+<!--                                                <input type="number" hidden="hidden" value="1" id="floorSliderStartRangePoint" name="minFloor">-->
+<!--                                                <input type="number" hidden="hidden" value="15" id="floorSliderEndRangePoint" name="maxFloor">-->
 
-                                                <input type="number" hidden="hidden" value="1" id="floorSliderSelectedStartRangePoint" name="minSelectedFloor">
-                                                <input type="number" hidden="hidden" value="15" id="floorSliderSelectedEndRangePoint" name="maxSelectedFloor">
+<!--                                                <input type="number" hidden="hidden" value="1" id="floorSliderSelectedStartRangePoint" name="minSelectedFloor">-->
+<!--                                                <input type="number" hidden="hidden" value="15" id="floorSliderSelectedEndRangePoint" name="maxSelectedFloor">-->
 
-                                                <div class="range-slider-one clearfix">
-                                                    <label>Поверх</label>
-                                                    <div class="floor-range-slider"></div>
-                                                    <div class="input">
-                                                        <input type="text" class="floor-amount" name="field-name" readonly>
-                                                    </div>
-                                                </div>
-                                            </div>
+<!--                                                <div class="range-slider-one clearfix">-->
+<!--                                                    <label>Поверх</label>-->
+<!--                                                    <div class="floor-range-slider"></div>-->
+<!--                                                    <div class="input">-->
+<!--                                                        <input type="text" class="floor-amount" name="field-name" readonly>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
 
                                             <!-- Form Group -->
                                             <div class="form-group">
@@ -207,17 +203,12 @@
 
                                             <div class="form-group">
                                                 <ul class="filter-submit-form">
-                                                    <li class="check-box">
-                                                        <input type="checkbox" name="shipping-option" id="service-1" onchange="setHiddenId(this)">
-                                                        <label for="service-1">Air Conditioning</label>
-                                                        <input type="text" class="choosen-service" name="listOfInf" hidden="hidden">
+                                                    <li class="check-box" th:each="inf : ${listOfInfs}">
+                                                        <input type="checkbox"  th:id="'service-'+${inf.getId()}" th:checked="${checkedInfs?.contains(inf.getId)}" onchange="setHiddenId(this)">
+                                                        <label th:for="'service-'+${inf.getId()}" th:text="${inf.getName()}">Air Conditioning</label>
+                                                        <input type="text" class="choosen-service" name="infs" hidden="hidden" th:value="(${checkedInfs?.contains(inf.getId)})? ${inf.getId()}:''">
                                                     </li>
 
-                                                    <li class="check-box">
-                                                        <input type="checkbox" name="shipping-option" id="service-2" onchange="setHiddenId(this)">
-                                                        <label for="service-2">Air Conditioning</label>
-                                                        <input type="text" class="choosen-service" name="listOfInf" hidden="hidden">
-                                                    </li>
                                                 </ul>
                                             </div>
 
