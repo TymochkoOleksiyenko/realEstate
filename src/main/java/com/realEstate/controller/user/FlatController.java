@@ -38,10 +38,9 @@ public class FlatController {
     }
 
     @PostMapping("/create")
-    public String create(Flat flat, MultipartFile[] files){
+    public String create(Flat flat, MultipartFile[] files,String[] listOfInf){
         if(files!=null) {
-            System.out.println("Files " + files.length);
-            flatService.save(Arrays.asList(files), flat);
+            flatService.save(Arrays.asList(files), flat,listOfInf);
         }else {
             flatService.save(flat);
         }
