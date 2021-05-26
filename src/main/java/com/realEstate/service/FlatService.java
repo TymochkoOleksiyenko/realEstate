@@ -9,6 +9,7 @@ public interface FlatService {
     Flat save(Flat flat);
     Flat save(List<MultipartFile> fileList,Flat flat);
     Flat update(Flat flat);
+    Flat update(List<MultipartFile> fileList,Flat flat);
     Flat findById(int id);
     List<Flat> findByCreatedById(int id);
     List<Flat> findAll();

@@ -26,8 +26,7 @@ public class FlatController {
 
     @GetMapping("/myFlats-{userId}")
     public String myFlats(@PathVariable int userId, Model model){
-        model.addAttribute("listOfDistricts",districtService.findAll());
-        model.addAttribute("listOfInfrastructure",infService.findAll());
+        model.addAttribute("listOfFlats",flatService.findByCreatedById(userId));
         return "";
     }
 
@@ -40,7 +39,24 @@ public class FlatController {
 
     @PostMapping("/create")
     public String create(Flat flat, MultipartFile[] files){
-        flatService.save(Arrays.asList(files),flat);
+        if(files!=null) {
+            System.out.println("Files " + files.length);
+            flatService.save(Arrays.asList(files), flat);
+        }else {
+            flatService.save(flat);
+        }
+        return "redirect:/user/flats/create";
+    }
+
+    @GetMapping("/edit-{id}")
+    public String edit(@PathVariable int id, Model model){
+        model.addAttribute("flat",flatService.findById(id));
+        return "user/editFlat";
+    }
+
+    @PostMapping("/edit")
+    public String edit(Flat flat, MultipartFile[] files){
+        flatService.update(Arrays.asList(files),flat);
         return "redirect:/user/flats";
     }
 }

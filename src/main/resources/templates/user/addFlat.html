@@ -290,7 +290,7 @@
                             <div class="properties-box">
                                 <div class="inner-container">
                                     <div class="property-submit-form">
-                                        <form method="post" action="#">
+                                        <form method="post" action="/user/flats/create" enctype="multipart/form-data">
                                             <div class="title">
                                                 <h3>Фотогалерея</h3>
                                             </div>
@@ -300,12 +300,12 @@
                                                 <div class="form-group col-sm-6 col-md-4 col-lg-3 image-col">
                                                     <div class="avatar-upload">
                                                         <div class="avatar-edit">
-                                                            <input type='file' id="imageUpload-1" accept=".png, .jpg, .jpeg" onchange="readURL(this)"/>
+                                                            <input type='file' id="imageUpload-1" name="files" accept=".png, .jpg, .jpeg" onchange="readURL(this)"/>
                                                             <label for="imageUpload-1"></label>
                                                         </div>
                                                         <div class="avatar-preview">
                                                             <div id="imagePreview-1"
-                                                                 style="background-image: url('images/icons/home.jpg');">
+                                                                 style="background-image: url('../../images/icons/home.jpg');">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -329,13 +329,8 @@
                                                 <!-- Form Group -->
                                                 <div class="form-group col-lg-3 col-md-6 col-sm-12">
                                                     <label>Район</label>
-                                                    <select class="custom-select-box" name="district">
-                                                        <option>Country</option>
-                                                        <option>California</option>
-                                                        <option>Florida</option>
-                                                        <option>Georgia</option>
-                                                        <option>New York</option>
-                                                        <option>Texas</option>
+                                                    <select class="custom-select-box" name="district.id">
+                                                        <option th:each="d:${listOfDistricts}" th:text="${d.getName()}" th:value="${d.getId()}">Country</option>
                                                     </select>
                                                 </div>
 
@@ -383,14 +378,14 @@
                                                     <label>Рік здачі будинку</label>
                                                     <input type="number" minlength="4" maxlength="4" value="2021"
                                                            autocomplete="off" name="yearOfEndingDevelopment"
-                                                           placeholder="Рік здачі будинку..." required>
+                                                           placeholder="Рік здачі будинку..." required >
                                                 </div>
 
                                                 <!-- Form Group -->
                                                 <div class="form-group col-12">
                                                     <div class="range-slider-one clearfix">
                                                         <label>Детальний опис</label>
-                                                        <textarea placeholder="Детальний опис..."></textarea>
+                                                        <textarea placeholder="Детальний опис..." name="description"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -399,11 +394,11 @@
                                                 <h3>Інфраструктура</h3>
                                             </div>
                                             <div class="row">
-                                                <div class="form-group col-lg-3 col-md-6 col-sm-12 ">
+                                                <div class="form-group col-lg-3 col-md-6 col-sm-12 " th:each="inf : ${listOfInfrastructure}">
                                                     <div class="check-box">
                                                         <input type="checkbox" name="shipping-option"
-                                                               id="service-1">
-                                                        <label for="service-1">Air Conditioning</label>
+                                                               th:id="'service-'+${inf.getId()}">
+                                                        <label th:for="'service-'+${inf.getId()}" th:text="${inf.getName()}">Air Conditioning</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -609,13 +604,13 @@
         let inputElement = '<div class="form-group col-sm-6 col-md-4 col-lg-3 image-col">\n' +
             '                   <div class="avatar-upload">\n' +
             '                       <div class="avatar-edit">\n' +
-            '                           <input type="file" id="imageUpload='+ind+'" accept=".png, .jpg, .jpeg" onchange="readURL(this)"/>\n' +
+            '                           <input type="file" id="imageUpload='+ind+'" name="files" accept=".png, .jpg, .jpeg" onchange="readURL(this)"/>\n' +
             '                           <label for="imageUpload='+ind+'"></label>\n' +
             '                       </div>\n' +
             '                       <button type="button" class="avatar-delete" onclick="removeInput(this)">&#215;</button>\n' +
             '                       <div class="avatar-preview">\n' +
             '                       <div id="imagePreview-'+ind+'"\n' +
-            '                           style="background-image: url(\'images/icons/home.jpg\');">\n' +
+            '                           style="background-image: url(\'../../images/icons/home.jpg\');">\n' +
             '                       </div>\n' +
             '                    </div>\n' +
             '                </div>\n' +

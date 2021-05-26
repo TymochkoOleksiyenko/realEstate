@@ -35,6 +35,12 @@ public class FlatServiceImpl implements FlatService {
     }
 
     @Override
+    public Flat update(List<MultipartFile> fileList, Flat flat) {
+        imageService.save(fileList,flat);
+        return update(flat);
+    }
+
+    @Override
     public Flat findById(int id) {
         return flatJPA.findById(id).orElse(null);
     }
