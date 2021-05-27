@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Find Home - Real Estate HTML Template</title>
+    <!-- Stylesheets -->
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/responsive.css}" rel="stylesheet">
+
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+</head>
+
+<body>
+    <button id="back-to-top-btn"><i class="la la-angle-double-up"></i></button>
+
+    <div class="page-wrapper">
+        <!-- Preloader -->
+        <div class="preloader"></div>
+
+
+        <!-- Main Header-->
+        <div th:replace="~{user/fragments/fragUserHeader.html}"></div>
+        <!--End Main Header -->
+
+        <!--Page Title-->
+        <section class="page-title" style="background-image:url(images/background/7.jpg);">
+            <div class="auto-container">
+                <div class="inner-container clearfix">
+                    <h1>Agent Detail</h1>
+                    <ul class="bread-crumb clearfix">
+                        <li><a href="index.html">Home</a></li>
+                        <li>Agent Detail</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!--End Page Title-->
+
+        <!-- Agent Detail -->
+        <section class="agent-detail">
+            <div class="auto-container">
+                <div class="row">
+                    <div class="image-column col-lg-4 col-md-12 col-sm-12">
+                        <div class="inner-column">
+                            <div class="image-box">
+                                <figure class="image"><img src="images/resource/team-02.jpg" alt=""></figure>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-column col-lg-8 col-md-12 col-sm-12">
+                        <div class="inner-column">
+                            <div class="about-agent">
+                                <h3 class="name">Hugo Smith</h3>
+                                <span class="designation">Real Estate Agent</span>
+                                <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation ullamco laboris nisi ut aliquip ex.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+
+                                </div>
+                                <div class="contact-info">
+                                    <div class="row">
+                                        <div class="column col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                                            <ul>
+                                                <li><i class="la la-phone"></i> +92 123 4567 890</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="column col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                                            <ul>
+                                                <li><i class="la la-envelope-o"></i> <a
+                                                        href="mailto:info@example.com">info@example.com</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="column col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                                            <ul>
+                                                <li><i class="la la-home"></i>121, King St, VIC 3000</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End Agent Detail -->
+
+        <div class="row clearfix" style="justify-content: center; background-color: #f3f3f3; padding-top: 4rem;">
+            <!--Content Side-->
+            <div class="content-side col-lg-8 col-md-12 col-sm-12">
+                <div class="property-detail">
+                    <!-- Review Box -->
+                    <div class="review-area">
+                        <!--Reviews Container-->
+                        <div class="reviews-container">
+                            <h4>Відгуки клієнтів</h4>
+                            <!--Reviews-->
+                            <article class="review-box">
+                                <div class="thumb-box">
+                                    <figure class="thumb"><img src="images/resource/thumb-4.jpg" alt=""></figure>
+                                </div>
+                                <div class="content-box">
+                                    <div class="name">Monija Moro</div>
+                                    <span class="date"><i class="la la-calendar"></i> 08 April, 2020</span>
+                                    <div class="rating"><span class="la la-star"></span><span
+                                            class="la la-star"></span><span class="la la-star"></span><span
+                                            class="la la-star"></span><span class="la la-star"></span></div>
+                                    <div class="text">Accusantium aut, consequatur, culpa dolorum est facilis illo
+                                        magnam numquam officia omnis qui recusandae sit, tempora ullam unde velit veniam
+                                        voluptatem!.</div>
+                                </div>
+                            </article>
+
+
+                            <!--Reviews-->
+                            <article class="review-box">
+                                <div class="thumb-box">
+                                    <figure class="thumb"><img src="images/resource/review-thumb-3.jpg" alt=""></figure>
+                                </div>
+                                <div class="content-box">
+                                    <div class="name">Cojari Barna</div>
+                                    <span class="date"><i class="la la-calendar"></i> 08 April, 2020</span>
+                                    <div class="rating"><span class="la la-star"></span><span
+                                            class="la la-star"></span><span class="la la-star"></span><span
+                                            class="la la-star-o"></span><span class="la la-star-o"></span></div>
+                                    <div class="text">Accusantium aut, consequatur, culpa dolorum est facilis illo
+                                        magnam numquam officia omnis qui recusandae sit, tempora ullam unde velit veniam
+                                        voluptatem!.</div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Review Comment Form -->
+                    <div class="review-comment-form">
+                        <h4>Залиште свій відгук</h4>
+                        <form method="post" action="XXX">
+                            <div class="row">
+                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                    <textarea name="review" placeholder="Опишіть свої враження від співпраці..." required></textarea>
+                                </div>
+
+                                <div class="form-group col-lg-6 col-md-6 col-sm-6">
+                                    <div class="rating-box">
+                                        <div class="text"> Рейтинг:</div>
+                                        <div class="rating">
+                                            <a href="javascript:void(0);" id="rating-1" onclick="setRating(this)">
+                                                <span class="la la-star"></span>
+                                            </a>
+                                            <a href="javascript:void(0);" id="rating-2" onclick="setRating(this)">
+                                                <span class="la la-star"></span>
+                                            </a>
+                                            <a href="javascript:void(0);" id="rating-3" onclick="setRating(this)">
+                                                <span class="la la-star"></span>
+                                            </a>
+                                            <a href="javascript:void(0);" id="rating-4" onclick="setRating(this)">
+                                                <span class="la la-star"></span>
+                                            </a>
+                                            <a href="javascript:void(0);" id="rating-5" onclick="setRating(this)">
+                                                <span class="la la-star"></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <input type="number" hidden name="rating" id="ratingInput" value="5">
+
+                                <div class="form-group col-lg-6 col-md-6 col-sm-6 text-right">
+                                    <button class="theme-btn btn-style-one" type="submit" name="submit-form">Добавити</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Popular Places Section-->
+        <section class="popular-places-section-two"
+            style="background-image: url(images/background/7.jpg); padding-top: 50px;">
+            <div class="auto-container">
+                <div class="sec-title light" style="margin-bottom: 40px;">
+                    <span class="title">FIND YOUR DREAM HOUSE IN YOUR CITY</span>
+                    <h2>Мої оголошення</h2>
+                </div>
+            </div>
+
+            <div class="popular-places-carousel owl-carousel owl-theme">
+
+                <!-- Popular item -->
+                <div class="property-block"
+                    style="background-color: white; box-shadow:2px 2px 5px 1px rgba(0,0,0,0.05),-2px 0px 5px 1px rgba(0,0,0,0.1);">
+                    <div class="inner-box">
+                        <div class="image-box">
+                            <figure class="image"><img src="images/resource/property-1.jpg" alt="">
+                            </figure>
+                        </div>
+                        <div class="lower-content" style="padding: 20px 10px;">
+                            <div class="thumb"><img src="images/resource/thumb-3.jpg" alt=""></div>
+                            <h3><a href="property-detail.html">Single House Near Orland Park.</a></h3>
+                            <div class="lucation"><i class="la la-map-marker"></i> 121, King St, VIC
+                                3000, New York, United States</div>
+                            <ul class="property-info clearfix" style="margin-bottom: 0;">
+                                <li><i class="flaticon-money"></i> $ 13,65,000</li>
+                                <li><i class="flaticon-bed"></i> 4 Bedrooms</li>
+                                <li><i class="flaticon-car"></i> 2 Garage</li>
+                                <li><i class="flaticon-bathtub"></i> 3 Bathroom</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Popular Places End-->
+
+
+        <!-- Agents Section -->
+        <div class="agents-section" style="background-color: #f3f3f3;">
+            <div class="auto-container">
+                <div class="sec-title">
+                    <span class="title">MEET OUR PROFESSIONAL AGENTS</span>
+                    <h2>MEET OUR AGENTS</h2>
+                </div>
+
+                <div class="agents-carousel owl-carousel owl-theme">
+                    <!-- Agent Block -->
+                    <div class="agent-block">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image"><a href="agent-detail.html"><img src="images/resource/team-01.jpg"
+                                            alt=""></a></figure>
+                            </div>
+                            <div class="info-box">
+                                <h4 class="name"><a href="agent-detail.html">JOHN DOE</a></h4>
+                                <span class="designation">Real Estate Agent</span>
+                                <ul class="social-links">
+                                    <li><a href="#"><i class="la la-facebook-f"></i><span>Facebook</span></a></li>
+                                    <li><a href="#"><i class="la la-twitter"></i><span>Twitter</span></a></li>
+                                    <li><a href="#"><i class="la la-google-plus"><span>google+</span></i></a></li>
+                                    <li><a href="#"><i class="la la-dribbble"></i><span>Dribbble</span></a></li>
+                                    <li><a href="#"><i class="la la-pinterest"></i><span>Pinterest</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Agent Block -->
+                    <div class="agent-block">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image"><a href="agent-detail.html"><img src="images/resource/team-02.jpg"
+                                            alt=""></a></figure>
+                            </div>
+                            <div class="info-box">
+                                <h4 class="name"><a href="agent-detail.html">ALVIS MILAN</a></h4>
+                                <span class="designation">Real Estate Agent</span>
+                                <ul class="social-links">
+                                    <li><a href="#"><i class="la la-facebook-f"></i><span>Facebook</span></a></li>
+                                    <li><a href="#"><i class="la la-twitter"></i><span>Twitter</span></a></li>
+                                    <li><a href="#"><i class="la la-google-plus"><span>google+</span></i></a></li>
+                                    <li><a href="#"><i class="la la-dribbble"></i><span>Dribbble</span></a></li>
+                                    <li><a href="#"><i class="la la-pinterest"></i><span>Pinterest</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Agent Block -->
+                    <div class="agent-block">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image"><a href="agent-detail.html"><img src="images/resource/team-03.jpg"
+                                            alt=""></a></figure>
+                            </div>
+                            <div class="info-box">
+                                <h4 class="name"><a href="agent-detail.html">JEAMS ADAM</a></h4>
+                                <span class="designation">Real Estate Agent</span>
+                                <ul class="social-links">
+                                    <li><a href="#"><i class="la la-facebook-f"></i><span>Facebook</span></a></li>
+                                    <li><a href="#"><i class="la la-twitter"></i><span>Twitter</span></a></li>
+                                    <li><a href="#"><i class="la la-google-plus"><span>google+</span></i></a></li>
+                                    <li><a href="#"><i class="la la-dribbble"></i><span>Dribbble</span></a></li>
+                                    <li><a href="#"><i class="la la-pinterest"></i><span>Pinterest</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Agent Block -->
+                    <div class="agent-block">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image"><a href="agent-detail.html"><img src="images/resource/team-01.jpg"
+                                            alt=""></a></figure>
+                            </div>
+                            <div class="info-box">
+                                <h4 class="name"><a href="agent-detail.html">HUGO SMITH</a></h4>
+                                <span class="designation">Real Estate Agent</span>
+                                <ul class="social-links">
+                                    <li><a href="#"><i class="la la-facebook-f"></i><span>Facebook</span></a></li>
+                                    <li><a href="#"><i class="la la-twitter"></i><span>Twitter</span></a></li>
+                                    <li><a href="#"><i class="la la-google-plus"><span>google+</span></i></a></li>
+                                    <li><a href="#"><i class="la la-dribbble"></i><span>Dribbble</span></a></li>
+                                    <li><a href="#"><i class="la la-pinterest"></i><span>Pinterest</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Agent Block -->
+                    <div class="agent-block">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image"><a href="agent-detail.html"><img src="images/resource/team-02.jpg"
+                                            alt=""></a></figure>
+                            </div>
+                            <div class="info-box">
+                                <h4 class="name"><a href="agent-detail.html">JOHN DOE</a></h4>
+                                <span class="designation">Real Estate Agent</span>
+                                <ul class="social-links">
+                                    <li><a href="#"><i class="la la-facebook-f"></i><span>Facebook</span></a></li>
+                                    <li><a href="#"><i class="la la-twitter"></i><span>Twitter</span></a></li>
+                                    <li><a href="#"><i class="la la-google-plus"><span>google+</span></i></a></li>
+                                    <li><a href="#"><i class="la la-dribbble"></i><span>Dribbble</span></a></li>
+                                    <li><a href="#"><i class="la la-pinterest"></i><span>Pinterest</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Agent Block -->
+                    <div class="agent-block">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image"><a href="agent-detail.html"><img src="images/resource/team-03.jpg"
+                                            alt=""></a></figure>
+                            </div>
+                            <div class="info-box">
+                                <h4 class="name"><a href="agent-detail.html">ALVIS MILAN</a></h4>
+                                <span class="designation">Real Estate Agent</span>
+                                <ul class="social-links">
+                                    <li><a href="#"><i class="la la-facebook-f"></i><span>Facebook</span></a></li>
+                                    <li><a href="#"><i class="la la-twitter"></i><span>Twitter</span></a></li>
+                                    <li><a href="#"><i class="la la-google-plus"><span>google+</span></i></a></li>
+                                    <li><a href="#"><i class="la la-dribbble"></i><span>Dribbble</span></a></li>
+                                    <li><a href="#"><i class="la la-pinterest"></i><span>Pinterest</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Agents Section -->
+
+
+        <!-- Main Footer -->
+        <div th:replace="~{user/fragments/fragUserFooter.html}"></div>
+        <!-- End Main Footer -->
+
+    </div>
+    <!--End pagewrapper-->
+
+    <script th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/jquery-ui.js}"></script>
+    <script th:src="@{/js/jquery.fancybox.js}"></script>
+    <script th:src="@{/js/owl.js}"></script>
+    <script th:src="@{/js/wow.js}"></script>
+    <script th:src="@{/js/isotope.js}"></script>
+    <script th:src="@{/js/mixitup.js}"></script>
+    <script th:src="@{/js/appear.js}"></script>
+    <script th:src="@{/js/script.js}"></script>
+    <script th:src="@{/js/scroll.js}"></script>
+
+    <!-- Color Setting -->
+    <script th:src="@{/js/color-settings.js}"></script>
+
+    <script>
+        function setRating(hrefEl){
+            switch ($(hrefEl).attr('id')) {
+            case 'rating-1':
+                $('#rating-1 span').removeClass();
+                $('#rating-1 span').addClass('la la-star');
+                $('#rating-2 span').removeClass();
+                $('#rating-2 span').addClass('la la-star-o');
+                $('#rating-3 span').removeClass();
+                $('#rating-3 span').addClass('la la-star-o');
+                $('#rating-4 span').removeClass();
+                $('#rating-4 span').addClass('la la-star-o');
+                $('#rating-5 span').removeClass();
+                $('#rating-5 span').addClass('la la-star-o');
+                $('#ratingInput').attr('value', 1);
+                break;
+            case 'rating-2':
+            $('#rating-1 span').removeClass();
+                $('#rating-1 span').addClass('la la-star');
+                $('#rating-2 span').removeClass();
+                $('#rating-2 span').addClass('la la-star');
+                $('#rating-3 span').removeClass();
+                $('#rating-3 span').addClass('la la-star-o');
+                $('#rating-4 span').removeClass();
+                $('#rating-4 span').addClass('la la-star-o');
+                $('#rating-5 span').removeClass();
+                $('#rating-5 span').addClass('la la-star-o');
+                $('#ratingInput').attr('value', 2);
+                break;
+            case 'rating-3':
+            $('#rating-1 span').removeClass();
+                $('#rating-1 span').addClass('la la-star');
+                $('#rating-2 span').removeClass();
+                $('#rating-2 span').addClass('la la-star');
+                $('#rating-3 span').removeClass();
+                $('#rating-3 span').addClass('la la-star');
+                $('#rating-4 span').removeClass();
+                $('#rating-4 span').addClass('la la-star-o');
+                $('#rating-5 span').removeClass();
+                $('#rating-5 span').addClass('la la-star-o');
+                $('#ratingInput').attr('value', 3);
+                break;
+            case 'rating-4':
+            $('#rating-1 span').removeClass();
+                $('#rating-1 span').addClass('la la-star');
+                $('#rating-2 span').removeClass();
+                $('#rating-2 span').addClass('la la-star');
+                $('#rating-3 span').removeClass();
+                $('#rating-3 span').addClass('la la-star');
+                $('#rating-4 span').removeClass();
+                $('#rating-4 span').addClass('la la-star');
+                $('#rating-5 span').removeClass();
+                $('#rating-5 span').addClass('la la-star-o');
+                $('#ratingInput').attr('value', 4);
+                break;
+            case 'rating-5':
+            $('#rating-1 span').removeClass();
+                $('#rating-1 span').addClass('la la-star');
+                $('#rating-2 span').removeClass();
+                $('#rating-2 span').addClass('la la-star');
+                $('#rating-3 span').removeClass();
+                $('#rating-3 span').addClass('la la-star');
+                $('#rating-4 span').removeClass();
+                $('#rating-4 span').addClass('la la-star');
+                $('#rating-5 span').removeClass();
+                $('#rating-5 span').addClass('la la-star');
+                $('#ratingInput').attr('value', 5);
+                break;
+            default:
+                console.log(`Sorry, we are out of range.`);
+            }
+        }
+    </script>
+</body>
+
+</html>
