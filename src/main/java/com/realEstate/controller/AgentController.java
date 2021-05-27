@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.text.SimpleDateFormat;
+
 @Controller
 @AllArgsConstructor
 public class AgentController {
@@ -25,11 +27,13 @@ public class AgentController {
     @GetMapping("/agent-{id}")
     public String getAgentPage(@PathVariable int id, Model model){
         model.addAttribute("agent",usersService.findById(id));
-        return "";
+        model.addAttribute("dateFormat",new SimpleDateFormat("dd-MM-yyyy"));
+        return "user/agent-detail";
     }
 
-    @PostMapping("/setAgentFeedBack")
-    public void setAgentFeedBack(int expertId, Feedback feedback){
+    @PostMapping("/addAgentFeedBack")
+    public String setAgentFeedBack(int expertId, Feedback feedback){
         feedbackService.addFeedBackToExpert(feedback,expertId);
+        return "redirect:/agent-"+expertId;
     }
 }

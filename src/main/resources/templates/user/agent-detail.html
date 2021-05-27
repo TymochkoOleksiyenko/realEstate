@@ -32,10 +32,10 @@
         <section class="page-title" style="background-image:url(images/background/7.jpg);">
             <div class="auto-container">
                 <div class="inner-container clearfix">
-                    <h1>Agent Detail</h1>
+                    <h1>Експерт</h1>
                     <ul class="bread-crumb clearfix">
-                        <li><a href="index.html">Home</a></li>
-                        <li>Agent Detail</li>
+                        <li><a href="/">Головна</a></li>
+                        <li>Експерт</li>
                     </ul>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                     <div class="image-column col-lg-4 col-md-12 col-sm-12">
                         <div class="inner-column">
                             <div class="image-box">
-                                <figure class="image"><img src="images/resource/team-02.jpg" alt=""></figure>
+                                <figure class="image"><img th:src="@{'/getImg-'+${agent?.getImage()?.getId()}}" alt=""></figure>
                             </div>
                         </div>
                     </div>
@@ -57,37 +57,31 @@
                     <div class="content-column col-lg-8 col-md-12 col-sm-12">
                         <div class="inner-column">
                             <div class="about-agent">
-                                <h3 class="name">Hugo Smith</h3>
-                                <span class="designation">Real Estate Agent</span>
+                                <h3 class="name" th:text="${agent.getFullName()}">Hugo Smith</h3>
+                                <span class="designation">Експерт</span>
                                 <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    <p th:text="${agent.getAbout()}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
                                         nostrud exercitation ullamco laboris nisi ut aliquip ex.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
-
                                 </div>
                                 <div class="contact-info">
                                     <div class="row">
                                         <div class="column col-xl-4 col-lg-12 col-md-12 col-sm-12">
                                             <ul>
-                                                <li><i class="la la-phone"></i> +92 123 4567 890</li>
+                                                <li><i class="la la-phone"></i> <span th:text="${agent.getPhone()}"></span></li>
                                             </ul>
                                         </div>
 
                                         <div class="column col-xl-4 col-lg-6 col-md-6 col-sm-12">
                                             <ul>
                                                 <li><i class="la la-envelope-o"></i> <a
-                                                        href="mailto:info@example.com">info@example.com</a></li>
+                                                        href="#" th:text="${agent.getMail()}">info@example.com</a></li>
                                             </ul>
                                         </div>
 
                                         <div class="column col-xl-4 col-lg-12 col-md-12 col-sm-12">
                                             <ul>
-                                                <li><i class="la la-home"></i>121, King St, VIC 3000</li>
+                                                <li><i class="la la-home"></i><span th:text="${agent.getAddress()}"></span></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -110,35 +104,21 @@
                         <div class="reviews-container">
                             <h4>Відгуки клієнтів</h4>
                             <!--Reviews-->
-                            <article class="review-box">
+                            <article class="review-box" th:each="f : ${agent.getFeedbacks()}">
                                 <div class="thumb-box">
-                                    <figure class="thumb"><img src="images/resource/thumb-4.jpg" alt=""></figure>
+                                    <figure class="thumb"><img th:src="@{'/getImg-'+${f?.getUser()?.getImage()?.getId()}}" alt=""></figure>
                                 </div>
                                 <div class="content-box">
-                                    <div class="name">Monija Moro</div>
-                                    <span class="date"><i class="la la-calendar"></i> 08 April, 2020</span>
-                                    <div class="rating"><span class="la la-star"></span><span
-                                            class="la la-star"></span><span class="la la-star"></span><span
-                                            class="la la-star"></span><span class="la la-star"></span></div>
-                                    <div class="text">Accusantium aut, consequatur, culpa dolorum est facilis illo
-                                        magnam numquam officia omnis qui recusandae sit, tempora ullam unde velit veniam
-                                        voluptatem!.</div>
-                                </div>
-                            </article>
-
-
-                            <!--Reviews-->
-                            <article class="review-box">
-                                <div class="thumb-box">
-                                    <figure class="thumb"><img src="images/resource/review-thumb-3.jpg" alt=""></figure>
-                                </div>
-                                <div class="content-box">
-                                    <div class="name">Cojari Barna</div>
-                                    <span class="date"><i class="la la-calendar"></i> 08 April, 2020</span>
-                                    <div class="rating"><span class="la la-star"></span><span
-                                            class="la la-star"></span><span class="la la-star"></span><span
-                                            class="la la-star-o"></span><span class="la la-star-o"></span></div>
-                                    <div class="text">Accusantium aut, consequatur, culpa dolorum est facilis illo
+                                    <div class="name" th:text="${f?.getUser()?.getFullName()}">Monija Moro</div>
+                                    <span class="date"><i class="la la-calendar"></i> <span th:if="${f.getDate()!=null}" th:text="${dateFormat.format(f?.getDate())}"></span></span>
+                                    <div class="rating">
+                                        <span class="la " th:classappend="${(f.getMark()>=1)?'la-star':'la-star-o'}"></span>
+                                        <span class="la " th:classappend="${(f.getMark()>=2)?'la-star':'la-star-o'}"></span>
+                                        <span class="la " th:classappend="${(f.getMark()>=3)?'la-star':'la-star-o'}"></span>
+                                        <span class="la " th:classappend="${(f.getMark()>=4)?'la-star':'la-star-o'}"></span>
+                                        <span class="la " th:classappend="${(f.getMark()>=5)?'la-star':'la-star-o'}"></span>
+                                    </div>
+                                    <div class="text" th:text="${f?.getBody()}">Accusantium aut, consequatur, culpa dolorum est facilis illo
                                         magnam numquam officia omnis qui recusandae sit, tempora ullam unde velit veniam
                                         voluptatem!.</div>
                                 </div>
@@ -149,10 +129,11 @@
                     <!-- Review Comment Form -->
                     <div class="review-comment-form">
                         <h4>Залиште свій відгук</h4>
-                        <form method="post" action="XXX">
+                        <form method="post" action="/addAgentFeedBack">
                             <div class="row">
                                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                    <textarea name="review" placeholder="Опишіть свої враження від співпраці..." required></textarea>
+                                    <input type="number" name="expertId" hidden="hidden" th:value="${agent.getId()}">
+                                    <textarea name="body" placeholder="Опишіть свої враження від співпраці..." required></textarea>
                                 </div>
 
                                 <div class="form-group col-lg-6 col-md-6 col-sm-6">
@@ -178,7 +159,7 @@
                                     </div>
                                 </div>
 
-                                <input type="number" hidden name="rating" id="ratingInput" value="5">
+                                <input type="number" hidden name="mark" id="ratingInput" value="5">
 
                                 <div class="form-group col-lg-6 col-md-6 col-sm-6 text-right">
                                     <button class="theme-btn btn-style-one" type="submit" name="submit-form">Добавити</button>
