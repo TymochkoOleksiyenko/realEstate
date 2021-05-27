@@ -4253,9 +4253,12 @@ a.ui-button:active, .ui-button:active,
 }
 
 .property-block-four .image-column .image img{
+    object-fit: cover;
+    width:450px;
+    height:450px;
 	display: block;
-	width: 100%;
-	height: auto;
+	/*width: 100%;*/
+	/*height: auto;*/
 	border: 10px solid #ffffff;
 	position: relative;
 	z-index: 999;
