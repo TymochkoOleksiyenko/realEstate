@@ -20,11 +20,12 @@ public class ExpertAdminController {
     @GetMapping
     public String get(Model model){
         model.addAttribute("listOfExperts",usersService.findByRole(Role.EXPERT));
-        return "";
+        return "admin/agents";
     }
 
     @PostMapping("/add")
     public String add(Users expert, MultipartFile multipartFile){
+        expert.setRole(Role.EXPERT);
         usersService.save(expert,multipartFile);
         return "redirect:/admin/experts";
     }

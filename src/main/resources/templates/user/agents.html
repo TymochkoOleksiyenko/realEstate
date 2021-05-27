@@ -17,25 +17,23 @@
 </head>
 
 <body>
-      <button id="back-to-top-btn"><i class="la la-angle-double-up"></i></button>
+<button id="back-to-top-btn"><i class="la la-angle-double-up"></i></button>
 
-    <div class="page-wrapper">
-        <!-- Preloader -->
-        <div class="preloader"></div>
-
-
-        <!-- Main Header-->
-        <div th:replace="~{user/fragments/fragUserHeader.html}"></div>
-        <!--End Main Header -->
+<div class="page-wrapper">
+<!-- Preloader -->
+<div class="preloader"></div>
+<!-- Main Header-->
+<div th:replace="~{user/fragments/fragUserHeader.html}"></div>
+<!--End Main Header -->
 
 <!--Page Title-->
 <section class="page-title" style="background-image:url(images/background/7.jpg);">
     <div class="auto-container">
         <div class="inner-container clearfix">
-            <h1>Agents</h1>
+            <h1>Експерти</h1>
             <ul class="bread-crumb clearfix">
-                <li><a href="index.html">Home</a></li>
-                <li>Agents</li>
+                <li><a href="/">Головна</a></li>
+                <li>Експерти</li>
             </ul>
         </div>
     </div>
@@ -47,153 +45,14 @@
     <div class="auto-container">
         <div class="row">
             <!-- Agent Block -->
-            <div class="agent-block col-lg-3 col-md-6 col-sm-12">
+            <div class="agent-block col-lg-3 col-md-6 col-sm-12" th:each="agent : ${listOfAgents}">
                 <div class="inner-box">
                     <div class="image-box">
-                        <figure class="image"><a href="agent-detail.html"><img src="images/resource/team-01.jpg" alt=""></a></figure>
+                        <figure class="image"><a href="agent-detail.html"><img th:src="@{'/getImg-'+${agent?.getImage()?.getId()}}" alt=""></a></figure>
                     </div>
                     <div class="info-box">
-                        <h4 class="name"><a href="agent-detail.html">JOHN DOE</a></h4>
-                        <span class="designation">Real Estate Agent</span>
-                        <ul class="social-links">
-                            <li><a href="#"><i class="la la-facebook-f"></i><span>Facebook</span></a></li>
-                            <li><a href="#"><i class="la la-twitter"></i><span>Twitter</span></a></li>
-                            <li><a href="#"><i class="la la-google-plus"><span>google+</span></i></a></li>
-                            <li><a href="#"><i class="la la-dribbble"></i><span>Dribbble</span></a></li>
-                            <li><a href="#"><i class="la la-pinterest"></i><span>Pinterest</span></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Agent Block -->
-            <div class="agent-block col-lg-3 col-md-6 col-sm-12">
-                <div class="inner-box">
-                    <div class="image-box">
-                        <figure class="image"><a href="agent-detail.html"><img src="images/resource/team-02.jpg" alt=""></a></figure>
-                    </div>
-                    <div class="info-box">
-                        <h4 class="name"><a href="agent-detail.html">Alvis Milan</a></h4>
-                        <span class="designation">Real Estate Agent</span>
-                        <ul class="social-links">
-                            <li><a href="#"><i class="la la-facebook-f"></i><span>Facebook</span></a></li>
-                            <li><a href="#"><i class="la la-twitter"></i><span>Twitter</span></a></li>
-                            <li><a href="#"><i class="la la-google-plus"><span>google+</span></i></a></li>
-                            <li><a href="#"><i class="la la-dribbble"></i><span>Dribbble</span></a></li>
-                            <li><a href="#"><i class="la la-pinterest"></i><span>Pinterest</span></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Agent Block -->
-            <div class="agent-block col-lg-3 col-md-6 col-sm-12">
-                <div class="inner-box">
-                    <div class="image-box">
-                        <figure class="image"><a href="agent-detail.html"><img src="images/resource/team-03.jpg" alt=""></a></figure>
-                    </div>
-                    <div class="info-box">
-                        <h4 class="name"><a href="agent-detail.html">JEAMS ADAM</a></h4>
-                        <span class="designation">Real Estate Agent</span>
-                        <ul class="social-links">
-                            <li><a href="#"><i class="la la-facebook-f"></i><span>Facebook</span></a></li>
-                            <li><a href="#"><i class="la la-twitter"></i><span>Twitter</span></a></li>
-                            <li><a href="#"><i class="la la-google-plus"><span>google+</span></i></a></li>
-                            <li><a href="#"><i class="la la-dribbble"></i><span>Dribbble</span></a></li>
-                            <li><a href="#"><i class="la la-pinterest"></i><span>Pinterest</span></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Agent Block -->
-            <div class="agent-block col-lg-3 col-md-6 col-sm-12">
-                <div class="inner-box">
-                    <div class="image-box">
-                        <figure class="image"><a href="agent-detail.html"><img src="images/resource/team-01.jpg" alt=""></a></figure>
-                    </div>
-                    <div class="info-box">
-                        <h4 class="name"><a href="agent-detail.html">hugo smith</a></h4>
-                        <span class="designation">Real Estate Agent</span>
-                        <ul class="social-links">
-                            <li><a href="#"><i class="la la-facebook-f"></i><span>Facebook</span></a></li>
-                            <li><a href="#"><i class="la la-twitter"></i><span>Twitter</span></a></li>
-                            <li><a href="#"><i class="la la-google-plus"><span>google+</span></i></a></li>
-                            <li><a href="#"><i class="la la-dribbble"></i><span>Dribbble</span></a></li>
-                            <li><a href="#"><i class="la la-pinterest"></i><span>Pinterest</span></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Agent Block -->
-            <div class="agent-block col-lg-3 col-md-6 col-sm-12">
-                <div class="inner-box">
-                    <div class="image-box">
-                        <figure class="image"><a href="agent-detail.html"><img src="images/resource/team-02.jpg" alt=""></a></figure>
-                    </div>
-                    <div class="info-box">
-                        <h4 class="name"><a href="agent-detail.html">john doe</a></h4>
-                        <span class="designation">Real Estate Agent</span>
-                        <ul class="social-links">
-                            <li><a href="#"><i class="la la-facebook-f"></i><span>Facebook</span></a></li>
-                            <li><a href="#"><i class="la la-twitter"></i><span>Twitter</span></a></li>
-                            <li><a href="#"><i class="la la-google-plus"><span>google+</span></i></a></li>
-                            <li><a href="#"><i class="la la-dribbble"></i><span>Dribbble</span></a></li>
-                            <li><a href="#"><i class="la la-pinterest"></i><span>Pinterest</span></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Agent Block -->
-            <div class="agent-block col-lg-3 col-md-6 col-sm-12">
-                <div class="inner-box">
-                    <div class="image-box">
-                        <figure class="image"><a href="agent-detail.html"><img src="images/resource/team-03.jpg" alt=""></a></figure>
-                    </div>
-                    <div class="info-box">
-                        <h4 class="name"><a href="agent-detail.html">alvis milan</a></h4>
-                        <span class="designation">Real Estate Agent</span>
-                        <ul class="social-links">
-                            <li><a href="#"><i class="la la-facebook-f"></i><span>Facebook</span></a></li>
-                            <li><a href="#"><i class="la la-twitter"></i><span>Twitter</span></a></li>
-                            <li><a href="#"><i class="la la-google-plus"><span>google+</span></i></a></li>
-                            <li><a href="#"><i class="la la-dribbble"></i><span>Dribbble</span></a></li>
-                            <li><a href="#"><i class="la la-pinterest"></i><span>Pinterest</span></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-  <!-- Agent Block -->
-            <div class="agent-block col-lg-3 col-md-6 col-sm-12">
-                <div class="inner-box">
-                    <div class="image-box">
-                        <figure class="image"><a href="agent-detail.html"><img src="images/resource/team-01.jpg" alt=""></a></figure>
-                    </div>
-                    <div class="info-box">
-                        <h4 class="name"><a href="agent-detail.html">JEAMS ADAM</a></h4>
-                        <span class="designation">Real Estate Agent</span>
-                        <ul class="social-links">
-                            <li><a href="#"><i class="la la-facebook-f"></i><span>Facebook</span></a></li>
-                            <li><a href="#"><i class="la la-twitter"></i><span>Twitter</span></a></li>
-                            <li><a href="#"><i class="la la-google-plus"><span>google+</span></i></a></li>
-                            <li><a href="#"><i class="la la-dribbble"></i><span>Dribbble</span></a></li>
-                            <li><a href="#"><i class="la la-pinterest"></i><span>Pinterest</span></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- Agent Block -->
-            <div class="agent-block col-lg-3 col-md-6 col-sm-12">
-                <div class="inner-box">
-                    <div class="image-box">
-                        <figure class="image"><a href="agent-detail.html"><img src="images/resource/team-02.jpg" alt=""></a></figure>
-                    </div>
-                    <div class="info-box">
-                        <h4 class="name"><a href="agent-detail.html">hugo smith</a></h4>
-                        <span class="designation">Real Estate Agent</span>
+                        <h4 class="name"><a th:href="@{'/agent-'+${agent.getId()}}" th:text="${agent.getFullName()}">JOHN DOE</a></h4>
+                        <span class="designation">Eксперт</span>
                         <ul class="social-links">
                             <li><a href="#"><i class="la la-facebook-f"></i><span>Facebook</span></a></li>
                             <li><a href="#"><i class="la la-twitter"></i><span>Twitter</span></a></li>

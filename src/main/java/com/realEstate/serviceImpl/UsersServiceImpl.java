@@ -28,8 +28,10 @@ public class UsersServiceImpl implements UsersService {
         Image image =imageService.save(multipartFile);
         user.setImage(image);
         user = save(user);
-        image.setUser(user);
-        imageService.save(image);
+        if(image!=null) {
+            image.setUser(user);
+            imageService.save(image);
+        }
         return user;
     }
 
@@ -40,6 +42,8 @@ public class UsersServiceImpl implements UsersService {
             userDB.setFullName(user.getFullName());
             userDB.setMail(user.getMail());
             userDB.setPhone(user.getPhone());
+            userDB.setExperience(user.getExperience());
+            userDB.setAbout(user.getAbout());
             if(user.getPassword().length()>3){
                 userDB.setPassword(user.getPassword());
             }
@@ -67,7 +71,9 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public Users register(Users user, MultipartFile multipartFile) {
-        if(findByMail(user.getMail()).isPresent()) {
+        Users userDB = findByMail(user.getMail()).orElse(null);
+        if(userDB!=null) {
+            System.out.println(userDB);
             return null;
         }else {
             return save(user,multipartFile);

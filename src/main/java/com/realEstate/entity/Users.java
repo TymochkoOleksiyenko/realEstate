@@ -1,6 +1,7 @@
 package com.realEstate.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.List;
@@ -19,6 +20,11 @@ public class Users {
     private String mail;
     private String phone;
     private String password;
+    private Integer experience;
+    @Lob
+    @Type(type = "org.hibernate.type.TextType")
+    private String about;
+
 
 
     @Enumerated(EnumType.STRING)

@@ -10,9 +10,9 @@
     <!-- Page Title  -->
     <title>Експерти</title>
     <!-- StyleSheets  -->
-    <link rel="stylesheet" th:href="@{/dashlite.css}">
-    <link rel="stylesheet" th:href="@{/image-upload.css}">
-    <link id="skin-default" th:href="@{/theme.css}">
+    <link rel="stylesheet" th:href="@{/css/dashlite.css}">
+    <link rel="stylesheet" th:href="@{/css/image-upload.css}">
+    <link id="skin-default" th:href="@{/css/theme.css}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -90,24 +90,24 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr class="nk-tb-item">
+                                                        <tr class="nk-tb-item" th:each="expert :${listOfExperts}" th:id="${expert.getId()}">
                                                             <td class="nk-tb-col" style="width: 20%;">
-                                                                <img src="images/avatar/b-sm.jpg" alt="">
+                                                                <img th:src="@{'/getImg-'+${expert?.getImage()?.getId()}}" alt="">
                                                             </td>
                                                             <td class="nk-tb-col" style="width: 20%; white-space:initial;">
-                                                                <span>name</span>
+                                                                <span th:text="${expert.getFullName()}">name</span>
                                                             </td>
                                                             <td class="nk-tb-col tb-col-lg">
-                                                                <span>12 р.</span>
+                                                                <span th:text="${expert.getExperience()}">12 р.</span>
                                                             </td>
                                                             <td class="nk-tb-col tb-col-lg" style="width: 20%; white-space:initial;">
-                                                                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit dolor facere nobis deserunt ex perferendis doloremque delectus impedit cupiditate corporis quis velit deleniti voluptas quos omnis nesciunt voluptatem, in quasi!</span>
+                                                                <span th:text="${expert.getAbout()}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit dolor facere nobis deserunt ex perferendis doloremque delectus impedit cupiditate corporis quis velit deleniti voluptas quos omnis nesciunt voluptatem, in quasi!</span>
                                                             </td>
                                                             <td class="nk-tb-col tb-col-md">
-                                                                <span>mail@mail.com</span>
+                                                                <span th:text="${expert.getMail()}">mail@mail.com</span>
                                                             </td>
                                                             <td class="nk-tb-col tb-col-lg">
-                                                                <span>qwerty123</span>
+                                                                <span th:text="${expert.getPassword()}">qwerty123</span>
                                                             </td>
                                                             <td class="nk-tb-col nk-tb-col-tools">
                                                                 <ul class="nk-tb-actions gx-1">
@@ -164,7 +164,7 @@
                         <div class="modal-body modal-body-sm">
                             <h4 class="title">Добавлення експерта</h4>
                             <br>
-                            <form action="/admin/experts/add" method="post">
+                            <form action="/admin/experts/add" method="post" enctype="multipart/form-data">
                                 <div class="avatar-upload">
                                     <div class="avatar-edit">
                                         <input type='file' id="imageUpload" name="multipartFile" accept=".png, .jpg, .jpeg" />
@@ -179,7 +179,7 @@
                                 <div class="form-group">
                                     <label class="form-label" for="expertLogin">Логін (email)</label>
                                     <div class="form-control-wrap">
-                                        <input type="email" class="form-control" id="expertLogin" required="required" placeholder="Логін..." name="login">
+                                        <input type="email" class="form-control" id="expertLogin" required="required" placeholder="Логін..." name="mail">
                                     </div>
                                 </div>
 
@@ -200,14 +200,14 @@
                                 <div class="form-group">
                                     <label class="form-label" for="expertName">ПІБ</label>
                                     <div class="form-control-wrap">
-                                        <input type="text" class="form-control" id="expertName" required="required" placeholder="ПІБ..." name="name">
+                                        <input type="text" class="form-control" id="expertName" required="required" placeholder="ПІБ..." name="fullName">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="form-label" for="expertExperience">Досвід роботи</label>
                                     <div class="form-control-wrap">
-                                        <input type="number" min="0" max="100" step="1" class="form-control" id="expertExperience" required="required" placeholder="Досвід роботи..." name="xperience">
+                                        <input type="number" min="0" max="100" step="1" class="form-control" id="expertExperience" required="required" placeholder="Досвід роботи..." name="experience">
                                     </div>
                                 </div>
 
@@ -237,7 +237,7 @@
                         <div class="modal-body modal-body-sm">
                             <h4 class="title">Редагування</h4>
                             <br>
-                            <form action="/admin/experts/edit" method="post">
+                            <form action="/admin/experts/update" method="post">
                                 <input type="text" id="selectedForEditItem" hidden="" name="id">
                                 <div class="avatar-upload">
                                     <div class="avatar-edit">
@@ -253,7 +253,7 @@
                                 <div class="form-group">
                                     <label class="form-label" for="expertLoginEdit">Логін (email)</label>
                                     <div class="form-control-wrap">
-                                        <input type="email" class="form-control" id="expertLoginEdit" required="required" placeholder="Логін..." name="login">
+                                        <input type="email" class="form-control" id="expertLoginEdit" required="required" placeholder="Логін..." name="mail">
                                     </div>
                                 </div>
 
@@ -274,14 +274,14 @@
                                 <div class="form-group">
                                     <label class="form-label" for="expertNameEdit">ПІБ</label>
                                     <div class="form-control-wrap">
-                                        <input type="text" class="form-control" id="expertNameEdit" required="required" placeholder="ПІБ..." name="name">
+                                        <input type="text" class="form-control" id="expertNameEdit" required="required" placeholder="ПІБ..." name="fullName">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="form-label" for="expertExperienceEdit">Досвід роботи</label>
                                     <div class="form-control-wrap">
-                                        <input type="number" min="0" max="100" step="1" class="form-control" id="expertExperienceEdit" required="required" placeholder="Досвід роботи..." name="xperience">
+                                        <input type="number" min="0" max="100" step="1" class="form-control" id="expertExperienceEdit" required="required" placeholder="Досвід роботи..." name="experience">
                                     </div>
                                 </div>
 

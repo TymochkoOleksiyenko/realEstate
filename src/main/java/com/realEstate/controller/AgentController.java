@@ -22,7 +22,7 @@ public class AgentController {
         return "user/agents";
     }
 
-    @GetMapping("/agent-${id}")
+    @GetMapping("/agent-{id}")
     public String getAgentPage(@PathVariable int id, Model model){
         model.addAttribute("agent",usersService.findById(id));
         return "";
