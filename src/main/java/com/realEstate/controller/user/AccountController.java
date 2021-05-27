@@ -24,9 +24,11 @@ public class AccountController {
 
     @PostMapping("/account")
     public String account(Users user, MultipartFile multipartFile){
-        System.out.println(multipartFile);
-        System.out.println(multipartFile.getSize());
         usersService.update(user, multipartFile);
-        return "redirect:/account";
+        if(user.getPassword().isEmpty()) {
+            return "redirect:/account";
+        }else {
+            return "redirect:/login";
+        }
     }
 }
