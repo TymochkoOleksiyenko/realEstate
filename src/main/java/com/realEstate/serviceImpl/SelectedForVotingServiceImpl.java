@@ -24,15 +24,17 @@ public class SelectedForVotingServiceImpl implements SelectedForVotingService {
 
     @Override
     public SelectedForVoting addNewItem(WishList wishList, int flatId){
-        SelectedForVoting selected = new SelectedForVoting();
-        selected.setWishList(wishList);
-        Flat flat = flatService.findById(flatId);
-        if(flat!=null){
-            selected.setFlat(flat);
-            return save(selected);
-        }else {
-            return null;
+        long count = wishList.getList().stream().filter(selected -> selected.getFlat().getId()==flatId).count();
+        if(count==0) {
+            SelectedForVoting selected = new SelectedForVoting();
+            selected.setWishList(wishList);
+            Flat flat = flatService.findById(flatId);
+            if (flat != null) {
+                selected.setFlat(flat);
+                return save(selected);
+            }
         }
+        return null;
     }
 
     @Override

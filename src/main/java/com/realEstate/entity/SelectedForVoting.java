@@ -17,6 +17,6 @@ public class SelectedForVoting {
 
     @ManyToOne
     private Flat flat;
-    @OneToMany(mappedBy = "selectedForVoting")
+    @OneToMany(mappedBy = "selectedForVoting", cascade = CascadeType.REMOVE)
     private List<Vote> voteList;
 }

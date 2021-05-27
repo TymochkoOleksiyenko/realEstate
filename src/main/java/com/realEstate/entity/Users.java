@@ -50,6 +50,7 @@ public class Users {
                 ", mail='" + mail + '\'' +
                 ", phone='" + phone + '\'' +
                 ", password='" + password + '\'' +
+                ", wishList='" + wishList + '\'' +
                 ", role=" + role +
                 '}';
     }

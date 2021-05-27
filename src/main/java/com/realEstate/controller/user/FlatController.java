@@ -4,6 +4,7 @@ import com.realEstate.entity.Flat;
 import com.realEstate.entity.Users;
 import com.realEstate.service.*;
 import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,12 +43,23 @@ public class FlatController {
         return "user/wishlist";
     }
 
-    @GetMapping("/clearWishList")
-    public String clearWishList(){
-        wishListService.clearWishList();
+    @GetMapping("/sendForRate")
+    public String sendForRate(){
+        wishListService.sendForRate();
         return "redirect:/user/flats/myWishList";
     }
 
+    @GetMapping("/clearWishList")
+    public String clearWishList(){
+        String mail = SecurityContextHolder.getContext().getAuthentication().getName();
+        Users user = usersService.findByMail(mail).orElse(null);
+        if(user!=null && user.getWishList()!=null) {
+            wishListService.deleteByID(user.getWishList().getId());
+        }
+        return "redirect:/user/flats/myWishList";
+    }
+
+    @PreAuthorize("isAuthenticated()")
     @ResponseBody
     @PostMapping("/addWishItem-{id}")
     public void addWishItem(@PathVariable int id){

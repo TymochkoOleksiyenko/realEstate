@@ -33,16 +33,16 @@
             <div class="inner-container clearfix">
                 <h1>Property Modern View</h1>
                 <h2 style="width: 50%;">Статус:
-                    <span style="color: #00a75e;">оцінено</span>
-                    <span style="color: #d23737;">не оцінено</span>
-                    <span style="color: #eaa50a;">очікує оцінки</span>
+                    <span style="color: #00a75e;" th:if="${wishList?.getStatus()?.name()?.equals('RATED')}">оцінено</span>
+                    <span style="color: #d23737;" th:if="${wishList?.getStatus()?.name()?.equals('NOT_RATED')}">не оцінено</span>
+                    <span style="color: #eaa50a;" th:if="${wishList?.getStatus()?.name()?.equals('WAIT_FOR_RATING')}">очікує оцінки</span>
                 </h2>
                 <ul style="display: inline-flex; margin-top: 1rem;">
                     <li style="margin-right: 1rem;">
-                        <a href="#" class="theme-btn btn-style-four">оцінити</a>
+                        <a href="/user/flats/sendForRate" class="theme-btn btn-style-four">оцінити</a>
                     </li>
                     <li>
-                        <a href="#" class="theme-btn btn-style-four" style="background-color: #d23737;">очистити список</a>
+                        <a href="/user/flats/clearWishList" class="theme-btn btn-style-four" style="background-color: #d23737;">очистити список</a>
                     </li>
                 </ul>
                 <ul class="bread-crumb clearfix">

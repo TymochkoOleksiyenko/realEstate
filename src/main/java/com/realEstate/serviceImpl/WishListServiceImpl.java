@@ -28,14 +28,26 @@ public class WishListServiceImpl implements WishListService {
 
     @Override
     public WishList addNewItem(int flatId) {
-        WishList wishList = new WishList();
+        WishList wishList;
         String mail = SecurityContextHolder.getContext().getAuthentication().getName();
         Users users = usersService.findByMail(mail).orElse(null);
+        if(users.getWishList()==null){
+            wishList = new WishList();
+        }else {
+            wishList = users.getWishList();
+        }
         wishList.setUser(users);
         wishList.setStatus(StatusOFWishList.NOT_RATED);
         wishList = save(wishList);
         selectedForVotingService.addNewItem(wishList,flatId);
+        users.setWishList(wishList);
+        usersService.save(users);
         return wishList;
+    }
+
+    @Override
+    public WishList findByUserId(int id) {
+        return wishListJPA.findByUserId(id);
     }
 
     @Override
@@ -61,7 +73,26 @@ public class WishListServiceImpl implements WishListService {
     }
 
     @Override
+    public void sendForRate() {
+        String mail = SecurityContextHolder.getContext().getAuthentication().getName();
+        Users user = usersService.findByMail(mail).orElse(null);
+        if(user!=null){
+            WishList list = user.getWishList();
+            if(list!=null && list.getList().size()>1 && list.getStatus().equals(StatusOFWishList.NOT_RATED)){
+                list.setStatus(StatusOFWishList.WAIT_FOR_RATING);
+                save(list);
+            }
+        }
+    }
+
+    @Override
     public void deleteByID(int id) {
-        wishListJPA.deleteById(id);
+        WishList wishList = findById(id);
+        if(wishList!=null) {
+            Users user = wishList.getUser();
+            user.setWishList(null);
+            usersService.save(user);
+            wishListJPA.deleteById(id);
+        }
     }
 }

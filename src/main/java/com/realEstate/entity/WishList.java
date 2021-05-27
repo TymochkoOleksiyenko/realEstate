@@ -15,9 +15,19 @@ public class WishList {
     @OneToOne
     private Users user;
 
-    @OneToMany(mappedBy = "wishList")
+    @OneToMany(mappedBy = "wishList", cascade = CascadeType.REMOVE)
     private List<SelectedForVoting> list;
 
     @Enumerated(EnumType.STRING)
     private StatusOFWishList status = StatusOFWishList.NOT_RATED;
+
+    @Override
+    public String toString() {
+        return "WishList{" +
+                "id=" + id +
+                ", user=" + user.getId() +
+                ", list=" + list +
+                ", status=" + status +
+                '}';
+    }
 }
