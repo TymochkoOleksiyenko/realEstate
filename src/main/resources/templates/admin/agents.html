@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="@@page-discription">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="./images/favicon.png">
+    <!-- Page Title  -->
+    <title>Експерти</title>
+    <!-- StyleSheets  -->
+    <link rel="stylesheet" th:href="@{/dashlite.css}">
+    <link rel="stylesheet" th:href="@{/image-upload.css}">
+    <link id="skin-default" th:href="@{/theme.css}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="nk-body bg-lighter npc-general has-sidebar ">
+    <div class="nk-app-root">
+        <!-- main @s -->
+        <div class="nk-main ">
+            <!-- sidebar @s -->
+            <div class="nk-sidebar nk-sidebar-fixed is-dark " data-content="sidebarMenu">
+                <div class="nk-sidebar-element nk-sidebar-head">
+                    <div class="nk-sidebar-brand">
+                        <a href="html/general/index.html" class="logo-link nk-sidebar-logo">
+                            <img class="logo-light logo-img" src="./images/logo.png" srcset="./images/logo2x.png 2x" alt="logo">
+                            <img class="logo-dark logo-img" src="./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+                        </a>
+                    </div>
+                    <div class="nk-menu-trigger mr-n2">
+                        <a href="#" class="nk-nav-toggle nk-quick-nav-icon d-xl-none" data-target="sidebarMenu"><em class="icon ni ni-arrow-left"></em></a>
+                    </div>
+                </div><!-- .nk-sidebar-element -->
+                <div class="nk-sidebar-element">
+                    <div class="nk-sidebar-content">
+                        <div class="nk-sidebar-menu" data-simplebar>
+                            <ul class="nk-menu">
+                                <li class="nk-menu-item">
+                                    <a href="html/districts.html" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-dashlite"></em></span>
+                                        <span class="nk-menu-text">Райони</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-item">
+                                    <a href="html/infrastructures.html" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-dashlite"></em></span>
+                                        <span class="nk-menu-text">Інфраструктура</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-item">
+                                    <a href="html/experts.html" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-dashlite"></em></span>
+                                        <span class="nk-menu-text">Експерти</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+                                <li class="nk-menu-item">
+                                    <a href="html/categories.html" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-dashlite"></em></span>
+                                        <span class="nk-menu-text">Категорії</span>
+                                    </a>
+                                </li><!-- .nk-menu-item -->
+                            </ul><!-- .nk-menu -->
+                        </div><!-- .nk-sidebar-menu -->
+                    </div><!-- .nk-sidebar-content -->
+                </div><!-- .nk-sidebar-element -->
+            </div>
+            <!-- sidebar @e -->
+            <!-- wrap @s -->
+            <div class="nk-wrap ">
+                <!-- main header @s -->
+                <div class="nk-header nk-header-fixed is-light">
+                    <div class="container-fluid">
+                        <div class="nk-header-wrap">
+                            <div class="nk-menu-trigger d-xl-none ml-n1">
+                                <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
+                            </div>
+                            <div class="nk-header-brand d-xl-none">
+                                <a href="html/crypto/index.html" class="logo-link">
+                                    <img class="logo-light logo-img" src="./images/logo.png" srcset="./images/logo2x.png 2x" alt="logo">
+                                    <img class="logo-dark logo-img" src="./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+                                </a>
+                            </div><!-- .nk-header-brand -->
+
+                            <div class="nk-header-tools">
+                                <ul class="nk-quick-nav">
+                                    <li class="dropdown user-dropdown">
+                                        <div class="user-toggle">
+                                            <div class="user-avatar sm">
+                                                <em class="icon ni ni-user-alt"></em>
+                                            </div>
+                                            <div class="user-info d-none d-md-block">
+                                                <h6>Адміністратор</h6>
+                                            </div>
+                                        </div>
+                                    </li><!-- .dropdown -->
+                                    <li>
+                                        <a href="/logout" class="nk-quick-nav-icon" data-toggle="tooltip" data-placement="bottom" title="Вийти">
+                                            <em class="icon ni ni-signout"></em>
+                                        </a>
+                                    </li>
+                                </ul><!-- .nk-quick-nav -->
+                            </div><!-- .nk-header-tools -->
+                        </div><!-- .nk-header-wrap -->
+                    </div><!-- .container-fliud -->
+                </div>
+                <!-- main header @e -->
+                <!-- content @s -->
+                <div class="nk-content ">
+                    <div class="container-fluid">
+                        <div class="nk-content-inner">
+                            <div class="nk-content-body">
+                                <div class="components-preview wide-md mx-auto">
+                                    <div class="nk-block-head nk-block-head-lg wide-sm">
+                                        <div class="nk-block-head-content">
+                                            <h2 class="nk-block-title fw-normal">Експерти</h2>
+                                        </div>
+                                    </div><!-- .nk-block-head -->
+                                    <div class="nk-block nk-block-lg">
+                                        <div class="card card-bordered card-preview">
+                                            <div class="card-inner">
+                                                <table class="datatable-init nk-tb-list nk-tb-ulist" data-auto-responsive="false">
+                                                    <thead>
+                                                        <tr class="nk-tb-item nk-tb-head">
+                                                            <th class="nk-tb-col"><span class="sub-text">Фото</span></th>
+                                                            <th class="nk-tb-col"><span class="sub-text">ПІБ</span></th>
+                                                            <th class="nk-tb-col tb-col-lg"><span class="sub-text">Досвід</span></th>
+                                                            <th class="nk-tb-col tb-col-lg"><span class="sub-text">Опис (про себе)</span></th>
+                                                            <th class="nk-tb-col tb-col-md"><span class="sub-text">Логін</span></th>
+                                                            <th class="nk-tb-col tb-col-lg"><span class="sub-text">Пароль</span></th>
+                                                            <th class="nk-tb-col nk-tb-col-tools text-right"></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="nk-tb-item">
+                                                            <td class="nk-tb-col" style="width: 20%;">
+                                                                <img src="images/avatar/b-sm.jpg" alt="">
+                                                            </td>
+                                                            <td class="nk-tb-col" style="width: 20%; white-space:initial;">
+                                                                <span>name</span>
+                                                            </td>
+                                                            <td class="nk-tb-col tb-col-lg">
+                                                                <span>12 р.</span>
+                                                            </td>
+                                                            <td class="nk-tb-col tb-col-lg" style="width: 20%; white-space:initial;">
+                                                                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit dolor facere nobis deserunt ex perferendis doloremque delectus impedit cupiditate corporis quis velit deleniti voluptas quos omnis nesciunt voluptatem, in quasi!</span>
+                                                            </td>
+                                                            <td class="nk-tb-col tb-col-md">
+                                                                <span>mail@mail.com</span>
+                                                            </td>
+                                                            <td class="nk-tb-col tb-col-lg">
+                                                                <span>qwerty123</span>
+                                                            </td>
+                                                            <td class="nk-tb-col nk-tb-col-tools">
+                                                                <ul class="nk-tb-actions gx-1">
+                                                                    <li>
+                                                                        <div class="drodown">
+                                                                            <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
+                                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                                <ul class="link-list-opt no-bdr">
+                                                                                    <li><a data-toggle="modal" onclick="showEditExpertModal(this)"><em class="icon ni ni-edit-alt"></em><span>Редагувати</span></a></li>
+                                                                                    <li><a data-toggle="modal" onclick="showConfirmationDeleteExpertModal(this)" ><em class="icon ni ni-trash"></em><span>Видалити</span></a></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr><!-- .nk-tb-item  -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div><!-- .card-preview -->
+                                    </div> <!-- nk-block -->
+                                </div><!-- .components-preview -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- content @e -->
+                <a href="" data-toggle="modal" data-target="#addExpertModal" title="Добавити" class="btn btn-icon btn-lg btn-primary float-right" style="position: fixed; bottom: 25px; right: 25px; z-index: 1000;">
+                    <em class="icon ni ni-grid-add-c"></em>
+                </a>
+                <!-- footer @s -->
+                <div class="nk-footer">
+                    <div class="container-fluid">
+                        <div class="nk-footer-wrap">
+                            <div class="nk-footer-copyright"> &copy; <span id="year"></span> Lorem Ipsum</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer @e -->
+            </div>
+            <!-- wrap @e -->
+        </div>
+        <!-- main @e -->
+    </div>
+
+
+    <!-- MODALS START -->
+            <!-- Adding start -->
+            <div class="modal fade" tabindex="-1" role="dialog" id="addExpertModal" aria-modal="true">
+                <div class="modal-dialog modal-md" role="document">
+                    <div class="modal-content">
+                        <a href="#" class="close" data-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+                        <div class="modal-body modal-body-sm">
+                            <h4 class="title">Добавлення експерта</h4>
+                            <br>
+                            <form action="/admin/experts/add" method="post">
+                                <div class="avatar-upload">
+                                    <div class="avatar-edit">
+                                        <input type='file' id="imageUpload" name="multipartFile" accept=".png, .jpg, .jpeg" />
+                                        <label for="imageUpload"></label>
+                                    </div>
+                                    <div class="avatar-preview">
+                                        <div id="imagePreview" style="background-image: url('images/avatar/a-sm.jpg');">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="expertLogin">Логін (email)</label>
+                                    <div class="form-control-wrap">
+                                        <input type="email" class="form-control" id="expertLogin" required="required" placeholder="Логін..." name="login">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="expertPassword">Пароль</label>
+                                    <div class="form-control-wrap">
+                                        <input type="password" minlength="8" class="form-control" id="expertPassword" required="required" placeholder="Пароль..." name="password">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="expertPasswordConfirmation">Підтрвердження паролю</label>
+                                    <div class="form-control-wrap">
+                                        <input type="password" minlength="8" class="form-control" id="expertPasswordConfirmation" required="required" placeholder="Пароль...">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="expertName">ПІБ</label>
+                                    <div class="form-control-wrap">
+                                        <input type="text" class="form-control" id="expertName" required="required" placeholder="ПІБ..." name="name">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="expertExperience">Досвід роботи</label>
+                                    <div class="form-control-wrap">
+                                        <input type="number" min="0" max="100" step="1" class="form-control" id="expertExperience" required="required" placeholder="Досвід роботи..." name="xperience">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="expertAbout">Опис (про себе)</label>
+                                    <div class="form-control-wrap">
+                                        <textarea class="form-control" required="required" id="expertAbout" placeholder="Введіть текст..." name="about"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-outline-primary">Добавити</button>
+                                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Скасувати</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Adding end -->
+
+            <!-- Edit start -->
+            <div class="modal fade" tabindex="-1" role="dialog" id="editExpertModal" aria-modal="true">
+                <div class="modal-dialog modal-md" role="document">
+                    <div class="modal-content">
+                        <a href="#" class="close" data-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+                        <div class="modal-body modal-body-sm">
+                            <h4 class="title">Редагування</h4>
+                            <br>
+                            <form action="/admin/experts/edit" method="post">
+                                <input type="text" id="selectedForEditItem" hidden="" name="id">
+                                <div class="avatar-upload">
+                                    <div class="avatar-edit">
+                                        <input type='file' id="imageUploadEdit" name="multipartFile" accept=".png, .jpg, .jpeg" />
+                                        <label for="imageUploadEdit"></label>
+                                    </div>
+                                    <div class="avatar-preview">
+                                        <div id="imagePreviewEdit">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="expertLoginEdit">Логін (email)</label>
+                                    <div class="form-control-wrap">
+                                        <input type="email" class="form-control" id="expertLoginEdit" required="required" placeholder="Логін..." name="login">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="expertPasswordEdit">Пароль</label>
+                                    <div class="form-control-wrap">
+                                        <input type="password" minlength="8" class="form-control" id="expertPasswordEdit" required="required" placeholder="Пароль..." name="password">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="expertPasswordConfirmationEdit">Підтрвердження паролю</label>
+                                    <div class="form-control-wrap">
+                                        <input type="password" minlength="8" class="form-control" id="expertPasswordConfirmationEdit" required="required" placeholder="Пароль..." >
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="expertNameEdit">ПІБ</label>
+                                    <div class="form-control-wrap">
+                                        <input type="text" class="form-control" id="expertNameEdit" required="required" placeholder="ПІБ..." name="name">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="expertExperienceEdit">Досвід роботи</label>
+                                    <div class="form-control-wrap">
+                                        <input type="number" min="0" max="100" step="1" class="form-control" id="expertExperienceEdit" required="required" placeholder="Досвід роботи..." name="xperience">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="expertAboutEdit">Опис (про себе)</label>
+                                    <div class="form-control-wrap">
+                                        <textarea class="form-control" required="required" id="expertAboutEdit" placeholder="Введіть текст..." name="about"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-outline-primary">Зберегти</button>
+                                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Скасувати</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Edit end -->
+
+            <!-- Delete expert confirmation start -->
+            <div class="modal fade" tabindex="-1" role="dialog" id="deleteExpertModal" aria-modal="true">
+                <div class="modal-dialog modal-md" role="document">
+                    <div class="modal-content">
+                        <a href="#" class="close" data-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+                        <div class="modal-body modal-body-md">
+                            <h4 class="title">Видалення</h4>
+                            <br>
+                            <form action="/admin/experts/delete" method="post">
+                                <input type="number" id="selectedForDeleteItem" hidden="" name="id">
+                                <p style="margin-bottom: 2rem;">Ви впевнені, що хочете видалити? Підтвердивши дію, Ви не зможете повернутися до попереднього стану.</p>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-outline-primary">Підтвердити</button>
+                                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Скасувати</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Delete expert confirmation end -->
+    <!-- MODALS END -->
+
+    <!-- app-root @e -->
+    <!-- JavaScript -->
+    <script th:src="@{/js/bundle.js}"></script>
+    <script th:src="@{/js/scripts.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+
+    <script>
+        $( document ).ready(function() {
+            document.getElementById("year").innerHTML = new Date().getFullYear();
+        });
+    
+        function showEditExpertModal(btnObj) {
+            let trObj = btnObj.closest("tbody tr");
+            let trId =  $(trObj).attr('id');
+    
+            let image =         $(trObj).find('td:eq(0)').find('img').attr('src');
+            console.log(image);
+            let name =          $(trObj).find('td:eq(1)').text().trim();
+            let xperience =     $(trObj).find('td:eq(2)').text().trim();
+            let about =         $(trObj).find('td:eq(3)').text().trim();
+            let login =         $(trObj).find('td:eq(4)').text().trim();
+            let password =      $(trObj).find('td:eq(5)').text().trim();
+
+            $('#imagePreviewEdit').css("background-image", "url("+image+")"); 
+            $('#expertNameEdit').val(name);
+            $('#expertExperienceEdit').val(xperience);
+            $('#expertAboutEdit').val(about);
+            $('#expertLoginEdit').val(login);
+            $('#expertPasswordEdit').val(password);
+        
+            $('#selectedForEditItem')           .val(trId);
+            $('#editExpertModal').modal('show');
+        }
+    
+        function showConfirmationDeleteExpertModal(btnObj){
+            let trObj = btnObj.closest("tbody tr");
+            let trId =  $(trObj).attr('id');
+        
+            $('#selectedForDeleteItem').val(trId);
+            $('#deleteExpertModal').modal('show');
+        }
+    </script>
+    <script>
+        $('.phone_number').inputmask('+(999)-999-999-999');
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+                    $('#imagePreview').hide();
+                    $('#imagePreview').fadeIn(650);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        function readURLEdit(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#imagePreviewEdit').css('background-image', 'url(' + e.target.result + ')');
+                    $('#imagePreviewEdit').hide();
+                    $('#imagePreviewEdit').fadeIn(650);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#imageUpload").change(function () {
+            readURL(this);
+        });
+
+        $("#imageUploadEdit").change(function () {
+            readURLEdit(this);
+        });
+    </script>
+</body>
+
+</html>
