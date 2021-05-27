@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <meta charset="utf-8">
@@ -51,9 +51,9 @@
                     <div class="top-right" style="padding: 22px 0 0;">
                         <div class="social-links">
                             <ul class="social-icon-three">
-                                <li><a href="/login" style="font-size: 14px;"><span class="la la-sign-in"></span> Вхід</a></li>
-                                <li><a href="/register" style="font-size: 14px;"><span class="la la-user"></span> Реєстрація</a></li>
-                                <li><a href="/logout" style="font-size: 14px;"><span class="la la-sign-out"></span> Вийти</a></li>
+                                <li sec:authorize="!isAuthenticated()"><a href="/login" style="font-size: 14px;"><span class="la la-sign-in"></span> Вхід</a></li>
+                                <li sec:authorize="!isAuthenticated()"><a href="/register" style="font-size: 14px;"><span class="la la-user"></span> Реєстрація</a></li>
+                                <li sec:authorize="hasAuthority('USER')"><a href="/logout" style="font-size: 14px;"><span class="la la-sign-out"></span> Вийти</a></li>
                             </ul>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                                         <li><a href="/allFlats">Нерухомість</a></li>
                                         <li><a href="/agents">Агенти</a></li>
 
-                                        <li class="dropdown"><a href="#" style="padding-left: 1rem">Профіль</a>
+                                        <li class="dropdown" sec:authorize="hasAuthority('USER')"><a href="#" style="padding-left: 1rem">Профіль</a>
                                             <ul>
                                                 <li><a href="/account">Акаунт</a></li>
                                                 <li><a href="/user/flats/myFlats">Мої квартири</a></li>
@@ -105,7 +105,7 @@
                             <div class="outer-box clearfix">
                                 <!--Search Box-->
                                 <div class="btn-box">
-                                    <a href="/user/flats/create" class="theme-btn btn-style-one">Добавити<i class="flaticon-home" style="padding-left: 0.8rem"></i></a>
+                                    <a href="/user/flats/create" class="theme-btn btn-style-one" >Добавити<i class="flaticon-home" style="padding-left: 0.8rem"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -132,7 +132,7 @@
                                 <li><a href="/allFlats">Нерухомість</a></li>
                                 <li><a href="/agents">Агенти</a></li>
 
-                                <li class="dropdown"><a href="#">Профіль</a>
+                                <li class="dropdown" sec:authorize="hasAuthority('USER')"><a href="#">Профіль</a>
                                     <ul>
                                         <li><a href="/account">Акаунт</a></li>
                                         <li><a href="/user/flats/myFlats">Мої квартири</a></li>

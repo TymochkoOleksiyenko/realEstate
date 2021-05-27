@@ -7,10 +7,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Arrays;
@@ -49,6 +46,12 @@ public class FlatController {
     public String clearWishList(){
         wishListService.clearWishList();
         return "redirect:/user/flats/myWishList";
+    }
+
+    @ResponseBody
+    @PostMapping("/addWishItem-{id}")
+    public void addWishItem(@PathVariable int id){
+        wishListService.addNewItem(id);
     }
 
     @GetMapping("/deleteWishItem-{id}")
