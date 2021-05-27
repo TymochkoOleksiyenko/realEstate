@@ -28,6 +28,7 @@ public class AgentController {
     public String getAgentPage(@PathVariable int id, Model model){
         model.addAttribute("agent",usersService.findById(id));
         model.addAttribute("dateFormat",new SimpleDateFormat("dd-MM-yyyy"));
+        model.addAttribute("listOfAgents",usersService.findByRole(Role.EXPERT));
         return "user/agent-detail";
     }
 

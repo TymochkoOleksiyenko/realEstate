@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 import java.util.Optional;
 
@@ -85,10 +86,13 @@ public class UsersServiceImpl implements UsersService {
     public Users countAverageRate(int id){
         Users user = findById(id);
         BigDecimal bigDecimal = new BigDecimal(0);
-        for(Feedback feedback: user.getFeedbacks()){
-            bigDecimal = bigDecimal.add(new BigDecimal(feedback.getMark()));
+        if(user.getFeedbacks().size()>0) {
+            for (Feedback feedback : user.getFeedbacks()) {
+                bigDecimal = bigDecimal.add(new BigDecimal(feedback.getMark()));
+            }
+            bigDecimal = bigDecimal.divide(new BigDecimal(user.getFeedbacks().size()));
         }
-        user.setAverageRate(bigDecimal.intValue());
+        user.setAverageRate(bigDecimal);
         return save(user);
     }
 

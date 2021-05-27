@@ -4,6 +4,7 @@ import lombok.Data;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -22,7 +23,7 @@ public class Users {
     private String password;
     private String address;
     private Integer experience;
-    private Integer averageRate;
+    private BigDecimal averageRate;
     @Lob
     @Type(type = "org.hibernate.type.TextType")
     private String about;
