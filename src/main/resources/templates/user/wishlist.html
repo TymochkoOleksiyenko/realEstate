@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<title>Find Home - Real Estate HTML Template </title>
+<!-- Stylesheets -->
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/responsive.css}" rel="stylesheet">
+
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+<link rel="icon" href="images/favicon.png" type="image/x-icon">
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+</head>
+
+<body>
+      <button id="back-to-top-btn"><i class="la la-angle-double-up"></i></button>
+<div class="page-wrapper">
+    <!-- Preloader -->
+    <div class="preloader"></div>
+
+    <!-- Main Header-->
+    <div th:replace="~{user/fragments/fragUserHeader.html}"></div>
+    <!--End Main Header -->
+    
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url(images/background/7.jpg);">
+        <div class="auto-container">
+            <div class="inner-container clearfix">
+                <h1>Property Modern View</h1>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="index.html">Home</a></li>
+                    <li>Property Grid View</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--End Page Title-->
+
+    <!-- Propery Modern View -->
+    <section class="property-modern-view">
+        <div class="auto-container">
+            <!-- Property Block START-->
+            <div class="property-block-four">
+                <div class="row">
+                    <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner-column">
+                            <figure class="image"><img src="images/resource/recenty_1.jpg" alt=""></figure>
+                        </div>
+                    </div>
+
+                    <div class="content-column col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner-column">
+                            <a href="XXX"><span class="float-right delete-btn">Видалити</span></a>
+                            <h3><a href="property-detail.html">Independent Apartment With Modern Design</a></h3>
+                            <div class="thumb"><img src="images/resource/thumb-3.jpg" alt=""></div>
+                            <div class="price"><i class="la la-money"></i> $ 67,564</div>
+                            <div class="location"><i class="la la-map-marker"></i> 121, King St, VIC 3000, New York, United States</div>
+                            <div class="text">Temporibus autem quibusdam et aut officiis debitis is aut rerum necessitatibus saepes eveniet ut etes seo lage voluptates repudiandae sint et molestiae non mes for Creating futures through building pres Creating preservation etes quibusdam.</div>
+                            <ul class="property-info clearfix">
+                                <li><i class="flaticon-dimension"></i> 356 Sq-Ft</li>
+                                <li><i class="flaticon-bed"></i> 4 Bedrooms</li>
+                                <li><i class="flaticon-car"></i> 2 Garage</li>
+                                <li><i class="flaticon-bathtub"></i> 3 Bathroom</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Property Block END-->
+
+
+            <!-- Property Block START-->
+            <div class="property-block-four style-two">
+                <div class="row">
+                    <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner-column">
+                            <figure class="image"><img src="images/resource/property-10.jpg" alt=""></figure>
+                        </div>
+                    </div>
+
+                    <div class="content-column col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner-column">
+                            <a href="XXX"><span class="float-right delete-btn">Видалити</span></a>
+                            <h3><a href="property-detail.html">Independent Apartment With Modern Design</a></h3>
+                            <div class="thumb"><img src="images/resource/thumb-4.jpg" alt=""></div>
+                            <div class="price"><i class="la la-money"></i> $ 56,0 / Monthly</div>
+                            <div class="location"><i class="la la-map-marker"></i> 121, King St, VIC 3000, New York, United States</div>
+                            <div class="text">Temporibus autem quibusdam et aut officiis debitis is aut rerum necessitatibus saepes eveniet ut etes seo lage voluptates repudiandae sint et molestiae non mes for Creating futures through building pres Creating preservation etes quibusdam.</div>
+                            <ul class="property-info clearfix">
+                                <li><i class="flaticon-dimension"></i> 356 Sq-Ft</li>
+                                <li><i class="flaticon-bed"></i> 4 Bedrooms</li>
+                                <li><i class="flaticon-car"></i> 2 Garage</li>
+                                <li><i class="flaticon-bathtub"></i> 3 Bathroom</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Property Block END-->
+        </div>
+    </section>
+    <!--End Propery Modern View -->
+
+
+    <!-- Main Footer -->
+    <div th:replace="~{user/fragments/fragUserFooter.html}"></div>
+    <!-- End Main Footer -->
+
+</div>
+<!--End pagewrapper-->
+
+      <script th:src="@{/js/jquery.js}"></script>
+      <script th:src="@{/js/popper.min.js}"></script>
+      <script th:src="@{/js/bootstrap.min.js}"></script>
+      <script th:src="@{/js/jquery-ui.js}"></script>
+      <script th:src="@{/js/jquery.fancybox.js}"></script>
+      <script th:src="@{/js/owl.js}"></script>
+      <script th:src="@{/js/wow.js}"></script>
+      <script th:src="@{/js/isotope.js}"></script>
+      <script th:src="@{/js/mixitup.js}"></script>
+      <script th:src="@{/js/appear.js}"></script>
+      <script th:src="@{/js/script.js}"></script>
+      <script th:src="@{/js/scroll.js}"></script>
+</body>
+
+</html>
