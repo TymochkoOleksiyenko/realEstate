@@ -53,13 +53,13 @@
                     <div class="info-box">
                         <h4 class="name"><a th:href="@{'/agent-'+${agent.getId()}}" th:text="${agent.getFullName()}">JOHN DOE</a></h4>
                         <span class="designation">Eксперт</span>
-                        <ul class="social-links">
-                            <li><a href="#"><i class="la la-facebook-f"></i><span>Facebook</span></a></li>
-                            <li><a href="#"><i class="la la-twitter"></i><span>Twitter</span></a></li>
-                            <li><a href="#"><i class="la la-google-plus"><span>google+</span></i></a></li>
-                            <li><a href="#"><i class="la la-dribbble"></i><span>Dribbble</span></a></li>
-                            <li><a href="#"><i class="la la-pinterest"></i><span>Pinterest</span></a></li>
-                        </ul>
+                        <div class="rating social-links" style="font-size: 26px; color: #deb846; margin-top: 0.5rem;">
+                            <span class="la " th:classappend="${(agent.getAverageRate()>=1)?'la-star':'la-star-o'}"></span>
+                            <span class="la " th:classappend="${(agent.getAverageRate()>=2)?'la-star':'la-star-o'}"></span>
+                            <span class="la " th:classappend="${(agent.getAverageRate()>=3)?'la-star':'la-star-o'}"></span>
+                            <span class="la " th:classappend="${(agent.getAverageRate()>=4)?'la-star':'la-star-o'}"></span>
+                            <span class="la " th:classappend="${(agent.getAverageRate()>=4.5)?'la-star':'la-star-o'}"></span>
+                        </div>
                     </div>
                 </div>
             </div>

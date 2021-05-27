@@ -75,20 +75,19 @@
                                     <div class="row">
                                         <div class="column col-xl-4 col-lg-12 col-md-12 col-sm-12">
                                             <ul>
-                                                <li><i class="la la-phone"></i> <span th:text="${agent.getPhone()}"></span></li>
+                                                <li><i class="la la-phone"></i><p th:text="${agent.getPhone()}"></p></li>
                                             </ul>
                                         </div>
 
                                         <div class="column col-xl-4 col-lg-6 col-md-6 col-sm-12">
                                             <ul>
-                                                <li><i class="la la-envelope-o"></i> <a
-                                                        href="#" th:text="${agent.getMail()}">info@example.com</a></li>
+                                                <li><i class="la la-envelope-o"></i> <p th:text="${agent.getMail()}">info@example.com</p></li>
                                             </ul>
                                         </div>
 
                                         <div class="column col-xl-4 col-lg-12 col-md-12 col-sm-12">
                                             <ul>
-                                                <li><i class="la la-home"></i><span th:text="${agent.getAddress()}"></span></li>
+                                                <li><i class="la la-home"></i><p th:text="${agent.getAddress()}"></p></li>
                                             </ul>
                                         </div>
                                     </div>

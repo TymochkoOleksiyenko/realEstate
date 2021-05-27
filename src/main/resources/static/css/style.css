@@ -5995,12 +5995,13 @@ a.ui-button:active, .ui-button:active,
 
 .agent-detail .contact-info ul li{
 	position: relative;
-	display: block;
+	display: flex;
 	font-size: 15px;
 	line-height: 26px;
 	color: #222222;
 	font-weight: 700;
-	margin-bottom: 10px;
+	line-break: anywhere;
+	/* margin-bottom: 10px; */
 }
 
 .agent-detail .contact-info ul li i{
@@ -6013,8 +6014,9 @@ a.ui-button:active, .ui-button:active,
 	top: 3px;
 }
 
-.agent-detail .contact-info ul li a{
+.agent-detail .contact-info ul li p{
 	color: #222222;
+	font-weight: bold;
 	-webkit-transition: all 300ms ease;
 	-moz-transition: all 300ms ease;
 	-ms-transition: all 300ms ease;
@@ -9550,7 +9552,7 @@ a.ui-button:active, .ui-button:active,
 	line-height: 117px;
 }
 
-/*** 
+/***
 
 ====================================================================
 		Appointment Section
@@ -9640,7 +9642,7 @@ a.ui-button:active, .ui-button:active,
 
 
 
-/*** 
+/***
 
 ====================================================================
 		App Section
@@ -9742,7 +9744,7 @@ a.ui-button:active, .ui-button:active,
 }
 
 
-/*** 
+/***
 
 ====================================================================
 	About Counter Section
@@ -9926,7 +9928,7 @@ a.ui-button:active, .ui-button:active,
 
 
 
-/*** 
+/***
 
 ====================================================================
   Feature Section
@@ -10023,7 +10025,7 @@ a.ui-button:active, .ui-button:active,
 }
 
 
-/*** 
+/***
 
 ====================================================================
 	Talk Section
@@ -10100,4 +10102,25 @@ a.ui-button:active, .ui-button:active,
 .talk-section .button-column .inner-column .theme-btn{
 	position:relative;
 	border-radius:0px;
+}
+
+.delete-btn{
+	position: relative;
+	display: inline-block;
+	font-size: 14px;
+	line-height: 24px;
+	color: #ffffff;
+	font-weight: 700;
+	text-transform: uppercase;
+	padding: 0 14px;
+	background-color: #ff6767;
+	margin-bottom: 20px;
+	font-family: "Raleway", sans-serif;
+	z-index: 9999;
+}
+
+
+.delete-btn:hover{
+	background-color: white;
+	color: #ff6767;
 }
