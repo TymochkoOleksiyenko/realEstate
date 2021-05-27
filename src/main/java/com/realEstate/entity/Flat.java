@@ -36,7 +36,7 @@ public class Flat implements Comparable<Flat>{
     @ManyToMany(mappedBy = "flats")
     private List<Infrastructure> infrastructureList;
 
-    @OneToOne
+    @ManyToOne
     private Users createdBy;
 
     @Override

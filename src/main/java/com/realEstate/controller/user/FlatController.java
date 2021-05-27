@@ -31,7 +31,7 @@ public class FlatController {
     @GetMapping("/myFlats-{userId}")
     public String myFlats(@PathVariable int userId, Model model){
         model.addAttribute("listOfFlats",flatService.findByCreatedById(userId));
-        return "";
+        return "user/myFlats";
     }
 
     @GetMapping("/create")
@@ -63,5 +63,13 @@ public class FlatController {
     public String edit(Flat flat, MultipartFile[] files){
         flatService.update(Arrays.asList(files),flat);
         return "redirect:/user/flats";
+    }
+
+    @GetMapping("/delete-{id}")
+    public String delete(@PathVariable int id){
+        String mail = SecurityContextHolder.getContext().getAuthentication().getName();
+        Users user = usersService.findByMail(mail).orElse(new Users());
+        flatService.deleteByID(id);
+        return "redirect:/myFlats-"+user.getId();
     }
 }

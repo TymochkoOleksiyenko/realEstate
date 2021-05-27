@@ -36,6 +36,9 @@ public class Users {
     @OneToMany(mappedBy = "expert")
     private List<Feedback> feedbacks;
 
+    @OneToMany(mappedBy = "createdBy")
+    private List<Flat> myFlats;
+
     @Override
     public String toString() {
         return "Users{" +
