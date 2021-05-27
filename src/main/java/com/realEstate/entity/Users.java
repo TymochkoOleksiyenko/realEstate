@@ -20,6 +20,7 @@ public class Users {
     private String mail;
     private String phone;
     private String password;
+    private String address;
     private Integer experience;
     private Integer averageRate;
     @Lob
