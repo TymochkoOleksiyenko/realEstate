@@ -3,6 +3,7 @@ package com.realEstate.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -22,6 +23,9 @@ public class Users {
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @OneToMany(mappedBy = "expert")
+    private List<Feedback> feedbacks;
 
     @Override
     public String toString() {

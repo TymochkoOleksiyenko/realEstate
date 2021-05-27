@@ -43,23 +43,26 @@ public class UsersServiceImpl implements UsersService {
             if(user.getPassword().length()>3){
                 userDB.setPassword(user.getPassword());
             }
+            return usersJPA.save(userDB);
+        }else {
+            return null;
         }
-        return usersJPA.save(userDB);
     }
 
     @Override
     public Users update(Users user, MultipartFile multipartFile) {
-        user = update(user);
+        Users userDB = update(user);
+        System.out.println(userDB);
         if(multipartFile!=null && multipartFile.getSize()>0) {
-            if(user.getImage()!=null) {
-                imageService.deleteById(user.getImage().getId());
+            if(userDB.getImage()!=null) {
+                imageService.deleteById(userDB.getImage().getId());
             }
             Image image = imageService.save(multipartFile);
-            user.setImage(image);
-            image.setUser(user);
+            userDB.setImage(image);
+            image.setUser(userDB);
             imageService.save(image);
         }
-        return save(user);
+        return save(userDB);
     }
 
     @Override
