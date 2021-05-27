@@ -60,15 +60,14 @@
                                 <div class="property-block col-xl-6 col-lg-12 col-md-12 col-sm-12" th:each="flat : ${listOfFlats}">
                                     <div class="inner-box">
                                         <div class="image-box">
-                                            <figure class="image"><img src="images/resource/property-1.jpg" alt="">
+                                            <figure class="image"><img th:if="${flat.getImages().size()>0}" th:src="@{'/getImg-'+${flat.getImages()?.get(0)?.getId()}}" alt="">
                                             </figure>
                                             <a class="for">ДО ОБРАНИХ</a>
                                         </div>
                                         <div class="lower-content">
-                                            <div class="thumb"><img th:if="${flat.getImages().size()>0}" th:src="@{'/getImg-'+${flat.getImages()?.get(0)?.getId()}}" alt=""></div>
+                                            <div class="thumb"><img th:src="@{'/getImg-'+${flat?.getCreatedBy()?.getImage()?.getId()}}"  alt=""></div>
                                             <h3><a th:href="@{'/flat-'+${flat.getId()}}" th:text="${flat.getName()}">Modern Apartment in City Center</a></h3>
-                                            <div class="lucation"><i class="la la-map-marker"></i> 121, King St, VIC 3000, New York, United States</div>
-                                            <div class="lucation"><i class="la la-map-marker"></i> <span th:text="${flat.getName()}"></span></div>
+                                            <div class="lucation"><i class="la la-map-marker"></i> <span th:text="${flat.getAddress()}"></span></div>
                                             <ul class="property-info clearfix">
                                                 <li><i class="flaticon-money"></i><span th:text="${flat.getPrice()}"></span> USD</li>
                                                 <li><i class="flaticon-bed"></i> <span th:text="${flat.getCountOfRooms()}"></span></li>

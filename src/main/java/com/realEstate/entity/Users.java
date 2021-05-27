@@ -39,6 +39,8 @@ public class Users {
     @OneToMany(mappedBy = "createdBy")
     private List<Flat> myFlats;
 
+    @OneToOne
+    private WishList wishList;
 
     @Override
     public String toString() {

@@ -53,7 +53,7 @@
                             <li><i class="flaticon-dimension"></i> <span th:text="${flat.getArea().doubleValue()}">356 Sq-Ft</span></li>
                             <li><i class="flaticon-bed"></i><span th:text="${flat.getCountOfRooms()}"></span></li>
                             <li><i class="flaticon-car"></i><span th:text="${flat.getFloor()}"></span> </li>
-                            <li><i class="flaticon-bathtub"></i> <span th:text="${flat.getDistrict()}"></span></li>
+                            <li><i class="flaticon-bathtub"></i> <span th:text="${flat?.getDistrict()?.getName()}"></span></li>
                         </ul>
                     </div>
                     <div class="price-column col-lg-4 col-md-12 col-sm-12">

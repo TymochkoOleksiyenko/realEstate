@@ -2,10 +2,7 @@ package com.realEstate.controller.user;
 
 import com.realEstate.entity.Flat;
 import com.realEstate.entity.Users;
-import com.realEstate.service.DistrictService;
-import com.realEstate.service.FlatService;
-import com.realEstate.service.InfrastructureService;
-import com.realEstate.service.UsersService;
+import com.realEstate.service.*;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -26,6 +23,8 @@ public class FlatController {
     private final UsersService usersService;
     private final DistrictService districtService;
     private final InfrastructureService infService;
+    private final WishListService wishListService;
+    private final SelectedForVotingService selectedForVotingService;
 
 
     @GetMapping("/myFlats")
@@ -35,6 +34,29 @@ public class FlatController {
         model.addAttribute("listOfFlats",flatService.findByCreatedById(userId));
         return "user/myFlats";
     }
+
+    @GetMapping("/myWishList")
+    public String myWishList( Model model){
+        String mail = SecurityContextHolder.getContext().getAuthentication().getName();
+        Users user = usersService.findByMail(mail).orElse(null);
+        if(user!=null) {
+            model.addAttribute("wishList", user.getWishList());
+        }
+        return "user/wishlist";
+    }
+
+    @GetMapping("/clearWishList")
+    public String clearWishList(){
+        wishListService.clearWishList();
+        return "redirect:/user/flats/myWishList";
+    }
+
+    @GetMapping("/deleteWishItem-{id}")
+    public String deleteWishItem(@PathVariable int id){
+        selectedForVotingService.deleteByID(id);
+        return "redirect:/user/flats/myWishList";
+    }
+
 
     @GetMapping("/create")
     public String get(Model model){
@@ -52,7 +74,7 @@ public class FlatController {
         }else {
             flatService.save(flat);
         }
-        return "redirect:/user/flats/create";
+        return "redirect:/user/flats/myFlats";
     }
 
     @GetMapping("/edit-{id}")
@@ -72,6 +94,6 @@ public class FlatController {
         String mail = SecurityContextHolder.getContext().getAuthentication().getName();
         Users user = usersService.findByMail(mail).orElse(new Users());
         flatService.deleteByID(id);
-        return "redirect:/myFlats-"+user.getId();
+        return "redirect:/user/flats/myFlats";
     }
 }

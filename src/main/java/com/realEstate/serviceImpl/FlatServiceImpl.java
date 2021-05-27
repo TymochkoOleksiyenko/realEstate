@@ -89,7 +89,16 @@ public class FlatServiceImpl implements FlatService {
 
     @Override
     public void deleteByID(int id) {
-        flatJPA.deleteById(id);
+        Flat flat = findById(id);
+        if (flat!=null){
+            for(Infrastructure in:flat.getInfrastructureList()) {
+                List<Flat> temp = in.getFlats();
+                temp.remove(flat);
+                in.setFlats(temp);
+                infService.save(in);
+            }
+            flatJPA.deleteById(id);
+        }
     }
 
     @Override
