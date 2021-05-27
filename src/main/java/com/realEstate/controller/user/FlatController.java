@@ -28,8 +28,10 @@ public class FlatController {
     private final InfrastructureService infService;
 
 
-    @GetMapping("/myFlats-{userId}")
-    public String myFlats(@PathVariable int userId, Model model){
+    @GetMapping("/myFlats")
+    public String myFlats( Model model){
+        String mail = SecurityContextHolder.getContext().getAuthentication().getName();
+        int userId = usersService.findByMail(mail).orElse(new Users()).getId();
         model.addAttribute("listOfFlats",flatService.findByCreatedById(userId));
         return "user/myFlats";
     }

@@ -45,8 +45,8 @@
     <section class="property-modern-view">
         <div class="auto-container">
             <!-- Property Block START-->
-            <div class="property-block-four" th:each="flat : ${listOfFlats}">
-                <div class="row">
+            <div class="property-block-four" th:each="flat, count : ${listOfFlats}" th:classappend="${(count.count%2==0)?'style-two':''}">
+                <div class="row" >
                     <div class="image-column col-lg-6 col-md-12 col-sm-12">
                         <div class="inner-column">
                             <figure class="image"><img th:if="${flat.getImages().size()>0}" th:src="@{'/getImg-'+${flat.getImages()?.get(0)?.getId()}}" alt=""></figure>
@@ -62,40 +62,10 @@
                             <div class="location"><i class="la la-map-marker"></i> <span th:text="${flat.getAddress()}"></span></div>
                             <div class="text" th:text="${flat.getDescription()}">Temporibus autem quibusdam et aut officiis debitis is aut rerum necessitatibus saepes eveniet ut etes seo lage voluptates repudiandae sint et molestiae non mes for Creating futures through building pres Creating preservation etes quibusdam.</div>
                             <ul class="property-info clearfix">
-                                <li><i class="flaticon-dimension"></i> <span th:text="${flat.getArea()}"></li>
+                                <li><i class="flaticon-dimension"></i> <span th:text="${flat.getArea()}"></span></li>
                                 <li><i class="flaticon-bed"></i> <span th:text="${flat.getCountOfRooms()}"></span></li>
                                 <li><i class="flaticon-car"></i> <span th:text="${flat.getFloor()}"></span> поверх</li>
                                 <li><i class="flaticon-bathtub"></i> <span th:text="${flat.getFloor()}"></span> рік</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Property Block END-->
-
-
-            <!-- Property Block START-->
-            <div class="property-block-four style-two">
-                <div class="row">
-                    <div class="image-column col-lg-6 col-md-12 col-sm-12">
-                        <div class="inner-column">
-                            <figure class="image"><img src="images/resource/property-10.jpg" alt=""></figure>
-                        </div>
-                    </div>
-
-                    <div class="content-column col-lg-6 col-md-12 col-sm-12">
-                        <div class="inner-column">
-                            <a href="XXX"><span class="float-right delete-btn">Видалити</span></a>
-                            <h3><a href="property-detail.html">Independent Apartment With Modern Design</a></h3>
-                            <div class="thumb"><img src="images/resource/thumb-4.jpg" alt=""></div>
-                            <div class="price"><i class="la la-money"></i> $ 56,0 / Monthly</div>
-                            <div class="location"><i class="la la-map-marker"></i> 121, King St, VIC 3000, New York, United States</div>
-                            <div class="text">Temporibus autem quibusdam et aut officiis debitis is aut rerum necessitatibus saepes eveniet ut etes seo lage voluptates repudiandae sint et molestiae non mes for Creating futures through building pres Creating preservation etes quibusdam.</div>
-                            <ul class="property-info clearfix">
-                                <li><i class="flaticon-dimension"></i> 356 Sq-Ft</li>
-                                <li><i class="flaticon-bed"></i> 4 Bedrooms</li>
-                                <li><i class="flaticon-car"></i> 2 Garage</li>
-                                <li><i class="flaticon-bathtub"></i> 3 Bathroom</li>
                             </ul>
                         </div>
                     </div>
