@@ -21,6 +21,7 @@ public class Users {
     private String phone;
     private String password;
     private Integer experience;
+    private Integer averageRate;
     @Lob
     @Type(type = "org.hibernate.type.TextType")
     private String about;

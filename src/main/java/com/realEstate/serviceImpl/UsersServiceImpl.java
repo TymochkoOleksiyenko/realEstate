@@ -1,5 +1,6 @@
 package com.realEstate.serviceImpl;
 
+import com.realEstate.entity.Feedback;
 import com.realEstate.entity.Image;
 import com.realEstate.entity.Role;
 import com.realEstate.entity.Users;
@@ -10,6 +11,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -78,6 +80,16 @@ public class UsersServiceImpl implements UsersService {
         }else {
             return save(user,multipartFile);
         }
+    }
+    @Override
+    public Users countAverageRate(int id){
+        Users user = findById(id);
+        BigDecimal bigDecimal = new BigDecimal(0);
+        for(Feedback feedback: user.getFeedbacks()){
+            bigDecimal = bigDecimal.add(new BigDecimal(feedback.getMark()));
+        }
+        user.setAverageRate(bigDecimal.intValue());
+        return save(user);
     }
 
     @Override

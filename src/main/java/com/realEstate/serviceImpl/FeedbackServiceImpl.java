@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -28,8 +29,11 @@ public class FeedbackServiceImpl implements FeedbackService {
         String mail = SecurityContextHolder.getContext().getAuthentication().getName();
         Users user = usersService.findByMail(mail).orElse(null);
         feedback.setExpert(expert);
+        feedback.setDate(new Date());
         feedback.setUser(user);
-        return save(feedback);
+        feedback = save(feedback);
+        usersService.countAverageRate(expertId);
+        return feedback;
     }
 
     @Override

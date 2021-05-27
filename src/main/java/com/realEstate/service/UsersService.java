@@ -13,6 +13,7 @@ public interface UsersService {
     Users update(Users user);
     Users update(Users user,MultipartFile multipartFile);
     Users register(Users user,MultipartFile multipartFile);
+    Users countAverageRate(int id);
     Users findById(int id);
     List<Users> findByRole(Role role);
     Optional<Users> findByMail(String mail);
