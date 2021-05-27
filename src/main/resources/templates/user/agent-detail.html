@@ -58,7 +58,14 @@
                         <div class="inner-column">
                             <div class="about-agent">
                                 <h3 class="name" th:text="${agent.getFullName()}">Hugo Smith</h3>
-                                <span class="designation">Експерт</span>
+                                <span class="designation" style="margin-bottom: 0">Експерт</span>
+                                <div class="rating" style="font-size: 26px; color: #00a75e; margin-bottom: 1rem;">
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star"></span>
+                                    <span class="la la-star-o"></span>
+                                </div>
                                 <div class="text">
                                     <p th:text="${agent.getAbout()}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
