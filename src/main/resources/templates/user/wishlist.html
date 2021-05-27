@@ -45,7 +45,7 @@
     <section class="property-modern-view">
         <div class="auto-container">
             <!-- Property Block START-->
-            <div class="property-block-four" th:each="item, count : ${wishList.getList()}" th:classappend="${(count.count%2==0)?'style-two':''}">
+            <div class="property-block-four" th:each="item, count : ${wishList?.getList()}" th:classappend="${(count.count%2==0)?'style-two':''}">
                 <div class="row" >
                     <div class="image-column col-lg-6 col-md-12 col-sm-12">
                         <div class="inner-column">
