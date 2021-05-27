@@ -53,7 +53,7 @@
                     <div class="info-box">
                         <h4 class="name"><a th:href="@{'/agent-'+${agent.getId()}}" th:text="${agent.getFullName()}">JOHN DOE</a></h4>
                         <span class="designation">Eксперт</span>
-                        <div class="rating social-links" style="font-size: 26px; color: #deb846; margin-top: 0.5rem;">
+                        <div class="rating social-links" style="font-size: 24px; color: #deb846; margin-top: 0.5rem;">
                             <span class="la " th:classappend="${(agent.getAverageRate()>=1)?'la-star':'la-star-o'}"></span>
                             <span class="la " th:classappend="${(agent.getAverageRate()>=2)?'la-star':'la-star-o'}"></span>
                             <span class="la " th:classappend="${(agent.getAverageRate()>=3)?'la-star':'la-star-o'}"></span>
