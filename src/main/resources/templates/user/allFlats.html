@@ -31,10 +31,10 @@
         <section class="page-title" style="background-image:url(images/background/7.jpg);">
             <div class="auto-container">
                 <div class="inner-container clearfix">
-                    <h1>Property Grid View</h1>
+                    <h1>Список пропозицій</h1>
                     <ul class="bread-crumb clearfix">
-                        <li><a href="index.html">Home</a></li>
-                        <li>Property Grid View</li>
+                        <li><a href="/">Головна</a></li>
+                        <li>Нерухомість</li>
                     </ul>
                 </div>
             </div>
@@ -50,8 +50,8 @@
                         <div class="property-grid-view">
                             <div class="upper-box clearfix">
                                 <div class="sec-title">
-                                    <span class="title">FIND YOUR HOUSE IN YOUR CITY</span>
-                                    <h2>PROPERTY GRID</h2>
+                                    <span class="title">Знайдіть свій дім у своєму місті</span>
+                                    <h2>Всі пропозиції</h2>
                                 </div>
                             </div>
 
@@ -66,8 +66,8 @@
                                         </div>
                                         <div class="lower-content">
                                             <div class="thumb"><img th:src="@{'/getImg-'+${flat?.getCreatedBy()?.getImage()?.getId()}}"  alt=""></div>
-                                            <h3><a th:href="@{'/flat-'+${flat.getId()}}" th:text="${flat.getName()}">Modern Apartment in City Center</a></h3>
-                                            <div class="lucation"><i class="la la-map-marker"></i> <span th:text="${flat.getAddress()}"></span></div>
+                                            <h3><a th:href="@{'/flat-'+${flat.getId()}}" th:text="${flat.getName()}"></a></h3>
+                                            <div class="lucation"><i class="la la-map-marker"></i> <span th:text="'('+${flat?.getDistrict()?.getName()}+') '+${flat.getAddress()}"></span></div>
                                             <ul class="property-info clearfix">
                                                 <li><i class="flaticon-money"></i><span th:text="${flat.getPrice()}"></span> USD</li>
                                                 <li><i class="flaticon-bed"></i> <span th:text="${flat.getCountOfRooms()}"></span></li>
@@ -226,7 +226,7 @@
                             <!-- Recent Properties -->
                             <div class="sidebar-widget recent-properties">
                                 <div class="sidebar-title">
-                                    <h2>Recent Properties</h2>
+                                    <h2>Недавно переглянуті</h2>
                                 </div>
                                 <div class="widget-content">
                                     <!-- Post -->
@@ -234,7 +234,6 @@
                                         <div class="post-thumb">
                                             <a href="blog-detail.html">
                                                 <img src="images/resource/property-thumb-1.jpg" alt="">
-                                                <span class="status">Rent</span>
                                             </a>
                                         </div>
                                         <span class="location">London, UK</span>
@@ -247,7 +246,6 @@
                                         <div class="post-thumb">
                                             <a href="blog-detail.html">
                                                 <img src="images/resource/property-thumb-2.jpg" alt="">
-                                                <span class="status">Rent</span>
                                             </a>
                                         </div>
                                         <span class="location">London, UK</span>
@@ -260,7 +258,6 @@
                                         <div class="post-thumb">
                                             <a href="blog-detail.html">
                                                 <img src="images/resource/property-thumb-3.jpg" alt="">
-                                                <span class="status hot">hot</span>
                                             </a>
                                         </div>
                                         <span class="location">London, UK</span>
@@ -282,7 +279,6 @@
                                     </article>
                                 </div>
                             </div>
-
 
                         </aside>
                     </div>

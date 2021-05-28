@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html class="js" lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="@@page-discription">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="./images/favicon.png">
+    <!-- Page Title  -->
+    <title>Нерухомість до оцінювання</title>
+    <!-- StyleSheets  -->
+    <link rel="stylesheet" th:href="@{/css/dashlite.css}">
+    <link id="skin-default" th:href="@{/css/theme.css}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="nk-body bg-lighter npc-general has-sidebar ">
+    <div class="nk-app-root">
+        <!-- main @s -->
+        <div class="nk-main ">
+            <!-- sidebar @s -->
+            <div th:replace="~{expert/fragments/fragExpertHeader.html}"></div>
+            <!-- sidebar @e -->
+            <!-- wrap @s -->
+            <div class="nk-wrap ">
+                <!-- main header @s -->
+                <div class="nk-header nk-header-fixed is-light">
+                    <div class="container-fluid">
+                        <div class="nk-header-wrap">
+                            <div class="nk-menu-trigger d-xl-none ml-n1">
+                                <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
+                            </div>
+                            <div class="nk-header-brand d-xl-none">
+                                <a href="/expert/getListForRate" class="logo-link">
+                                    <img class="logo-light logo-img" th:src="@{/images/logo-2.png}" th:srcset="@{/images/logo-2.png}" alt="logo">
+                                    <img class="logo-dark logo-img" th:src="@{/images/logo.png}" th:srcset="@{/images/logo.png}" alt="logo-dark">
+                                </a>
+                            </div><!-- .nk-header-brand -->
+
+                            <div class="nk-header-tools">
+                                <ul class="nk-quick-nav">
+                                    <li class="dropdown user-dropdown">
+                                        <div class="user-toggle">
+                                            <div class="user-avatar sm">
+                                                <em class="icon ni ni-user-alt"></em>
+                                            </div>
+                                            <div class="user-info d-none d-md-block">
+                                                <h6>Експерт</h6>
+                                            </div>
+                                        </div>
+                                    </li><!-- .dropdown -->
+                                    <li>
+                                        <a href="/logout" class="nk-quick-nav-icon" data-toggle="tooltip" data-placement="bottom" title="Вийти">
+                                            <em class="icon ni ni-signout"></em>
+                                        </a>
+                                    </li>
+                                </ul><!-- .nk-quick-nav -->
+                            </div><!-- .nk-header-tools -->
+                        </div><!-- .nk-header-wrap -->
+                    </div><!-- .container-fliud -->
+                </div>
+                <!-- main header @e -->
+                <!-- content @s -->
+                <div class="nk-content ">
+                    <div class="container-fluid">
+                        <div class="nk-content-inner">
+                            <div class="nk-content-body">
+                                <div class="components-preview wide-md mx-auto">
+                                    <div class="nk-block-head nk-block-head-lg wide-sm">
+                                        <div class="nk-block-head-sub"><a class="back-to" href="XXX"><em class="icon ni ni-arrow-left"></em><span>Назад</span></a></div>
+                                        <div class="nk-block-head-content">
+                                            <h2 class="nk-block-title fw-normal">Список від <span>Lorem Ipsum</span></h2>
+                                        </div>
+                                        <div class="nk-block-des">
+                                            <p class="lead">Оцінювання нерухомості відбувається за <a href="https://uk.wikipedia.org/wiki/%D0%9C%D0%B5%D1%82%D0%BE%D0%B4_%D0%A8%D1%83%D0%BB%D1%8C%D1%86%D0%B5" target="_blank">методом Шульце</a>. Розподіл преференцій відбувається у формі від найбільш бажаного до найменш бажаного, починаючи з першої позиції відсортованого за зростанням оціненого списку (оцінка "1" - найбільш бажаний варіант вибору).</p>
+                                            <p>Після внесення оцінок збережіть дані.</p>
+                                        </div>
+                                    </div><!-- .nk-block-head -->
+                                    <div class="nk-block nk-block-lg">
+                                        <div class="card card-bordered card-preview">
+                                            <div class="card-inner">
+                                                <table class="datatable-init nk-tb-list nk-tb-ulist" data-auto-responsive="false">
+                                                    <thead>
+                                                    <tr class="nk-tb-item nk-tb-head">
+                                                        <th class="nk-tb-col nk-tb-col-tools"><span class="sub-text">Фото нерухомості</span></th>
+                                                        <th class="nk-tb-col"><span class="sub-text">Назва</span></th>
+                                                        <th class="nk-tb-col tb-col-lg"><span class="sub-text">Вартість</span></th>
+                                                        <th class="nk-tb-col nk-tb-col-tools" ><span class="sub-text">Оцінка</span></th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr class="nk-tb-item">
+                                                        <td class="nk-tb-col" style="width: 30%;">
+                                                            <img src="images/avatar/b-sm.jpg" alt="" width="100%">
+                                                        </td>
+                                                        <td class="nk-tb-col" style="width: 30%; white-space:initial;">
+                                                            <a href="XXX" class="nk-menu-link" style="padding: 0;">
+                                                                <span>Lorem Ipsum Dolor sit amet</span>
+                                                            </a>
+                                                        </td>
+                                                        <td class="nk-tb-col tb-col-lg">
+                                                            <span>1200000</span> USD
+                                                        </td>
+                                                        <td class="nk-tb-col" style="width: 19%;">
+                                                            <div class="form-control-wrap">
+                                                                <div class="form-icon form-icon-right">
+                                                                    <em class="icon ni ni-award"></em>
+                                                                </div>
+                                                                <input type="number" min="1" step="1" class="form-control form-control-lg" id="grade-1" placeholder="оцінка..." onchange="setItemGrade(this.id)">
+                                                            </div>
+                                                        </td>
+                                                    </tr><!-- .nk-tb-item  -->
+                                                    <tr class="nk-tb-item">
+                                                        <td class="nk-tb-col" style="width: 30%;">
+                                                            <img src="images/avatar/b-sm.jpg" alt="" width="100%">
+                                                        </td>
+                                                        <td class="nk-tb-col" style="width: 30%; white-space:initial;">
+                                                            <a href="XXX" class="nk-menu-link" style="padding: 0;">
+                                                                <span>Lorem Ipsum Dolor sit amet</span>
+                                                            </a>
+                                                        </td>
+                                                        <td class="nk-tb-col tb-col-lg">
+                                                            <span>100</span> USD
+                                                        </td>
+                                                        <td class="nk-tb-col" style="width: 19%;">
+                                                            <div class="form-control-wrap">
+                                                                <div class="form-icon form-icon-right">
+                                                                    <em class="icon ni ni-award"></em>
+                                                                </div>
+                                                                <input type="number" min="1" step="1" class="form-control form-control-lg" id="grade-2" placeholder="оцінка..." onchange="setItemGrade(this.id)">
+                                                            </div>
+                                                        </td>
+                                                    </tr><!-- .nk-tb-item  -->
+                                                    <tr class="nk-tb-item">
+                                                        <td class="nk-tb-col" style="width: 30%;">
+                                                            <img src="images/avatar/b-sm.jpg" alt="" width="100%">
+                                                        </td>
+                                                        <td class="nk-tb-col" style="width: 30%; white-space:initial;">
+                                                            <a href="XXX" class="nk-menu-link" style="padding: 0;">
+                                                                <span>Lorem Ipsum Dolor sit amet</span>
+                                                            </a>
+                                                        </td>
+                                                        <td class="nk-tb-col tb-col-lg">
+                                                            <span>10000</span> USD
+                                                        </td>
+                                                        <td class="nk-tb-col" style="width: 19%;">
+                                                            <div class="form-control-wrap">
+                                                                <div class="form-icon form-icon-right">
+                                                                    <em class="icon ni ni-award"></em>
+                                                                </div>
+                                                                <input type="number" min="1" step="1" class="form-control form-control-lg" id="grade-3" placeholder="оцінка..." onchange="setItemGrade(this.id)">
+                                                            </div>
+                                                        </td>
+                                                    </tr><!-- .nk-tb-item  -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div><!-- .card-preview -->
+                                    </div> <!-- nk-block -->
+                                </div><!-- .components-preview -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- content @e -->
+                <a href="" data-toggle="modal" data-target="#saveConfirmationModal" title="Добавити" class="btn btn-icon btn-lg btn-primary float-right" style="position: fixed; bottom: 25px; right: 25px; z-index: 1000; padding-right: 1rem;">
+                    <em class="icon ni ni-check-c"></em> Зберегти
+                </a>
+
+                <!-- Save confirmation start -->
+                <div class="modal fade" tabindex="-1" role="dialog" id="saveConfirmationModal" aria-modal="true">
+                    <div class="modal-dialog modal-md" role="document">
+                        <div class="modal-content">
+                            <a href="#" class="close" data-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+                            <div class="modal-body modal-body-md">
+                                <h4 class="title">Оцінювання</h4>
+                                <br>
+                                <form action="XXX" method="post">
+                                    <!-- List of hidden id-grade pairs -->
+                                    <input type="number" class="formKeyValuePair" id="1" hidden name="id">
+                                    <input type="number" class="formKeyValuePair" id="2" hidden name="id">
+                                    <input type="number" class="formKeyValuePair" id="3" hidden name="id">
+                                    <!-- List end -->
+                                    <p style="margin-bottom: 2rem;">Ви впевнені, що хочете зберегти оцінки на даному етапі? Підтвердивши дію, Ви не зможете внести зміни до списку.</p>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-outline-primary">Підтвердити</button>
+                                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Скасувати</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Save confirmation end -->
+
+                <!-- footer @s -->
+                <div class="nk-footer">
+                    <div class="container-fluid">
+                        <div class="nk-footer-wrap">
+                            <div class="nk-footer-copyright"> &copy; <span id="year"></span> Lorem Ipsum</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer @e -->
+            </div>
+            <!-- wrap @e -->
+        </div>
+        <!-- main @e -->
+    </div>
+
+
+    <!-- app-root @e -->
+    <!-- JavaScript -->
+    <script th:src="@{/js/bundle.js}"></script>
+    <script th:src="@{/js/scripts.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+
+    <script>
+        $( document ).ready(function() {
+            document.getElementById("year").innerHTML = new Date().getFullYear();
+        });
+
+        function setItemGrade(id){
+            let formInput = (id.replace( /^\D+/g, '')).toString()
+            let formInputVal = parseInt($("#"+id).val());
+            $('#'+formInput).val(formInputVal);
+        }
+    </script>
+</body>
+
+</html>

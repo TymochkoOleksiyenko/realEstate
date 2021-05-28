@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface DistrictService {
     District save(District district);
+    District update(District district);
     District findById(int id);
     List<District> findAll();
     void deleteByID(int id);

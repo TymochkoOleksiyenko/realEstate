@@ -5,9 +5,10 @@
 <meta charset="utf-8">
 <title>Find Home - Real Estate HTML Template </title>
 <!-- Style sheets -->
-<link href="css/bootstrap.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
-<link href="css/responsive.css" rel="stylesheet">
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet">
+<link th:href="@{/css/style.css}" rel="stylesheet">
+<link th:href="@{/css/responsive.css}" rel="stylesheet">
+
 
 <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 <link rel="icon" href="images/favicon.png" type="image/x-icon">
@@ -28,13 +29,13 @@
 
     
     <!--Page Title-->
-       <section class="page-title" style="background-image:url(images/background/7.jpg);">
+       <section class="page-title" style="background-image:url(/images/background/7.jpg);">
            <div class="auto-container">
                <div class="inner-container clearfix">
-                   <h1>Login</h1>
+                   <h1>Вхід до аккаунту</h1>
                    <ul class="bread-crumb clearfix">
-                       <li><a href="index.html">Home</a></li>
-                       <li>Login</li>
+                       <li><a href="/">Головна</a></li>
+                       <li>Вхід</li>
                    </ul>
                </div>
            </div>
@@ -86,14 +87,13 @@
 </div>
 <!--End pagewrapper-->
 
-<script src="js/jquery.js"></script> 
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery-ui.js"></script>
-<script src="js/jquery.countdown.js"></script>
-<script src="js/appear.js"></script>
-<script src="js/script.js"></script>
-<script src="js/scroll.js"></script>
+      <script th:src="@{/js/jquery.js}"></script>
+      <script th:src="@{/js/popper.min.js}"></script>
+      <script th:src="@{/js/bootstrap.min.js}"></script>
+      <script th:src="@{/js/jquery-ui.js}"></script>
+      <script th:src="@{/js/appear.js}"></script>
+      <script th:src="@{/js/script.js}"></script>
+      <script th:src="@{/js/scroll.js}"></script>
 </body>
 
 </html>

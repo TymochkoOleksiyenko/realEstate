@@ -28,13 +28,13 @@
     <!--End Main Header -->
 
     <!--Page Title-->
-    <section class="page-title" style="background-image:url(images/background/7.jpg);">
+    <section class="page-title" style="background-image:url(/images/background/7.jpg);">
         <div class="auto-container">
             <div class="inner-container clearfix">
-                <h1>Property Detail</h1>
+                <h1>Деталі оголошення</h1>
                 <ul class="bread-crumb clearfix">
-                    <li><a href="index.html">Home</a></li>
-                    <li>Property Detail</li>
+                    <li><a href="/">Головна</a></li>
+                    <li>Нерухомість</li>
                 </ul>
             </div>
         </div>
@@ -48,7 +48,7 @@
                 <div class="row">
                     <div class="about-property col-lg-8 col-md-12 col-sm-12">
                         <h2 th:text="${flat.getName()}">Modern Apartment in City Center</h2>
-                        <div class="location"><i class="la la-map-marker"></i> <span th:text="${flat.getAddress()}">121, King St, VIC 3000, New York, United States</span></div>
+                        <div class="location"><i class="la la-map-marker"></i> <span th:text="'('+${flat?.getDistrict()?.getName()}+') '+${flat.getAddress()}">121, King St, VIC 3000, New York, United States</span></div>
                         <ul class="property-info clearfix">
                             <li><i class="flaticon-dimension"></i> <span th:text="${flat.getArea().doubleValue()}">356 Sq-Ft</span></li>
                             <li><i class="flaticon-bed"></i><span th:text="${flat.getCountOfRooms()}"></span></li>
@@ -57,7 +57,7 @@
                         </ul>
                     </div>
                     <div class="price-column col-lg-4 col-md-12 col-sm-12">
-                        <div class="price" th:text="${flat.getPrice().setScale(3)}">$ 13,65,000</div>
+                        <div class="price" th:text="${flat.getPrice().setScale(2)}+' USD'">$ 13,65,000</div>
                     </div>
                 </div>
             </div>
@@ -106,16 +106,10 @@
                                 <div class="info-box">
                                     <h4 class="name" th:text="${flat?.getCreatedBy()?.getFullName()}">Olivia Jeams</h4>
                                     <span class="designation"></span>
-                                    <ul class="contact-info">
+                                    <ul class="contact-info" style="margin-bottom: 2rem;">
                                         <li><strong>Phone:</strong><span th:text="${flat?.getCreatedBy()?.getPhone()}"></span></li>
                                         <li style="margin-bottom: 0; line-break: anywhere;"><strong>Email:</strong> <span th:text="${flat?.getCreatedBy()?.getMail()}"></span></li>
                                     </ul>
-                                </div>
-                            </div>
-                        </div> 
-                        <div class="sidebar-widget agent-widget">
-                            <div class="widget-content">
-                                <div class="info-box" style="padding: 0;">
                                     <div class="btn-box">
                                         <a href="#" class="theme-btn btn-style-one">ПРОФІЛЬ ВЛАСНИКА</a>
                                         <a href="#" class="theme-btn btn-style-six">ДО ОБРАНИХ</a>
@@ -123,15 +117,6 @@
                                 </div>
                             </div>
                         </div>
-<!--                        <div class="sidebar-widget agent-widget">-->
-<!--                            <div class="widget-content">-->
-<!--                                <div class="info-box" style="padding: 0;">-->
-<!--                                    <div class="btn-box">-->
-<!--                                        <a href="#" style="margin-bottom: 0;" class="theme-btn btn-style-one">ДО ОБРАНИХ</a>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>     -->
                     </aside>
                 </div>
             </div>

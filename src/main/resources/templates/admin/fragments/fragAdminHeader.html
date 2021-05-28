@@ -1,9 +1,9 @@
 <div class="nk-sidebar nk-sidebar-fixed is-dark " data-content="sidebarMenu" xmlns:th="http://www.thymeleaf.org">
     <div class="nk-sidebar-element nk-sidebar-head">
         <div class="nk-sidebar-brand">
-            <a href="html/general/index.html" class="logo-link nk-sidebar-logo">
-                <img class="logo-light logo-img" src="../../../static/images/logo.png" srcset="./images/logo2x.png 2x" alt="logo">
-                <img class="logo-dark logo-img" src="./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+            <a href="/admin/districts" class="logo-link nk-sidebar-logo">
+                <img class="logo-light logo-img" th:src="@{/images/logo-2.png}" th:srcset="@{/images/logo-2.png}" alt="logo">
+                <img class="logo-dark logo-img" th:src="@{/images/logo.png}" th:srcset="@{/images/logo.png}" alt="logo-dark">
             </a>
         </div>
         <div class="nk-menu-trigger mr-n2">
@@ -15,27 +15,21 @@
             <div class="nk-sidebar-menu" data-simplebar>
                 <ul class="nk-menu">
                     <li class="nk-menu-item">
-                        <a href="html/districts.html" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-dashlite"></em></span>
+                        <a href="/admin/districts" class="nk-menu-link">
+                            <span class="nk-menu-icon"><em class="icon ni ni-map"></em></span>
                             <span class="nk-menu-text">Райони</span>
                         </a>
                     </li><!-- .nk-menu-item -->
                     <li class="nk-menu-item">
-                        <a href="html/infrastructures.html" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-dashlite"></em></span>
+                        <a href="/admin/infrastructures" class="nk-menu-link">
+                            <span class="nk-menu-icon"><em class="icon ni ni-building"></em></span>
                             <span class="nk-menu-text">Інфраструктура</span>
                         </a>
                     </li><!-- .nk-menu-item -->
                     <li class="nk-menu-item">
-                        <a href="html/experts.html" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-dashlite"></em></span>
+                        <a href="/admin/experts" class="nk-menu-link">
+                            <span class="nk-menu-icon"><em class="icon ni ni-users"></em></span>
                             <span class="nk-menu-text">Експерти</span>
-                        </a>
-                    </li><!-- .nk-menu-item -->
-                    <li class="nk-menu-item">
-                        <a href="html/categories.html" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-dashlite"></em></span>
-                            <span class="nk-menu-text">Категорії</span>
                         </a>
                     </li><!-- .nk-menu-item -->
                 </ul><!-- .nk-menu -->

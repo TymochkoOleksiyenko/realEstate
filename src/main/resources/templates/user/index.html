@@ -94,7 +94,7 @@
                                             <ul>
                                                 <li><a href="/account">Акаунт</a></li>
                                                 <li><a href="/user/flats/myFlats">Мої квартири</a></li>
-                                                <li><a href="/user/flats/myWishList">Обрані</a></li>
+                                                <li><a href="/user/flats/myWishList" style="text-align-last: justify;">Обрані <span>1</span></a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -134,7 +134,7 @@
 
                                 <li class="dropdown" sec:authorize="hasAuthority('USER')"><a href="#">Профіль</a>
                                     <ul>
-                                        <li><a href="/account">Акаунт</a></li>
+                                        <li><a href="/account">Аккаунт</a></li>
                                         <li><a href="/user/flats/myFlats">Мої квартири</a></li>
                                         <li><a href="/user/flats/myWishList">Обрані</a></li>
                                     </ul>
@@ -343,8 +343,8 @@
             <div class="mixitup-gallery">
                 <div class="upper-box clearfix">
                     <div class="sec-title">
-                        <span class="title">FIND YOUR HOUSE IN YOUR CITY</span>
-                        <h2>PROPERTY TYPES</h2>
+                        <span class="title">Знайдіть свій дім у своєму місті</span>
+                        <h2>Останні додані</h2>
                     </div>
 
                 </div>
@@ -360,8 +360,8 @@
                             </div>
                             <div class="lower-content">
                                 <div class="thumb"><img th:src="@{'/getImg-'+${flat.getCreatedBy()?.getImage()?.getId()}}" alt=""></div>
-                                <h3><a th:href="@{'/flat-'+${flat.getId()}}" th:text="${flat.getName()}">Modern Apartment in City Center</a></h3>
-                                <div class="lucation"><i class="la la-map-marker"></i> <span th:text="${flat.getName()}"></span></div>
+                                <h3><a th:href="@{'/flat-'+${flat.getId()}}" th:text="${flat.getName()}"></a></h3>
+                                <div class="lucation"><i class="la la-map-marker"></i> <span th:text="'('+${flat?.getDistrict()?.getName()}+') '+${flat.getAddress()}"></span></div>
                                 <ul class="property-info clearfix">
                                     <li><i class="flaticon-money"></i><span th:text="${flat.getPrice()}"></span> USD</li>
                                     <li><i class="flaticon-bed"></i> <span th:text="${flat.getCountOfRooms()}"></span></li>
@@ -387,8 +387,8 @@
     <section class="testimonial-section" style="background-image: url(images/background/clients.jpg);">
         <div class="auto-container">
             <div class="sec-title light">
-                <span class="title">Testimonials</span>
-                <h2>what clients says</h2>
+                <span class="title">Відгуки</span>
+                <h2>Що кажуть наші клієнти</h2>
             </div>
 
             <div class="testimonial-carousel owl-carousel owl-theme">
@@ -448,7 +448,7 @@
     <div class="agents-section">
         <div class="auto-container">
             <div class="sec-title">
-<!--                <span class="title">MEET OUR PROFESSIONAL AGENTS</span>-->
+                <span class="title">зустрічайте</span>
                 <h2>Наші експерти</h2>
             </div>
 
@@ -463,13 +463,13 @@
                         <div class="info-box">
                             <h4 class="name"><a th:href="@{'/agent-'+${agent.getId()}}" th:text="${agent.getFullName()}">JOHN DOE</a></h4>
                             <span class="designation">Експерт</span>
-                            <ul class="social-links">
-                                <li><a href="#"><i class="la la-facebook-f"></i><span>Facebook</span></a></li>
-                                <li><a href="#"><i class="la la-twitter"></i><span>Twitter</span></a></li>
-                                <li><a href="#"><i class="la la-google-plus"><span>google+</span></i></a></li>
-                                <li><a href="#"><i class="la la-dribbble"></i><span>Dribbble</span></a></li>
-                                <li><a href="#"><i class="la la-pinterest"></i><span>Pinterest</span></a></li>
-                            </ul>
+                            <div class="rating social-links" style="font-size: 24px; color: #deb846; margin-top: 0.5rem;">
+                                <span class="la " th:classappend="${(agent.getAverageRate()>=1)?'la-star':'la-star-o'}"></span>
+                                <span class="la " th:classappend="${(agent.getAverageRate()>=2)?'la-star':'la-star-o'}"></span>
+                                <span class="la " th:classappend="${(agent.getAverageRate()>=3)?'la-star':'la-star-o'}"></span>
+                                <span class="la " th:classappend="${(agent.getAverageRate()>=4)?'la-star':'la-star-o'}"></span>
+                                <span class="la " th:classappend="${(agent.getAverageRate()>=4.5)?'la-star':'la-star-o'}"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -477,7 +477,6 @@
         </div>
     </div>
     <!-- End Agents Section -->
-
 
     <!-- Main Footer -->
     <div th:replace="~{user/fragments/fragUserFooter.html}"></div>

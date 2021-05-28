@@ -14,7 +14,6 @@
     <title>Списки до оцінювання</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" th:href="@{/css/dashlite.css}">
-    <link rel="stylesheet" th:href="@{/css/image-upload.css}">
     <link id="skin-default" th:href="@{/css/theme.css}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -37,9 +36,9 @@
                                 <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
                             </div>
                             <div class="nk-header-brand d-xl-none">
-                                <a href="html/crypto/index.html" class="logo-link">
-                                    <img class="logo-light logo-img" src="../../static/images/logo.png" srcset="./images/logo2x.png 2x" alt="logo">
-                                    <img class="logo-dark logo-img" src="./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+                                <a href="/expert/getListForRate" class="logo-link">
+                                    <img class="logo-light logo-img" th:src="@{/images/logo-2.png}" th:srcset="@{/images/logo-2.png}" alt="logo">
+                                    <img class="logo-dark logo-img" th:src="@{/images/logo.png}" th:srcset="@{/images/logo.png}" alt="logo-dark">
                                 </a>
                             </div><!-- .nk-header-brand -->
 
@@ -51,7 +50,7 @@
                                                 <em class="icon ni ni-user-alt"></em>
                                             </div>
                                             <div class="user-info d-none d-md-block">
-                                                <h6>Адміністратор</h6>
+                                                <h6>Експерт</h6>
                                             </div>
                                         </div>
                                     </li><!-- .dropdown -->

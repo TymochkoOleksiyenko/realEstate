@@ -46,8 +46,8 @@
                     </li>
                 </ul>
                 <ul class="bread-crumb clearfix">
-                    <li><a href="index.html">Home</a></li>
-                    <li>Property Grid View</li>
+                    <li><a href="/">Головна</a></li>
+                    <li>Профіль</li>
                 </ul>
             </div>
         </div>
@@ -69,10 +69,10 @@
                     <div class="content-column col-lg-6 col-md-12 col-sm-12">
                         <div class="inner-column">
                             <a th:href="@{'/user/flats/deleteWishItem-'+${item.getId()}}"><span class="float-right delete-btn">Видалити</span></a>
-                            <h3><a th:href="@{'/flat-'+${item?.getFlat()?.getId()}}" th:text="${item?.getFlat()?.getName()}">Independent Apartment With Modern Design</a></h3>
+                            <h3><a th:href="@{'/flat-'+${item?.getFlat()?.getId()}}" th:text="${item?.getFlat()?.getName()}"></a></h3>
                             <div class="thumb"><img th:src="@{'/getImg-'+${item?.getFlat()?.getCreatedBy()?.getImage()?.getId()}}" alt=""></div>
                             <div class="price"><i class="la la-money"></i> <span th:text="${item?.getFlat()?.getPrice()}"></span> USD</div>
-                            <div class="location"><i class="la la-map-marker"></i> <span th:text="${item?.getFlat()?.getAddress()}"></span></div>
+                            <div class="location"><i class="la la-map-marker"></i> <span th:text="'('+${item?.getFlat()?.getDistrict()?.getName()}+') '+${item?.getFlat()?.getAddress()}" th:text="${item?.getFlat()?.getAddress()}"></span></div>
                             <div class="text" th:text="${item?.getFlat()?.getDescription()}">Temporibus autem quibusdam et aut officiis debitis is aut rerum necessitatibus saepes eveniet ut etes seo lage voluptates repudiandae sint et molestiae non mes for Creating futures through building pres Creating preservation etes quibusdam.</div>
                             <ul class="property-info clearfix">
                                 <li><i class="flaticon-dimension"></i> <span th:text="${item?.getFlat()?.getArea()}"></span></li>

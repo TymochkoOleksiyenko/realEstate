@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html class="js" lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="@@page-discription">
+    <!-- Fav Icon  -->
+    <link rel="shortcut icon" href="./images/favicon.png">
+    <!-- Page Title  -->
+    <title>Інфраструктура</title>
+    <!-- StyleSheets  -->
+    <link rel="stylesheet" th:href="@{/css/dashlite.css}">
+    <link id="skin-default" th:href="@{/css/theme.css}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="nk-body bg-lighter npc-general has-sidebar ">
+    <div class="nk-app-root">
+        <!-- main @s -->
+        <div class="nk-main ">
+            <!-- sidebar @s -->
+            <div th:replace="~{admin/fragments/fragAdminHeader.html}"></div>
+            <!-- sidebar @e -->
+            <!-- wrap @s -->
+            <div class="nk-wrap ">
+                <!-- main header @s -->
+                <div class="nk-header nk-header-fixed is-light">
+                    <div class="container-fluid">
+                        <div class="nk-header-wrap">
+                            <div class="nk-menu-trigger d-xl-none ml-n1">
+                                <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
+                            </div>
+                            <div class="nk-header-brand d-xl-none">
+                                <a href="/admin/districts" class="logo-link">
+                                    <img class="logo-light logo-img" th:src="@{/images/logo-2.png}" th:srcset="@{/images/logo-2.png}" alt="logo">
+                                    <img class="logo-dark logo-img" th:src="@{/images/logo.png}" th:srcset="@{/images/logo.png}" alt="logo-dark">
+                                </a>
+                            </div><!-- .nk-header-brand -->
+
+                            <div class="nk-header-tools">
+                                <ul class="nk-quick-nav">
+                                    <li class="dropdown user-dropdown">
+                                        <div class="user-toggle">
+                                            <div class="user-avatar sm">
+                                                <em class="icon ni ni-user-alt"></em>
+                                            </div>
+                                            <div class="user-info d-none d-md-block">
+                                                <h6>Адміністратор</h6>
+                                            </div>
+                                        </div>
+                                    </li><!-- .dropdown -->
+                                    <li>
+                                        <a href="/logout" class="nk-quick-nav-icon" data-toggle="tooltip" data-placement="bottom" title="Вийти">
+                                            <em class="icon ni ni-signout"></em>
+                                        </a>
+                                    </li>
+                                </ul><!-- .nk-quick-nav -->
+                            </div><!-- .nk-header-tools -->
+                        </div><!-- .nk-header-wrap -->
+                    </div><!-- .container-fliud -->
+                </div>
+                <!-- main header @e -->
+                <!-- content @s -->
+                <div class="nk-content ">
+                    <div class="container-fluid">
+                        <div class="nk-content-inner">
+                            <div class="nk-content-body">
+                                <div class="components-preview wide-md mx-auto">
+                                    <div class="nk-block-head nk-block-head-lg wide-sm">
+                                        <div class="nk-block-head-content">
+                                            <h2 class="nk-block-title fw-normal">Інфраструктура</h2>
+                                        </div>
+                                    </div><!-- .nk-block-head -->
+                                    <div class="nk-block nk-block-lg">
+                                        <div class="card card-bordered card-preview">
+                                            <div class="card-inner">
+                                                <table class="datatable-init nk-tb-list nk-tb-ulist" data-auto-responsive="false">
+                                                    <thead>
+                                                        <tr class="nk-tb-item nk-tb-head">
+                                                            <th class="nk-tb-col"><span class="sub-text">#</span></th>
+                                                            <th class="nk-tb-col"><span class="sub-text">Назва</span></th>
+                                                            <th class="nk-tb-col nk-tb-col-tools text-right"></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="nk-tb-item" th:each="infrastructure :${listOfInf}" th:id="${infrastructure.getId()}">
+                                                            <td class="nk-tb-col">
+                                                                <span th:text="${infrastructure.getId()}"></span>
+                                                            </td>
+                                                            <td class="nk-tb-col">
+                                                                <span th:text="${infrastructure.getName()}">Lorem Ipsum</span>
+                                                            </td>
+                                                            <td class="nk-tb-col nk-tb-col-tools">
+                                                                <ul class="nk-tb-actions gx-1">
+                                                                    <li>
+                                                                        <div class="drodown">
+                                                                            <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
+                                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                                <ul class="link-list-opt no-bdr">
+                                                                                    <li><a data-toggle="modal" onclick="showEditInfrastructureModal(this)"><em class="icon ni ni-edit-alt"></em><span>Редагувати</span></a></li>
+                                                                                    <li><a data-toggle="modal" onclick="showConfirmationDeleteInfrastructureModal(this)" ><em class="icon ni ni-trash"></em><span>Видалити</span></a></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr><!-- .nk-tb-item  -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div><!-- .card-preview -->
+                                    </div> <!-- nk-block -->
+                                </div><!-- .components-preview -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- content @e -->
+                <a href="" data-toggle="modal" data-target="#addInfrastructureModal" title="Добавити" class="btn btn-icon btn-lg btn-primary float-right" style="position: fixed; bottom: 25px; right: 25px; z-index: 1000;">
+                    <em class="icon ni ni-grid-add-c"></em>
+                </a>
+                <!-- footer @s -->
+                <div class="nk-footer">
+                    <div class="container-fluid">
+                        <div class="nk-footer-wrap">
+                            <div class="nk-footer-copyright"> &copy; <span id="year"></span> Lorem Ipsum</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer @e -->
+            </div>
+            <!-- wrap @e -->
+        </div>
+        <!-- main @e -->
+    </div>
+
+
+    <!-- MODALS START -->
+            <!-- Adding start -->
+            <div class="modal fade" tabindex="-1" role="dialog" id="addInfrastructureModal" aria-modal="true">
+                <div class="modal-dialog modal-md" role="document">
+                    <div class="modal-content">
+                        <a href="#" class="close" data-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+                        <div class="modal-body modal-body-sm">
+                            <h4 class="title">Добавлення інфраструктури</h4>
+                            <br>
+                            <form action="/admin/infrastructures/add" method="post">
+                                <div class="form-group">
+                                    <label class="form-label" for="infrastructureName">Назва</label>
+                                    <div class="form-control-wrap">
+                                        <input type="text" class="form-control" id="infrastructureName" required="required" placeholder="Назва..." name="name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-outline-primary">Добавити</button>
+                                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Скасувати</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Adding end -->
+
+            <!-- Edit start -->
+            <div class="modal fade" tabindex="-1" role="dialog" id="editInfrastructureModal" aria-modal="true">
+                <div class="modal-dialog modal-md" role="document">
+                    <div class="modal-content">
+                        <a href="#" class="close" data-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+                        <div class="modal-body modal-body-sm">
+                            <h4 class="title">Редагування</h4>
+                            <br>
+                            <form action="/admin/infrastructures/update" method="post">
+                                <input type="text" id="selectedForEditItem" hidden="" name="id">
+                                <div class="form-group">
+                                    <label class="form-label" for="editName">Назва</label>
+                                    <div class="form-control-wrap">
+                                        <input type="text" class="form-control" id="editName" name="name" placeholder="Назва...">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-outline-primary">Зберегти</button>
+                                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Скасувати</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Edit end -->
+
+            <!-- Delete infrastructure confirmation start -->
+            <div class="modal fade" tabindex="-1" role="dialog" id="deleteInfrastructureModal" aria-modal="true">
+                <div class="modal-dialog modal-md" role="document">
+                    <div class="modal-content">
+                        <a href="#" class="close" data-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+                        <div class="modal-body modal-body-md">
+                            <h4 class="title">Видалення</h4>
+                            <br>
+                            <form action="/admin/infrastructures/delete" method="post">
+                                <input type="number" id="selectedForDeleteItem" hidden="" name="id">
+                                <p style="margin-bottom: 2rem;">Ви впевнені, що хочете видалити? Підтвердивши дію, Ви не зможете повернутися до попереднього стану.</p>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-outline-primary">Підтвердити</button>
+                                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Скасувати</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Delete infrastructure confirmation end -->
+    <!-- MODALS END -->
+
+    <!-- app-root @e -->
+    <!-- JavaScript -->
+    <script th:src="@{/js/bundle.js}"></script>
+    <script th:src="@{/js/scripts.js}"></script>
+    <script>
+        $( document ).ready(function() {
+            document.getElementById("year").innerHTML = new Date().getFullYear();
+        });
+    
+        function showEditInfrastructureModal(btnObj) {
+            let trObj = btnObj.closest("tbody tr");
+            let trId =  $(trObj).attr('id');
+    
+            let name =   $(trObj).find('td:eq(1)').text().trim();
+    
+            $('#editName').val(name);
+        
+            $('#selectedForEditItem')           .val(trId);
+            $('#editInfrastructureModal').modal('show');
+        }
+    
+        function showConfirmationDeleteInfrastructureModal(btnObj){
+            let trObj = btnObj.closest("tbody tr");
+            let trId =  $(trObj).attr('id');
+        
+            $('#selectedForDeleteItem').val(trId);
+            $('#deleteInfrastructureModal').modal('show');
+        }
+    </script>
+</body>
+
+</html>

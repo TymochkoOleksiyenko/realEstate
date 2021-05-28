@@ -1,6 +1,7 @@
 package com.realEstate.controller.admin;
 
 import com.realEstate.entity.District;
+import com.realEstate.entity.Infrastructure;
 import com.realEstate.service.DistrictService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -18,12 +19,18 @@ public class DistrictAdminController {
     @GetMapping
     public String get(Model model){
         model.addAttribute("listOfDistricts",districtService.findAll());
-        return "";
+        return "/admin/districts";
     }
 
     @PostMapping("/add")
     public String add(District district){
         districtService.save(district);
+        return "redirect:/admin/districts";
+    }
+
+    @PostMapping("/update")
+    public String update(District district){
+        districtService.update(district);
         return "redirect:/admin/districts";
     }
 

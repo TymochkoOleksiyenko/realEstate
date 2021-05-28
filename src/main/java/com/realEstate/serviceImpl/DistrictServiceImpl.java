@@ -1,6 +1,7 @@
 package com.realEstate.serviceImpl;
 
 import com.realEstate.entity.District;
+import com.realEstate.entity.Infrastructure;
 import com.realEstate.jpa.DistrictJPA;
 import com.realEstate.service.DistrictService;
 import lombok.AllArgsConstructor;
@@ -14,6 +15,11 @@ public class DistrictServiceImpl implements DistrictService {
     private final DistrictJPA districtJPA;
     @Override
     public District save(District district) {
+        return districtJPA.save(district);
+    }
+
+    @Override
+    public District update(District district) {
         return districtJPA.save(district);
     }
 
