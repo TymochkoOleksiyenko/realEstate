@@ -6,6 +6,7 @@ import org.hibernate.annotations.Type;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Data
@@ -53,5 +54,27 @@ public class Users {
                 ", wishList='" + wishList + '\'' +
                 ", role=" + role +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Users users = (Users) o;
+        return id == users.id &&
+                Objects.equals(fullName, users.fullName) &&
+                Objects.equals(mail, users.mail) &&
+                Objects.equals(phone, users.phone) &&
+                Objects.equals(password, users.password) &&
+                Objects.equals(address, users.address) &&
+                Objects.equals(experience, users.experience) &&
+                Objects.equals(averageRate, users.averageRate) &&
+                Objects.equals(about, users.about) &&
+                role == users.role;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, fullName, mail, phone, password, address, experience, averageRate, about, role);
     }
 }

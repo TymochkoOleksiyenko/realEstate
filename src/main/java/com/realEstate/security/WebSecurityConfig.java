@@ -38,11 +38,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //               .antMatchers("/admin/**").hasAuthority("ADMIN")
                .antMatchers("/admin/**").permitAll()
                .antMatchers("/user/**").hasAuthority("USER")
+               .antMatchers("/expert/**").hasAuthority("EXPERT")
                .antMatchers("/**").permitAll()
                .and()
                     .formLogin()
                     .loginPage("/login")
                     .usernameParameter("mail")
+                    .successForwardUrl("/")
                     .permitAll()
                .and()
                     .csrf().disable();

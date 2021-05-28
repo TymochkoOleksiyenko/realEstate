@@ -56,6 +56,11 @@ public class WishListServiceImpl implements WishListService {
     }
 
     @Override
+    public List<WishList> findByExpertId(int expertId) {
+        return wishListJPA.findByExpertId(expertId);
+    }
+
+    @Override
     public List<WishList> findAll() {
         return wishListJPA.findAll();
     }

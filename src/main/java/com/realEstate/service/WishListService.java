@@ -9,6 +9,7 @@ public interface WishListService {
     WishList addNewItem(int flatId);
     WishList findByUserId(int id);
     WishList findById(int id);
+    List<WishList> findByExpertId(int expertId);
     List<WishList> findAll();
     void clearWishList();
     void sendForRate();

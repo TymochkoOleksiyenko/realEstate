@@ -10,11 +10,13 @@ import com.realEstate.service.InfrastructureService;
 import com.realEstate.service.UsersService;
 import com.realEstate.serviceImpl.ShulceServiceImpl;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.math.BigDecimal;
 import java.util.*;
@@ -29,8 +31,21 @@ public class MainController {
     private final InfrastructureService infrastructureService;
     private final ShulceServiceImpl shulceService;
 
+    @PostMapping
+    public String post(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ADMIN"))){
+            return "redirect:/admin/experts";
+        }
+        if (auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("EXPERT"))){
+            return "redirect:/expert/getListForRate";
+        }
+        return "redirect:/";
+    }
+
     @GetMapping("/")
     public String getMain(Model model){
+
         model.addAttribute("listOfFlats",flatService.findFirst6Desc());
         model.addAttribute("listOfExperts",usersService.findByRole(Role.EXPERT));
         System.out.println(flatService.getMaxPrice());

@@ -1,10 +1,8 @@
 package com.realEstate.entity;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
-import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -59,7 +57,7 @@ public class Flat implements Comparable<Flat>{
     }
 
     @Override
-    public int compareTo(@NotNull Flat o) {
+    public int compareTo( Flat o) {
         return this.getId()-o.getId();
     }
 }
