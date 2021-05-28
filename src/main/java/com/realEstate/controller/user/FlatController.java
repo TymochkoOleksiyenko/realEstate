@@ -2,6 +2,7 @@ package com.realEstate.controller.user;
 
 import com.realEstate.entity.Flat;
 import com.realEstate.entity.Users;
+import com.realEstate.entity.WishList;
 import com.realEstate.service.*;
 import lombok.AllArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/user/flats")
@@ -38,7 +40,15 @@ public class FlatController {
         String mail = SecurityContextHolder.getContext().getAuthentication().getName();
         Users user = usersService.findByMail(mail).orElse(null);
         if(user!=null) {
-            model.addAttribute("wishList", user.getWishList());
+            WishList wishList =  user.getWishList();
+            wishList.setList( user.getWishList().getList().stream().sorted((o1, o2) -> {
+                if(o1.getOrderByRate()==null || o2.getOrderByRate()==null){
+                    return 0;
+                }else {
+                    return o2.getOrderByRate()-o1.getOrderByRate();
+                }
+            }).collect(Collectors.toList()));
+            model.addAttribute("wishList",wishList);
         }
         return "user/wishlist";
     }

@@ -14,9 +14,20 @@ public class SelectedForVoting {
 
     @ManyToOne
     private WishList wishList;
+    private Integer orderByRate;
 
     @ManyToOne
     private Flat flat;
     @OneToMany(mappedBy = "selectedForVoting", cascade = CascadeType.REMOVE)
     private List<Vote> voteList;
+
+    @Override
+    public String toString() {
+        return "SelectedForVoting{" +
+                "id=" + id +
+                ", wishList=" + wishList.getId() +
+                ", flat=" + flat.getId() +
+                ", voteList=" + voteList.size() +
+                '}';
+    }
 }

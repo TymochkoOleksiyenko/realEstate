@@ -3,11 +3,14 @@ package com.realEstate.controller;
 import com.realEstate.entity.District;
 import com.realEstate.entity.Flat;
 import com.realEstate.entity.Role;
+import com.realEstate.entity.Users;
 import com.realEstate.service.DistrictService;
 import com.realEstate.service.FlatService;
 import com.realEstate.service.InfrastructureService;
 import com.realEstate.service.UsersService;
+import com.realEstate.serviceImpl.ShulceServiceImpl;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +27,7 @@ public class MainController {
     private final UsersService usersService;
     private final DistrictService districtService;
     private final InfrastructureService infrastructureService;
+    private final ShulceServiceImpl shulceService;
 
     @GetMapping("/")
     public String getMain(Model model){
@@ -31,6 +35,11 @@ public class MainController {
         model.addAttribute("listOfExperts",usersService.findByRole(Role.EXPERT));
         System.out.println(flatService.getMaxPrice());
         System.out.println(flatService.getMinPrice());
+        String mail = SecurityContextHolder.getContext().getAuthentication().getName();
+        Users user = usersService.findByMail(mail).orElse(null);
+        if(user!=null) {
+            shulceService.orderByPriority(user.getWishList());
+        }
         return "user/index";
     }
 

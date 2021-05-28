@@ -15,4 +15,14 @@ public class Vote {
     private SelectedForVoting selectedForVoting;
     @ManyToOne
     private Users expert;
+
+    @Override
+    public String toString() {
+        return "Vote{" +
+                "id=" + id +
+                ", vote=" + vote +
+                ", selectedForVoting=" + selectedForVoting.getId() +
+                ", expert=" + expert.getId() +
+                '}';
+    }
 }
