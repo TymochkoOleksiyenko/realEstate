@@ -41,13 +41,15 @@ public class FlatController {
         Users user = usersService.findByMail(mail).orElse(null);
         if(user!=null) {
             WishList wishList =  user.getWishList();
-            wishList.setList( user.getWishList().getList().stream().sorted((o1, o2) -> {
-                if(o1.getOrderByRate()==null || o2.getOrderByRate()==null){
-                    return 0;
-                }else {
-                    return o2.getOrderByRate()-o1.getOrderByRate();
-                }
-            }).collect(Collectors.toList()));
+            if(wishList!=null) {
+                wishList.setList(user.getWishList().getList().stream().sorted((o1, o2) -> {
+                    if (o1.getOrderByRate() == null || o2.getOrderByRate() == null) {
+                        return 0;
+                    } else {
+                        return o2.getOrderByRate() - o1.getOrderByRate();
+                    }
+                }).collect(Collectors.toList()));
+            }
             model.addAttribute("wishList",wishList);
         }
         return "user/wishlist";

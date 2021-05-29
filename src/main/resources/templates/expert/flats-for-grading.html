@@ -72,9 +72,9 @@
                             <div class="nk-content-body">
                                 <div class="components-preview wide-md mx-auto">
                                     <div class="nk-block-head nk-block-head-lg wide-sm">
-                                        <div class="nk-block-head-sub"><a class="back-to" href="XXX"><em class="icon ni ni-arrow-left"></em><span>Назад</span></a></div>
+                                        <div class="nk-block-head-sub"><a class="back-to" href="/expert/getListForRate"><em class="icon ni ni-arrow-left"></em><span>Назад</span></a></div>
                                         <div class="nk-block-head-content">
-                                            <h2 class="nk-block-title fw-normal">Список від <span>Lorem Ipsum</span></h2>
+                                            <h2 class="nk-block-title fw-normal">Список від <span th:text="${wishList?.getUser()?.getFullName()}">Lorem Ipsum</span></h2>
                                         </div>
                                         <div class="nk-block-des">
                                             <p class="lead">Оцінювання нерухомості відбувається за <a href="https://uk.wikipedia.org/wiki/%D0%9C%D0%B5%D1%82%D0%BE%D0%B4_%D0%A8%D1%83%D0%BB%D1%8C%D1%86%D0%B5" target="_blank">методом Шульце</a>. Розподіл преференцій відбувається у формі від найбільш бажаного до найменш бажаного, починаючи з першої позиції відсортованого за зростанням оціненого списку (оцінка "1" - найбільш бажаний варіант вибору).</p>
@@ -94,66 +94,24 @@
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    <tr class="nk-tb-item">
+                                                    <tr class="nk-tb-item" th:each="selected : ${wishList.getList()}">
                                                         <td class="nk-tb-col" style="width: 30%;">
-                                                            <img src="images/avatar/b-sm.jpg" alt="" width="100%">
+                                                            <img th:if="${selected?.getFlat()?.getImages().size()>0}" th:src="@{'/getImg-'+${selected?.getFlat()?.getImages()?.get(0)?.getId()}}" alt="" width="100%">
                                                         </td>
                                                         <td class="nk-tb-col" style="width: 30%; white-space:initial;">
-                                                            <a href="XXX" class="nk-menu-link" style="padding: 0;">
-                                                                <span>Lorem Ipsum Dolor sit amet</span>
+                                                            <a th:href="@{'/flat-'+${selected?.getFlat()?.getId()}}" class="nk-menu-link" style="padding: 0;">
+                                                                <span th:text="${selected?.getFlat()?.getName()}">Lorem Ipsum Dolor sit amet</span>
                                                             </a>
                                                         </td>
                                                         <td class="nk-tb-col tb-col-lg">
-                                                            <span>1200000</span> USD
+                                                            <span th:text="${selected?.getFlat()?.getPrice()}">1200000</span> USD
                                                         </td>
                                                         <td class="nk-tb-col" style="width: 19%;">
                                                             <div class="form-control-wrap">
                                                                 <div class="form-icon form-icon-right">
                                                                     <em class="icon ni ni-award"></em>
                                                                 </div>
-                                                                <input type="number" min="1" step="1" class="form-control form-control-lg" id="grade-1" placeholder="оцінка..." onchange="setItemGrade(this.id)">
-                                                            </div>
-                                                        </td>
-                                                    </tr><!-- .nk-tb-item  -->
-                                                    <tr class="nk-tb-item">
-                                                        <td class="nk-tb-col" style="width: 30%;">
-                                                            <img src="images/avatar/b-sm.jpg" alt="" width="100%">
-                                                        </td>
-                                                        <td class="nk-tb-col" style="width: 30%; white-space:initial;">
-                                                            <a href="XXX" class="nk-menu-link" style="padding: 0;">
-                                                                <span>Lorem Ipsum Dolor sit amet</span>
-                                                            </a>
-                                                        </td>
-                                                        <td class="nk-tb-col tb-col-lg">
-                                                            <span>100</span> USD
-                                                        </td>
-                                                        <td class="nk-tb-col" style="width: 19%;">
-                                                            <div class="form-control-wrap">
-                                                                <div class="form-icon form-icon-right">
-                                                                    <em class="icon ni ni-award"></em>
-                                                                </div>
-                                                                <input type="number" min="1" step="1" class="form-control form-control-lg" id="grade-2" placeholder="оцінка..." onchange="setItemGrade(this.id)">
-                                                            </div>
-                                                        </td>
-                                                    </tr><!-- .nk-tb-item  -->
-                                                    <tr class="nk-tb-item">
-                                                        <td class="nk-tb-col" style="width: 30%;">
-                                                            <img src="images/avatar/b-sm.jpg" alt="" width="100%">
-                                                        </td>
-                                                        <td class="nk-tb-col" style="width: 30%; white-space:initial;">
-                                                            <a href="XXX" class="nk-menu-link" style="padding: 0;">
-                                                                <span>Lorem Ipsum Dolor sit amet</span>
-                                                            </a>
-                                                        </td>
-                                                        <td class="nk-tb-col tb-col-lg">
-                                                            <span>10000</span> USD
-                                                        </td>
-                                                        <td class="nk-tb-col" style="width: 19%;">
-                                                            <div class="form-control-wrap">
-                                                                <div class="form-icon form-icon-right">
-                                                                    <em class="icon ni ni-award"></em>
-                                                                </div>
-                                                                <input type="number" min="1" step="1" class="form-control form-control-lg" id="grade-3" placeholder="оцінка..." onchange="setItemGrade(this.id)">
+                                                                <input th:disabled="${isVoted}" type="number" min="1" step="1" class="form-control form-control-lg" id="grade-1" placeholder="оцінка..." onchange="setItemGrade(this.id)">
                                                             </div>
                                                         </td>
                                                     </tr><!-- .nk-tb-item  -->
@@ -168,7 +126,7 @@
                     </div>
                 </div>
                 <!-- content @e -->
-                <a href="" data-toggle="modal" data-target="#saveConfirmationModal" title="Добавити" class="btn btn-icon btn-lg btn-primary float-right" style="position: fixed; bottom: 25px; right: 25px; z-index: 1000; padding-right: 1rem;">
+                <a href="" th:if="${!isVoted}" data-toggle="modal" data-target="#saveConfirmationModal" title="Добавити" class="btn btn-icon btn-lg btn-primary float-right" style="position: fixed; bottom: 25px; right: 25px; z-index: 1000; padding-right: 1rem;">
                     <em class="icon ni ni-check-c"></em> Зберегти
                 </a>
 
@@ -180,7 +138,7 @@
                             <div class="modal-body modal-body-md">
                                 <h4 class="title">Оцінювання</h4>
                                 <br>
-                                <form action="XXX" method="post">
+                                <form action="/expert/setRate" method="post">
                                     <!-- List of hidden id-grade pairs -->
                                     <input type="number" class="formKeyValuePair" id="1" hidden name="id">
                                     <input type="number" class="formKeyValuePair" id="2" hidden name="id">

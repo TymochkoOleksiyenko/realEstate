@@ -11,7 +11,9 @@ import com.realEstate.service.WishListService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 
 @Service
@@ -20,6 +22,7 @@ public class WishListServiceImpl implements WishListService {
     private final WishListJPA wishListJPA;
     private final UsersService usersService;
     private final SelectedForVotingService  selectedForVotingService;
+    private final EntityManager entityManager;
 
     @Override
     public WishList save(WishList wishList) {
@@ -45,6 +48,18 @@ public class WishListServiceImpl implements WishListService {
         return wishList;
     }
 
+    public boolean isVoted(WishList wishList){
+        String mail = SecurityContextHolder.getContext().getAuthentication().getName();
+        Users expert = usersService.findByMail(mail).orElse(new Users());
+        for(SelectedForVoting selected: wishList.getList()){
+            boolean temp = selected.getVoteList().stream().anyMatch(vote -> vote.getExpert().getId()==expert.getId());
+            if(temp){
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public WishList findByUserId(int id) {
         return wishListJPA.findByUserId(id);
@@ -58,6 +73,11 @@ public class WishListServiceImpl implements WishListService {
     @Override
     public List<WishList> findByExpertId(int expertId) {
         return wishListJPA.findByExpertId(expertId);
+    }
+
+    @Override
+    public List<WishList> findByStatus(StatusOFWishList status) {
+        return wishListJPA.findByStatus(status);
     }
 
     @Override
@@ -88,6 +108,19 @@ public class WishListServiceImpl implements WishListService {
                 save(list);
             }
         }
+    }
+
+    @Override
+    @Transactional
+    public int checkMaxCountOfVotes(WishList wishList){
+        int count = 0;
+        if(wishList!=null) {
+            for (SelectedForVoting selected : wishList.getList()) {
+                entityManager.refresh(selected);
+                count = Math.max(count, selected.getVoteList().size());
+            }
+        }
+        return count;
     }
 
     @Override

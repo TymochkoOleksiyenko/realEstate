@@ -1,6 +1,5 @@
 package com.realEstate.service;
 
-import com.realEstate.entity.Flat;
 import com.realEstate.entity.Infrastructure;
 
 import java.util.List;

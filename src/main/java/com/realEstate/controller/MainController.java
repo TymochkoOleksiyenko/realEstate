@@ -52,9 +52,9 @@ public class MainController {
         System.out.println(flatService.getMinPrice());
         String mail = SecurityContextHolder.getContext().getAuthentication().getName();
         Users user = usersService.findByMail(mail).orElse(null);
-        if(user!=null) {
-            shulceService.orderByPriority(user.getWishList());
-        }
+//        if(user!=null) {
+////            shulceService.orderByPriority(user.getWishList());
+//        }
         return "user/index";
     }
 
