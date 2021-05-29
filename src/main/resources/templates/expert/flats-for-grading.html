@@ -84,6 +84,7 @@
                                     <div class="nk-block nk-block-lg">
                                         <div class="card card-bordered card-preview">
                                             <div class="card-inner">
+                                                <input type="number" hidden id="wishListId" th:value="${wishList.getId()}">
                                                 <table class="datatable-init nk-tb-list nk-tb-ulist" data-auto-responsive="false">
                                                     <thead>
                                                     <tr class="nk-tb-item nk-tb-head">
@@ -94,7 +95,7 @@
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    <tr class="nk-tb-item" th:each="selected : ${wishList.getList()}">
+                                                    <tr class="nk-tb-item body-row" th:each="selected : ${wishList.getList()}" th:id="${selected.getId()}">
                                                         <td class="nk-tb-col" style="width: 30%;">
                                                             <img th:if="${selected?.getFlat()?.getImages().size()>0}" th:src="@{'/getImg-'+${selected?.getFlat()?.getImages()?.get(0)?.getId()}}" alt="" width="100%">
                                                         </td>
@@ -111,7 +112,7 @@
                                                                 <div class="form-icon form-icon-right">
                                                                     <em class="icon ni ni-award"></em>
                                                                 </div>
-                                                                <input th:disabled="${isVoted}" type="number" min="1" step="1" class="form-control form-control-lg" id="grade-1" placeholder="оцінка..." onchange="setItemGrade(this.id)">
+                                                                <input th:disabled="${isVoted}" type="number" min="1" step="1" class="form-control form-control-lg grade-val" placeholder="оцінка..." onchange="setItemGrade(this.id)">
                                                             </div>
                                                         </td>
                                                     </tr><!-- .nk-tb-item  -->
@@ -138,15 +139,10 @@
                             <div class="modal-body modal-body-md">
                                 <h4 class="title">Оцінювання</h4>
                                 <br>
-                                <form action="/expert/setRate" method="post">
-                                    <!-- List of hidden id-grade pairs -->
-                                    <input type="number" class="formKeyValuePair" id="1" hidden name="id">
-                                    <input type="number" class="formKeyValuePair" id="2" hidden name="id">
-                                    <input type="number" class="formKeyValuePair" id="3" hidden name="id">
-                                    <!-- List end -->
+                                <form>
                                     <p style="margin-bottom: 2rem;">Ви впевнені, що хочете зберегти оцінки на даному етапі? Підтвердивши дію, Ви не зможете внести зміни до списку.</p>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-outline-primary">Підтвердити</button>
+                                        <button type="button" id="saveResults" class="btn btn-outline-primary">Підтвердити</button>
                                         <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Скасувати</button>
                                     </div>
                                 </form>
@@ -182,6 +178,50 @@
         $( document ).ready(function() {
             document.getElementById("year").innerHTML = new Date().getFullYear();
         });
+
+        class RateInformationDTO {
+            wishListId;
+            rates = [];
+        }
+
+        class RateItemDTO{
+            selectedId;
+            voteRate;
+        }
+
+
+//////////////////////////////////////////////////////////////////////////////
+        $('#addProductBtn').on( 'click', function () {
+            let rateInformationDTO = new RateInformationDTO();
+            rateInformationDTO.wishListId = parseInt($('#wishListId').val());
+
+            let rowsArray = document.getElementsByClassName('body-row');
+
+            Array.prototype.forEach.call(rowsArray, function(el) {
+                let id = parseInt(($(el).id));
+                let grade = parseInt($(el).find('.grade-val').val());
+                let obj = new RateItemDTO();
+                obj.selectedId = id;
+                obj.voteRate = grade;
+                rateInformationDTO.rates.push(obj);
+                console.log("id: "+id+"; grade: "+ grade);
+            });
+
+            $.ajax({
+                method: "post",
+                url: "/expert/setRate",
+                data: {
+                    dto: rateInformationDTO
+                },
+                success: function () {
+                    window.location.href = '/expert/getListForRate';
+                },
+                error: function () {
+                    alert("Помилка!");
+                }
+            }); //ajax end
+        });//button click end
+//////////////////////////////////////////////////////////////////////////////
 
         function setItemGrade(id){
             let formInput = (id.replace( /^\D+/g, '')).toString()
