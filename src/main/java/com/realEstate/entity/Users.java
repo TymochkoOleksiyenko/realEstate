@@ -15,7 +15,7 @@ public class Users {
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private int id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE)
     private Image image;
 
     private String fullName;
@@ -34,13 +34,13 @@ public class Users {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToMany(mappedBy = "expert")
+    @OneToMany(mappedBy = "expert",cascade = CascadeType.REMOVE)
     private List<Feedback> feedbacks;
 
-    @OneToMany(mappedBy = "createdBy")
+    @OneToMany(mappedBy = "createdBy", cascade = CascadeType.REMOVE)
     private List<Flat> myFlats;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE)
     private WishList wishList;
 
     @Override

@@ -2,9 +2,11 @@ package com.realEstate.serviceImpl;
 
 import com.realEstate.entity.Flat;
 import com.realEstate.entity.Image;
+import com.realEstate.entity.Users;
 import com.realEstate.jpa.ImageJPA;
 import com.realEstate.service.ImageService;
-import lombok.AllArgsConstructor;
+import com.realEstate.service.UsersService;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -12,9 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
 public class ImageServiceImpl implements ImageService {
     private ImageJPA imageJPA;
+    private final UsersService usersService;
+
+    public ImageServiceImpl(ImageJPA imageJPA,@Lazy UsersService usersService) {
+        this.imageJPA = imageJPA;
+        this.usersService = usersService;
+    }
 
 
     @Override
@@ -64,7 +71,13 @@ public class ImageServiceImpl implements ImageService {
     @Override
     public void deleteById(int id) {
         if(id>0){
-            if(findById(id)!=null) {
+            Image image = findById(id);
+            if(image!=null) {
+                if(image.getUser()!=null){
+                    Users user = image.getUser();
+                    user.setImage(null);
+                    usersService.save(user);
+                }
                 imageJPA.deleteById(id);
             }
         }

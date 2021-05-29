@@ -34,7 +34,8 @@ public class MainController {
     @PostMapping
     public String post(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ADMIN"))){
+        auth.getAuthorities().forEach(System.out::println);
+        if (auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"))){
             return "redirect:/admin/experts";
         }
         if (auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("EXPERT"))){
@@ -48,8 +49,17 @@ public class MainController {
 
         model.addAttribute("listOfFlats",flatService.findFirst6Desc());
         model.addAttribute("listOfExperts",usersService.findByRole(Role.EXPERT));
-        System.out.println(flatService.getMaxPrice());
-        System.out.println(flatService.getMinPrice());
+
+
+        model.addAttribute("listOfDistricts",districtService.findAll());
+        model.addAttribute("priceMinInit",flatService.getMinPrice());
+        model.addAttribute("priceMaxInit",flatService.getMaxPrice());
+        model.addAttribute("yearMinInit",flatService.getMinYearOfEndingDevelopment());
+        model.addAttribute("yearMaxInit",flatService.getMaxYearOfEndingDevelopment());
+        model.addAttribute("roomsMinInit",flatService.getMinCountOfRooms());
+        model.addAttribute("roomsMaxInit",flatService.getMaxCountOfRooms());
+
+
         String mail = SecurityContextHolder.getContext().getAuthentication().getName();
         Users user = usersService.findByMail(mail).orElse(null);
 //        if(user!=null) {

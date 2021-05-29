@@ -191,14 +191,14 @@
 
 
 //////////////////////////////////////////////////////////////////////////////
-        $('#addProductBtn').on( 'click', function () {
+        $('#saveResults').on( 'click', function () {
             let rateInformationDTO = new RateInformationDTO();
             rateInformationDTO.wishListId = parseInt($('#wishListId').val());
 
             let rowsArray = document.getElementsByClassName('body-row');
 
             Array.prototype.forEach.call(rowsArray, function(el) {
-                let id = parseInt(($(el).id));
+                let id = parseInt(($(el).attr('id')));
                 let grade = parseInt($(el).find('.grade-val').val());
                 let obj = new RateItemDTO();
                 obj.selectedId = id;
@@ -211,7 +211,7 @@
                 method: "post",
                 url: "/expert/setRate",
                 data: {
-                    dto: rateInformationDTO
+                    dto: JSON.stringify(rateInformationDTO)
                 },
                 success: function () {
                     window.location.href = '/expert/getListForRate';

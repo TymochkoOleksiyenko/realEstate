@@ -253,7 +253,7 @@
                                     <label style="margin-bottom: 10px;">Район</label>
                                     <select class="custom-select-box" name="districtsId">
                                         <option value="0">Всі райони</option>
-                                        <option th:each="d : ${listOfDistricts}" th:value="${d.getId()}" th:text="${d.getName()}" th:selected="${d.getId()==districtId}">New York</option>
+                                        <option th:each="d : ${listOfDistricts}" th:value="${d.getId()}" th:text="${d.getName()}" >New York</option>
                                     </select>
                                 </div>
 
@@ -263,8 +263,8 @@
                                     <input type="number" hidden="hidden" value="1" id="roomsSliderStartRangePoint" th:value="${roomsMinInit}">
                                     <input type="number" hidden="hidden" value="10" id="roomsSliderEndRangePoint" th:value="${roomsMaxInit}">
 
-                                    <input type="number" hidden="hidden" value="1" id="roomsSliderSelectedStartRangePoint" name="countOfRoomsMin" th:value="${roomsMin}">
-                                    <input type="number" hidden="hidden" value="10" id="roomsSliderSelectedEndRangePoint" name="countOfRoomsMax" th:value="${roomsMax}">
+                                    <input type="number" hidden="hidden" value="1" id="roomsSliderSelectedStartRangePoint" name="countOfRoomsMin" th:value="${roomsMinInit}">
+                                    <input type="number" hidden="hidden" value="10" id="roomsSliderSelectedEndRangePoint" name="countOfRoomsMax" th:value="${roomsMaxInit}">
 
                                     <div class="range-slider-one clearfix">
                                         <label>Кількість кімнат</label>
@@ -280,8 +280,8 @@
                                     <input type="number" hidden="hidden" value="2000" id="yearSliderStartRangePoint" th:value="${yearMinInit}">
                                     <input type="number" hidden="hidden" value="2021" id="yearSliderEndRangePoint" th:value="${yearMaxInit}">
 
-                                    <input type="number" hidden="hidden" value="2000" id="yearSliderSelectedStartRangePoint" name="yearMin" th:value="${yearMin}">
-                                    <input type="number" hidden="hidden" value="2021" id="yearSliderSelectedEndRangePoint" name="yearMax" th:value="${yearMax}">
+                                    <input type="number" hidden="hidden" value="2000" id="yearSliderSelectedStartRangePoint" name="yearMin" th:value="${yearMinInit}">
+                                    <input type="number" hidden="hidden" value="2021" id="yearSliderSelectedEndRangePoint" name="yearMax" th:value="${yearMaxInit}">
 
                                     <div class="range-slider-one clearfix">
                                         <label>Рік здачі будинку</label>
@@ -297,8 +297,8 @@
                                     <input type="number" hidden="hidden" value="10" id="priceSliderStartRangePoint"  th:value="${priceMinInit}">
                                     <input type="number" hidden="hidden" value="20" id="priceSliderEndRangePoint"  th:value="${priceMaxInit}">
 
-                                    <input type="number" hidden="hidden" value="10" id="priceSliderSelectedStartRangePoint" name="priceMin" th:value="${priceMin}">
-                                    <input type="number" hidden="hidden" value="20" id="priceSliderSelectedEndRangePoint" name="priceMax" th:value="${priceMax}">
+                                    <input type="number" hidden="hidden" value="10" id="priceSliderSelectedStartRangePoint" name="priceMin" th:value="${priceMinInit}">
+                                    <input type="number" hidden="hidden" value="20" id="priceSliderSelectedEndRangePoint" name="priceMax" th:value="${priceMaxInit}">
 
                                     <div class="range-slider-one clearfix">
                                         <label>Ціна</label>

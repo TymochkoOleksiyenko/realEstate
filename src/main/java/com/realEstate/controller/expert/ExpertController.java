@@ -1,5 +1,6 @@
 package com.realEstate.controller.expert;
 
+import com.google.gson.Gson;
 import com.realEstate.entity.StatusOFWishList;
 import com.realEstate.entity.Users;
 import com.realEstate.entity.WishList;
@@ -15,10 +16,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
@@ -57,23 +55,14 @@ public class ExpertController {
 
     @PreAuthorize("hasAuthority('EXPERT')")
     @PostMapping("/setRate")
-    public String setRate(RateInformationDTO dto) {
-        RateInformationDTO rateInformationDTO = new RateInformationDTO();
-        List<RateItemDTO> list=new ArrayList<>();
-        dto.setWishListId(10);
-        list.add(new RateItemDTO(9,1));
-        list.add(new RateItemDTO(10,2));
-        list.add(new RateItemDTO(11,3));
-        list.add(new RateItemDTO(12,4));
-        rateInformationDTO.setRates(list);
+    @ResponseBody
+    public void setRate(String dto) {
+        RateInformationDTO rateInformationDTO = new Gson().fromJson(dto,RateInformationDTO.class);
         selectedForVotingService.setRate(rateInformationDTO);
-        WishList wishList = wishListService.findById(dto.getWishListId());
-        System.out.println("Votes count "+wishListService.checkMaxCountOfVotes(wishList));
-        System.out.println("WishList "+wishList);
+        WishList wishList = wishListService.findById(rateInformationDTO.getWishListId());
         if(wishList!=null && wishListService.checkMaxCountOfVotes(wishList)>3){
             shulceService.orderByPriority(wishList);
         }
-        return "redirect:/expert/getListForRate";
     }
 
 }
