@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
 <meta charset="utf-8">
@@ -50,10 +50,12 @@
                         <h2 th:text="${flat.getName()}">Modern Apartment in City Center</h2>
                         <div class="location"><i class="la la-map-marker"></i> <span th:text="'('+${flat?.getDistrict()?.getName()}+') '+${flat.getAddress()}">121, King St, VIC 3000, New York, United States</span></div>
                         <ul class="property-info clearfix">
-                            <li><i class="flaticon-dimension"></i> <span th:text="${flat.getArea().doubleValue()}">356 Sq-Ft</span></li>
-                            <li><i class="flaticon-bed"></i><span th:text="${flat.getCountOfRooms()}"></span></li>
-                            <li><i class="flaticon-car"></i><span th:text="${flat.getFloor()}"></span> </li>
-                            <li><i class="flaticon-bathtub"></i> <span th:text="${flat?.getDistrict()?.getName()}"></span></li>
+                            <li><i class="flaticon-dimension"></i>площа: <span th:text="${flat.getArea().doubleValue()}+' m2'"></span></li>
+                            <li><i class="flaticon-sketch-1"></i>кімнат: <span th:text="${flat.getCountOfRooms()}"></span></li>
+                            <li><i class="flaticon-building"></i>поверх: <span th:text="${flat.getFloor()}"></span></li>
+                            <li><i class="flaticon-home-key"></i>рік: <span th:text="${flat.getYearOfEndingDevelopment()}"></span></li>
+                            <li><i class="flaticon-snowflake"></i>опалення: <span th:text="${flat?.getHeatingType()?.getValue()}"></span></li>
+                            <li><i class="flaticon-worker"></i>матеріал: <span th:text="${flat?.getMaterialType()?.getValue()}"></span></li>
                         </ul>
                     </div>
                     <div class="price-column col-lg-4 col-md-12 col-sm-12">
@@ -111,8 +113,9 @@
                                         <li style="margin-bottom: 0; line-break: anywhere;"><strong>Email:</strong> <span th:text="${flat?.getCreatedBy()?.getMail()}"></span></li>
                                     </ul>
                                     <div class="btn-box">
-                                        <a href="#" class="theme-btn btn-style-one">ПРОФІЛЬ ВЛАСНИКА</a>
-                                        <a href="#" class="theme-btn btn-style-six">ДО ОБРАНИХ</a>
+<!--                                        <a href="#" class="theme-btn btn-style-one">ПРОФІЛЬ ВЛАСНИКА</a>-->
+<!--                                        <a href="#" class="theme-btn btn-style-six">ДО ОБРАНИХ</a>-->
+                                        <a href="javascript:void(0);" class="theme-btn btn-style-six" sec:authorize="hasAuthority('USER')" th:id="${flat.getId()}" onclick="addToWishlist(this.id)">ДО ОБРАНИХ</a>
                                     </div>
                                 </div>
                             </div>
@@ -144,6 +147,22 @@
 <script th:src="@{/js/appear.js}"></script>
 <script th:src="@{/js/script.js}"></script>
 <script th:src="@{/js/scroll.js}"></script>
+<script>
+    function addToWishlist(id) {
+        console.log(id);
+        $.ajax({
+            method: "post",
+            url: "/user/flats/addWishItem-"+parseInt(id),
+            contextType: "application/json",
+            success: function () {
+                console.log("Success!");
+            },
+            error: function () {
+                console.log("Error!");
+            }
+        }); //ajax end
+    }
+</script>
 </body>
 
 </html>

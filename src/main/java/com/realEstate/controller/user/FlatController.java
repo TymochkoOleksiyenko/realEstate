@@ -3,6 +3,8 @@ package com.realEstate.controller.user;
 import com.realEstate.entity.Flat;
 import com.realEstate.entity.Users;
 import com.realEstate.entity.WishList;
+import com.realEstate.enums.Heating;
+import com.realEstate.enums.Material;
 import com.realEstate.service.*;
 import lombok.AllArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -89,6 +91,9 @@ public class FlatController {
     public String get(Model model){
         model.addAttribute("listOfDistricts",districtService.findAll());
         model.addAttribute("listOfInfrastructure",infService.findAll());
+        model.addAttribute("listOfHeatingTypes", Heating.values());
+        model.addAttribute("listOfMaterialsTypes", Material.values());
+
         return "user/addFlat";
     }
 

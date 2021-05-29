@@ -1,5 +1,7 @@
 package com.realEstate.entity;
 
+import com.realEstate.enums.Heating;
+import com.realEstate.enums.Material;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
@@ -28,6 +30,13 @@ public class Flat implements Comparable<Flat>{
     private int countOfRooms;
     @ManyToOne
     private District district;
+
+    @Enumerated(EnumType.STRING)
+    private Heating heatingType;
+
+    @Enumerated(EnumType.STRING)
+    private Material materialType;
+
     private int floor;
     private BigDecimal area;
     private int yearOfEndingDevelopment;
@@ -37,17 +46,20 @@ public class Flat implements Comparable<Flat>{
     @ManyToOne
     private Users createdBy;
 
+
     @Override
     public String toString() {
         return "Flat{" +
                 "id=" + id +
-                ", images=" + images.size() +
+                ", images=" + images +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", address='" + address + '\'' +
                 ", price=" + price +
                 ", countOfRooms=" + countOfRooms +
-                ", district=" + district.getId() +
+                ", district=" + district +
+                ", heatingType=" + heatingType +
+                ", materialType=" + materialType +
                 ", floor=" + floor +
                 ", area=" + area +
                 ", yearOfEndingDevelopment=" + yearOfEndingDevelopment +

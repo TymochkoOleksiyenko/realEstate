@@ -70,9 +70,11 @@
                                             <div class="lucation"><i class="la la-map-marker"></i> <span th:text="'('+${flat?.getDistrict()?.getName()}+') '+${flat.getAddress()}"></span></div>
                                             <ul class="property-info clearfix">
                                                 <li><i class="flaticon-money"></i><span th:text="${flat.getPrice()}"></span> USD</li>
-                                                <li><i class="flaticon-bed"></i> <span th:text="${flat.getCountOfRooms()}"></span></li>
-                                                <li><i class="flaticon-car"></i> <span th:text="${flat.getFloor()}"></span> поверх</li>
-                                                <li><i class="flaticon-bathtub"></i> <span th:text="${flat.getFloor()}"></span> рік</li>
+                                                <li><i class="flaticon-sketch-1"></i>кімнат: <span th:text="${flat.getCountOfRooms()}"></span></li>
+                                                <li><i class="flaticon-building"></i>поверх: <span th:text="${flat.getFloor()}"></span></li>
+                                                <li><i class="flaticon-home-key"></i>рік: <span th:text="${flat.getYearOfEndingDevelopment()}"></span></li>
+                                                <li><i class="flaticon-snowflake"></i><span th:text="${flat?.getHeatingType()?.getValue()}"></span></li>
+                                                <li><i class="flaticon-worker"></i><span th:text="${flat?.getMaterialType()?.getValue()}"></span></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -124,6 +126,24 @@
                                                 <select class="custom-select-box" name="districtsId">
                                                     <option value="0">Всі райони</option>
                                                     <option th:each="d : ${listOfDistricts}" th:value="${d.getId()}" th:text="${d.getName()}" th:selected="${d.getId()==districtId}">New York</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Form Group -->
+                                            <div class="form-group">
+                                                <label>Тип опалення</label>
+                                                <select class="custom-select-box" name="heatingType">
+                                                    <option value="0">Всі типи</option>
+                                                    <option th:each="h:${listOfHeatingTypes}" th:text="${h.getValue()}" th:value="${h.name()}"></option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Form Group -->
+                                            <div class="form-group">
+                                                <label>Матеріал</label>
+                                                <select class="custom-select-box" name="materialType">
+                                                    <option value="0">Всі матеріали</option>
+                                                    <option th:each="m:${listOfMaterialsTypes}" th:text="${m.getValue()}" th:value="${m.name()}"></option>
                                                 </select>
                                             </div>
 

@@ -75,10 +75,12 @@
                             <div class="location"><i class="la la-map-marker"></i> <span th:text="'('+${item?.getFlat()?.getDistrict()?.getName()}+') '+${item?.getFlat()?.getAddress()}"></span></div>
                             <div class="text" th:text="${item?.getFlat()?.getDescription()}">Temporibus autem quibusdam et aut officiis debitis is aut rerum necessitatibus saepes eveniet ut etes seo lage voluptates repudiandae sint et molestiae non mes for Creating futures through building pres Creating preservation etes quibusdam.</div>
                             <ul class="property-info clearfix">
-                                <li><i class="flaticon-dimension"></i> <span th:text="${item?.getFlat()?.getArea()}"></span></li>
-                                <li><i class="flaticon-bed"></i> <span th:text="${item?.getFlat()?.getCountOfRooms()}"></span></li>
-                                <li><i class="flaticon-car"></i> <span th:text="${item?.getFlat()?.getFloor()}"></span> поверх</li>
-                                <li><i class="flaticon-bathtub"></i> <span th:text="${item?.getFlat()?.getFloor()}"></span> рік</li>
+                                <li><i class="flaticon-dimension"></i>площа: <span th:text="${flat.getArea().doubleValue()}+' m2'"></span></li>
+                                <li><i class="flaticon-sketch-1"></i>кімнат: <span th:text="${flat.getCountOfRooms()}"></span></li>
+                                <li><i class="flaticon-building"></i>поверх: <span th:text="${flat.getFloor()}"></span></li>
+                                <li><i class="flaticon-home-key"></i>рік: <span th:text="${flat.getYearOfEndingDevelopment()}"></span></li>
+                                <li><i class="flaticon-snowflake"></i>опалення: <span th:text="${flat?.getHeatingType()?.getValue()}"></span></li>
+                                <li><i class="flaticon-worker"></i>матеріал: <span th:text="${flat?.getMaterialType()?.getValue()}"></span></li>
                             </ul>
                         </div>
                     </div>

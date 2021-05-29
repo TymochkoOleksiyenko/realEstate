@@ -4,6 +4,8 @@ import com.realEstate.entity.District;
 import com.realEstate.entity.Flat;
 import com.realEstate.entity.Role;
 import com.realEstate.entity.Users;
+import com.realEstate.enums.Heating;
+import com.realEstate.enums.Material;
 import com.realEstate.service.DistrictService;
 import com.realEstate.service.FlatService;
 import com.realEstate.service.InfrastructureService;
@@ -52,6 +54,8 @@ public class MainController {
 
 
         model.addAttribute("listOfDistricts",districtService.findAll());
+        model.addAttribute("listOfHeatingTypes", Heating.values());
+        model.addAttribute("listOfMaterialsTypes", Material.values());
         model.addAttribute("priceMinInit",flatService.getMinPrice());
         model.addAttribute("priceMaxInit",flatService.getMaxPrice());
         model.addAttribute("yearMinInit",flatService.getMinYearOfEndingDevelopment());
@@ -112,6 +116,8 @@ public class MainController {
 
 
         model.addAttribute("listOfDistricts",districtService.findAll());
+        model.addAttribute("listOfHeatingTypes", Heating.values());
+        model.addAttribute("listOfMaterialsTypes", Material.values());
         model.addAttribute("listOfInfs",infrastructureService.findAll());
         model.addAttribute("page",page);
         model.addAttribute("currentLinkWithoutPage","/allFlats"+getLink(priceMin,priceMax,yearMin,yearMax,infs,districtsId,countOfRoomsMin,countOfRoomsMax,search,null));
