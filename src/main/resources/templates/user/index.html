@@ -246,85 +246,85 @@
             <div class="property-search-tabs tabs-box">
                 <div class="tabs-content">
                     <div class="property-search-form">
-                        <form method="post" action="#">
+                        <form method="get" action="/allFlats">
                             <div class="row">
                                 <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>city</label>
-                                    <div class="input-group">
-                                        <select class="custom-select-box">
-                                            <option>Any</option>
-                                            <option>New York</option>
-                                            <option>Los Angeles</option>
-                                            <option>Chicago</option>
-                                            <option>Houston</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>search by property id</label>
-                                    <input type="text" name="text" placeholder="Search ID" required>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>search by Address</label>
-                                    <input type="text" name="text" placeholder="Search ID" required>
-                                </div>
-
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>Location</label>
-                                    <select class="custom-select-box">
-                                        <option>Any</option>
-                                        <option>New York</option>
-                                        <option>Los Angeles</option>
-                                        <option>Chicago</option>
-                                        <option>Houston</option>
+                                <div class="form-group">
+                                    <label style="margin-bottom: 10px;">Район</label>
+                                    <select class="custom-select-box" name="districtsId">
+                                        <option value="0">Всі райони</option>
+                                        <option th:each="d : ${listOfDistricts}" th:value="${d.getId()}" th:text="${d.getName()}" th:selected="${d.getId()==districtId}">New York</option>
                                     </select>
                                 </div>
 
-                                <!-- Form Group -->
-                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <label>country</label>
-                                    <select class="custom-select-box">
-                                        <option>Any</option>
-                                        <option>California</option>
-                                        <option>Florida</option>
-                                        <option>Georgia</option>
-                                        <option>New York</option>
-                                        <option>Texas</option>
-                                    </select>
-                                </div>
 
                                 <!-- Form Group -->
                                 <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                                    <input type="number" hidden="hidden" value="1" id="roomsSliderStartRangePoint" th:value="${roomsMinInit}">
+                                    <input type="number" hidden="hidden" value="10" id="roomsSliderEndRangePoint" th:value="${roomsMaxInit}">
+
+                                    <input type="number" hidden="hidden" value="1" id="roomsSliderSelectedStartRangePoint" name="countOfRoomsMin" th:value="${roomsMin}">
+                                    <input type="number" hidden="hidden" value="10" id="roomsSliderSelectedEndRangePoint" name="countOfRoomsMax" th:value="${roomsMax}">
+
                                     <div class="range-slider-one clearfix">
-                                        <label>Area</label>
-                                        <div class="area-range-slider"></div>
-                                        <div class="input"><input type="text" class="property-amount"
-                                                                  name="field-name" readonly></div>
-                                        <div class="title">m<sup>2</sup></div>
+                                        <label>Кількість кімнат</label>
+                                        <div class="rooms-range-slider"></div>
+                                        <div class="input">
+                                            <input type="text" class="rooms-amount" readonly>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <!-- Form Group -->
                                 <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                                    <input type="number" hidden="hidden" value="2000" id="yearSliderStartRangePoint" th:value="${yearMinInit}">
+                                    <input type="number" hidden="hidden" value="2021" id="yearSliderEndRangePoint" th:value="${yearMaxInit}">
+
+                                    <input type="number" hidden="hidden" value="2000" id="yearSliderSelectedStartRangePoint" name="yearMin" th:value="${yearMin}">
+                                    <input type="number" hidden="hidden" value="2021" id="yearSliderSelectedEndRangePoint" name="yearMax" th:value="${yearMax}">
+
                                     <div class="range-slider-one clearfix">
-                                        <label>Price Filter</label>
+                                        <label>Рік здачі будинку</label>
+                                        <div class="year-range-slider"></div>
+                                        <div class="input">
+                                            <input type="text" class="year-amount" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Form Group -->
+                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                                    <input type="number" hidden="hidden" value="10" id="priceSliderStartRangePoint"  th:value="${priceMinInit}">
+                                    <input type="number" hidden="hidden" value="20" id="priceSliderEndRangePoint"  th:value="${priceMaxInit}">
+
+                                    <input type="number" hidden="hidden" value="10" id="priceSliderSelectedStartRangePoint" name="priceMin" th:value="${priceMin}">
+                                    <input type="number" hidden="hidden" value="20" id="priceSliderSelectedEndRangePoint" name="priceMax" th:value="${priceMax}">
+
+                                    <div class="range-slider-one clearfix">
+                                        <label>Ціна</label>
                                         <div class="price-range-slider"></div>
-                                        <div class="input"><input type="text" class="price-amount" name="field-name"
-                                                                  readonly></div>
-                                        <div class="title">US Doller</div>
+                                        <div class="input">
+                                            <input type="text" class="price-amount" readonly></div>
+                                        <div class="title">USD</div>
                                     </div>
                                 </div>
 
                                 <!-- Form Group -->
+                                <div class="col-lg-3 col-md-6 col-sm-12">
+                                </div>
+
+                                <!-- Form Group -->
+                                <div class="col-lg-3 col-md-6 col-sm-12">
+                                </div>
+
+                                <!-- Form Group -->
+                                <div class="col-lg-3 col-md-6 col-sm-12">
+                                </div>
+
+
+                                <!-- Form Group -->
                                 <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                    <button type="submit" class="theme-btn btn-style-two">Search</button>
+                                    <button type="submit" class="theme-btn btn-style-two">Знайти</button>
                                 </div>
                             </div>
                         </form>
