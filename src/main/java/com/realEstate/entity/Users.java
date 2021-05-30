@@ -44,6 +44,9 @@ public class Users {
     @OneToOne(cascade = CascadeType.REMOVE)
     private WishList wishList;
 
+    @OneToMany(mappedBy = "user")
+    private List<HistoryView> historyViews;
+
     @Override
     public String toString() {
         return "Users{" +
