@@ -364,7 +364,7 @@
                         <div class="inner-box">
                             <div class="image-box">
                                 <figure class="image"><img th:if="${flat.getImages().size()>0}" th:src="@{'/getImg-'+${flat.getImages()?.get(0)?.getId()}}" alt=""></figure>
-                                <a class="for">ДО ОБРАНИХ</a>
+                                <a href="javascript:void(0);" sec:authorize="hasAuthority('USER')" th:id="${flat.getId()}" onclick="addToWishlist(this.id)" class="for">ДО ОБРАНИХ</a>
                                 <a th:href="@{'/deleteFlat-'+${flat?.getId()}}" class="featured" sec:authorize="hasAuthority('ROLE_ADMIN')">Видалити</a>
                             </div>
                             <div class="lower-content">
@@ -530,6 +530,22 @@
 <script th:src="@{/js/map-script.js}"></script>
 <!-- Color Setting -->
 <script th:src="@{/js/color-settings.js}"></script>
+<script>
+    function addToWishlist(id) {
+        console.log(id);
+        $.ajax({
+            method: "post",
+            url: "/user/flats/addWishItem-"+id,
+            contextType: "application/json",
+            success: function () {
+                console.log("Success!");
+            },
+            error: function () {
+                console.log("Error!");
+            }
+        }); //ajax end
+    }
+</script>
 </body>
 
 </html>
