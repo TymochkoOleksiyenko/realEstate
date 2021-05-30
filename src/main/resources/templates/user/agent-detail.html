@@ -193,23 +193,23 @@
             <div class="popular-places-carousel owl-carousel owl-theme">
 
                 <!-- Popular item -->
-                <div class="property-block"
-                    style="background-color: white; box-shadow:2px 2px 5px 1px rgba(0,0,0,0.05),-2px 0px 5px 1px rgba(0,0,0,0.1);">
+                <div class="property-block" style="background-color: white; box-shadow:2px 2px 5px 1px rgba(0,0,0,0.05),-2px 0px 5px 1px rgba(0,0,0,0.1);" th:each="history : ${user.getHistoryViews()}">
                     <div class="inner-box">
                         <div class="image-box">
-                            <figure class="image"><img src="images/resource/property-1.jpg" alt="">
+                            <figure class="image"><img th:if="${history?.getFlat()?.getImages().size()>0}" th:src="@{'/getImg-'+${history?.getFlat()?.getImages()?.get(0)?.getId()}}" alt="">
                             </figure>
                         </div>
                         <div class="lower-content" style="padding: 20px 10px;">
-                            <div class="thumb"><img src="images/resource/thumb-3.jpg" alt=""></div>
-                            <h3><a href="property-detail.html">Single House Near Orland Park.</a></h3>
-                            <div class="lucation"><i class="la la-map-marker"></i> 121, King St, VIC
-                                3000, New York, United States</div>
+                            <div class="thumb"><img th:src="@{'/getImg-'+${history?.getFlat()?.getCreatedBy()?.getImage()?.getId()}}" alt=""></div>
+                            <h3><a th:href="@{'/flat-'+${history?.getFlat()?.getId()}}" th:text="${history?.getFlat()?.getName()}" >Single House Near Orland Park.</a></h3>
+                            <div class="lucation"><i class="la la-map-marker"></i> <span th:text="'('+${history?.getFlat()?.getDistrict()?.getName()}+') '+${history?.getFlat()?.getAddress()}"></span></div>
                             <ul class="property-info clearfix" style="margin-bottom: 0;">
-                                <li><i class="flaticon-money"></i> $ 13,65,000</li>
-                                <li><i class="flaticon-bed"></i> 4 Bedrooms</li>
-                                <li><i class="flaticon-car"></i> 2 Garage</li>
-                                <li><i class="flaticon-bathtub"></i> 3 Bathroom</li>
+                                <li><i class="flaticon-money"></i><span th:text="${history?.getFlat()?.getPrice()}"></span> USD</li>
+                                <li><i class="flaticon-sketch-1"></i>кімнат: <span th:text="${history?.getFlat()?.getCountOfRooms()}"></span></li>
+                                <li><i class="flaticon-building"></i>поверх: <span th:text="${history?.getFlat()?.getFloor()}"></span></li>
+                                <li><i class="flaticon-home-key"></i>рік: <span th:text="${history?.getFlat()?.getYearOfEndingDevelopment()}"></span></li>
+                                <li><i class="flaticon-snowflake"></i><span th:text="${history?.getFlat()?.getHeatingType()?.getValue()}"></span></li>
+                                <li><i class="flaticon-worker"></i><span th:text="${history?.getFlat()?.getMaterialType()?.getValue()}"></span></li>
                             </ul>
                         </div>
                     </div>

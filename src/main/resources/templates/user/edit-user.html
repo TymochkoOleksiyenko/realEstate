@@ -112,55 +112,19 @@
                             <!-- Recent Properties -->
                             <div class="sidebar-widget recent-properties">
                                 <div class="sidebar-title">
-                                    <h2>Недавно переглянуті</h2>
+                                    <h2>Мої квартири</h2>
                                 </div>
                                 <div class="widget-content">
                                     <!-- Post -->
-                                    <article class="post">
+                                    <article class="post" th:each="flat, count : ${user.getMyFlats()}" th:if="${count.count<7}">
                                         <div class="post-thumb">
-                                            <a href="blog-detail.html">
-                                                <img src="images/resource/property-thumb-1.jpg" alt="">
+                                            <a th:href="@{'/flat-'+${flat.getId()}}">
+                                                <img th:if="${flat.getImages().size()>0}" th:src="@{'/getImg-'+${flat.getImages()?.get(0)?.getId()}}" alt="">
                                             </a>
                                         </div>
-                                        <span class="location">London, UK</span>
-                                        <h3><a href="blog-detail.html">Laxury Balles Villa</a></h3>
-                                        <div class="price">$ 760,000</div>
-                                    </article>
-
-                                    <!-- Post -->
-                                    <article class="post">
-                                        <div class="post-thumb">
-                                            <a href="blog-detail.html">
-                                                <img src="images/resource/property-thumb-2.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <span class="location">London, UK</span>
-                                        <h3><a href="blog-detail.html">Laxury Balles Villa</a></h3>
-                                        <div class="price">$ 760,000</div>
-                                    </article>
-
-                                    <!-- Post -->
-                                    <article class="post">
-                                        <div class="post-thumb">
-                                            <a href="blog-detail.html">
-                                                <img src="images/resource/property-thumb-3.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <span class="location">London, UK</span>
-                                        <h3><a href="blog-detail.html">Laxury Balles Villa</a></h3>
-                                        <div class="price">$ 760,000</div>
-                                    </article>
-
-                                    <!-- Post -->
-                                    <article class="post">
-                                        <div class="post-thumb">
-                                            <a href="blog-detail.html">
-                                                <img src="images/resource/property-thumb-4.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <span class="location">London, UK</span>
-                                        <h3><a href="blog-detail.html">Laxury Balles Villa</a></h3>
-                                        <div class="price">$ 760,000</div>
+                                        <span class="location" th:text="'('+${flat?.getDistrict()?.getName()}+') '+${flat.getAddress()}">London, UK</span>
+                                        <h3><a th:href="@{'/flat-'+${flat.getId()}}" th:text="${flat.getName()}">Laxury Balles Villa</a></h3>
+                                        <div class="price" th:text="${flat.getPrice()}">$ 760,000</div>
                                     </article>
                                 </div>
                             </div>
