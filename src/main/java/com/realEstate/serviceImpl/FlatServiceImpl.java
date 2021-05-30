@@ -195,12 +195,16 @@ public class FlatServiceImpl implements FlatService {
         System.out.println("countOfRoomsMax " + countOfRoomsMax);
 
 
-        if(infsIdList==null) {
-            return flatJPA.findByPriceBetweenAndYearOfEndingDevelopmentBetweenAndDistrictIdInAndCountOfRoomsBetweenAndHeatingTypeInAndMaterialTypeIn
-                    (priceMin, priceMax, yearMin, yearMax, districtIdList, countOfRoomsMin, countOfRoomsMax,heatings,materials);
-        }else {
-            return flatJPA.findByPriceBetweenAndYearOfEndingDevelopmentBetweenAndInfrastructureListIdInAndDistrictIdInAndCountOfRoomsBetweenAndHeatingTypeInAndMaterialTypeIn
-                    (priceMin, priceMax, yearMin, yearMax, infsIdList, districtIdList, countOfRoomsMin, countOfRoomsMax,heatings,materials);
+        try {
+            if (infsIdList == null) {
+                return flatJPA.findByPriceBetweenAndYearOfEndingDevelopmentBetweenAndDistrictIdInAndCountOfRoomsBetweenAndHeatingTypeInAndMaterialTypeIn
+                        (priceMin, priceMax, yearMin, yearMax, districtIdList, countOfRoomsMin, countOfRoomsMax, heatings, materials);
+            } else {
+                return flatJPA.findByPriceBetweenAndYearOfEndingDevelopmentBetweenAndInfrastructureListIdInAndDistrictIdInAndCountOfRoomsBetweenAndHeatingTypeInAndMaterialTypeIn
+                        (priceMin, priceMax, yearMin, yearMax, infsIdList, districtIdList, countOfRoomsMin, countOfRoomsMax, heatings, materials);
+            }
+        }catch (Exception e){
+            return flatJPA.findAll();
         }
     }
 
