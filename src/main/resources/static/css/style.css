@@ -2326,7 +2326,7 @@ a.ui-button:active, .ui-button:active,
 	text-transform: uppercase;
 	padding: 0 7px;
 	z-index: 9;
-	background-color: #ff6767;
+	background-color: #ff6767!important;
 }
 
 .property-block .image-box .featured:before{
@@ -2335,7 +2335,7 @@ a.ui-button:active, .ui-button:active,
 	top: 0;
 	width: 0;
 	height: 0;
-	border-top: 23px solid #ff6767;
+	border-top: 23px solid #ff6767!important;
 	border-left: 10px solid transparent;
 	content: "";
 	-webkit-transition: all 300ms ease;
@@ -3626,6 +3626,20 @@ a.ui-button:active, .ui-button:active,
 	line-height: 1.2em;
 	color: #00a75e;
 	font-weight: 400;
+}
+
+.review-area .review-box .delete-button{
+	position: absolute;
+	right: 130px;
+	top: 0;
+	font-size: 18px;
+	line-height: 1.2em;
+	color: #00a75e;
+	font-weight: 400;
+}
+
+.review-area .review-box .delete-button:hover{
+	transform: scale(1.2);
 }
 
 .review-area .review-box .rating a{

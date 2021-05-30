@@ -187,8 +187,8 @@
                                         <li><span>02</span>Kitchen</li>
                                     </ul>
                                     <div class="price">$16, 100,00</div>
-                                    <div class="btn-box"><a href="agent-detail.html"
-                                                            class="theme-btn btn-style-one">CONTACT AGENT</a></div>
+                                    <div class="btn-box"><a href="/allFlats"
+                                                            class="theme-btn btn-style-one">Переглянути всі</a></div>
                                 </div>
                             </div>
                         </div>
@@ -228,8 +228,8 @@
                                         <li><span>02</span>Kitchen</li>
                                     </ul>
                                     <div class="price">$16, 100,00</div>
-                                    <div class="btn-box"><a href="agent-detail.html"
-                                                            class="theme-btn btn-style-one">CONTACT AGENT</a></div>
+                                    <div class="btn-box"><a href="/allFlats"
+                                                            class="theme-btn btn-style-one">Переглянути всі</a></div>
                                 </div>
                             </div>
                         </div>
@@ -365,7 +365,7 @@
                             <div class="image-box">
                                 <figure class="image"><img th:if="${flat.getImages().size()>0}" th:src="@{'/getImg-'+${flat.getImages()?.get(0)?.getId()}}" alt=""></figure>
                                 <a class="for">ДО ОБРАНИХ</a>
-                                <!-- <span class="featured">FEATURED</span> -->
+                                <a href="XXX" class="featured" sec:authorize="hasAuthority('ROLE_ADMIN')">Видалити</a>
                             </div>
                             <div class="lower-content">
                                 <div class="thumb"><img th:src="@{'/getImg-'+${flat.getCreatedBy()?.getImage()?.getId()}}" alt=""></div>
