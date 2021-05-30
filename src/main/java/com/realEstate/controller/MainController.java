@@ -79,7 +79,8 @@ public class MainController {
 
     @GetMapping("/allFlats")
     public String allFlats(Model model, BigDecimal priceMin, BigDecimal priceMax, Integer yearMin, Integer yearMax, String[] infs,
-                           Integer districtsId, Integer countOfRoomsMin, Integer countOfRoomsMax, String search,Integer page){
+                           Integer districtsId, Integer countOfRoomsMin, Integer countOfRoomsMax, String search,Integer page,
+                           String heatingType,String materialType){
         Integer[] infsInt;
         if(infs!=null) {
             List<String> list = Arrays.stream(infs).filter(s -> !s.isEmpty()).collect(Collectors.toList());
@@ -90,7 +91,7 @@ public class MainController {
         }else {
             infsInt = null;
         }
-        Set<Flat> flatList =new TreeSet<>(flatService.getFiltered(priceMin,priceMax,yearMin,yearMax,infsInt,districtsId,countOfRoomsMin,countOfRoomsMax,search));
+        Set<Flat> flatList =new TreeSet<>(flatService.getFiltered(priceMin,priceMax,yearMin,yearMax,infsInt,districtsId,countOfRoomsMin,countOfRoomsMax,search,heatingType,materialType));
 
         if(page==null){
             page = 1;
@@ -105,6 +106,8 @@ public class MainController {
 
 
         model.addAttribute("checkedInfs",(infsInt!=null)?Arrays.asList(infsInt):null);
+        model.addAttribute("heatingType",(heatingType!=null)?heatingType:"0");
+        model.addAttribute("materialType",(materialType!=null)?materialType:"0");
         model.addAttribute("districtId",districtsId);
         model.addAttribute("priceMin",(priceMin!=null)?priceMin:flatService.getMinPrice());
         model.addAttribute("priceMax",(priceMax!=null)?priceMax:flatService.getMaxPrice());
