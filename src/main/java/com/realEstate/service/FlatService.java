@@ -17,7 +17,8 @@ public interface FlatService {
     List<Flat> findAll();
     void deleteByID(int id);
     List<Flat> getFiltered(BigDecimal priceMin,BigDecimal priceMax, Integer yearMin,Integer yearMax, Integer[] infs,
-                           Integer districtsId, Integer countOfRoomsMin,Integer countOfRoomsMax, String search);
+                           Integer districtsId, Integer countOfRoomsMin,Integer countOfRoomsMax, String search,
+                           String heatingType,String materialType);
 
 
     Integer getMaxFloor();

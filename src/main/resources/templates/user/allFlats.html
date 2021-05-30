@@ -135,7 +135,7 @@
                                                 <label>Тип опалення</label>
                                                 <select class="custom-select-box" name="heatingType">
                                                     <option value="0">Всі типи</option>
-                                                    <option th:each="h:${listOfHeatingTypes}" th:text="${h.getValue()}" th:value="${h.name()}"></option>
+                                                    <option th:each="h:${listOfHeatingTypes}" th:text="${h.getValue()}" th:value="${h.name()}" th:selected="${heatingType.equals(h.name())}"></option>
                                                 </select>
                                             </div>
 
@@ -144,7 +144,7 @@
                                                 <label>Матеріал</label>
                                                 <select class="custom-select-box" name="materialType">
                                                     <option value="0">Всі матеріали</option>
-                                                    <option th:each="m:${listOfMaterialsTypes}" th:text="${m.getValue()}" th:value="${m.name()}"></option>
+                                                    <option th:each="m:${listOfMaterialsTypes}" th:text="${m.getValue()}" th:value="${m.name()}" th:selected="${materialType.equals(m.name())}"></option>
                                                 </select>
                                             </div>
 

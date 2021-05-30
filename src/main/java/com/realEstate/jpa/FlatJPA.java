@@ -1,6 +1,8 @@
 package com.realEstate.jpa;
 
 import com.realEstate.entity.Flat;
+import com.realEstate.enums.Heating;
+import com.realEstate.enums.Material;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -33,11 +35,11 @@ public interface FlatJPA extends JpaRepository<Flat,Integer> {
 
     List<Flat> findByPriceBetween(BigDecimal priceMin,BigDecimal priceMax);
 
-    List<Flat> findByPriceBetweenAndYearOfEndingDevelopmentBetweenAndInfrastructureListIdInAndDistrictIdInAndCountOfRoomsBetween
-            (BigDecimal priceMin,BigDecimal priceMax, Integer yearMin,Integer yearMax,List<Integer> infs,List<Integer> districtsId, Integer countOfRoomsMin,Integer countOfRoomsMax);
+    List<Flat> findByPriceBetweenAndYearOfEndingDevelopmentBetweenAndInfrastructureListIdInAndDistrictIdInAndCountOfRoomsBetweenAndHeatingTypeInAndMaterialTypeIn
+            (BigDecimal priceMin, BigDecimal priceMax, Integer yearMin, Integer yearMax, List<Integer> infs, List<Integer> districtsId, Integer countOfRoomsMin, Integer countOfRoomsMax, List<Heating> heating,List<Material> material);
 
-    List<Flat> findByPriceBetweenAndYearOfEndingDevelopmentBetweenAndDistrictIdInAndCountOfRoomsBetween
-            (BigDecimal priceMin,BigDecimal priceMax, Integer yearMin,Integer yearMax,List<Integer> districtsId, Integer countOfRoomsMin,Integer countOfRoomsMax);
+    List<Flat> findByPriceBetweenAndYearOfEndingDevelopmentBetweenAndDistrictIdInAndCountOfRoomsBetweenAndHeatingTypeInAndMaterialTypeIn
+            (BigDecimal priceMin,BigDecimal priceMax, Integer yearMin,Integer yearMax,List<Integer> districtsId, Integer countOfRoomsMin,Integer countOfRoomsMax, List<Heating> heating,List<Material> material);
 
 
 }

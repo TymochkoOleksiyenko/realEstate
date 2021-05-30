@@ -1,24 +1,24 @@
 package com.realEstate.serviceImpl;
 
-import com.realEstate.entity.District;
 import com.realEstate.entity.Flat;
 import com.realEstate.entity.Infrastructure;
+import com.realEstate.enums.Heating;
+import com.realEstate.enums.Material;
 import com.realEstate.jpa.FlatJPA;
 import com.realEstate.service.DistrictService;
 import com.realEstate.service.FlatService;
 import com.realEstate.service.ImageService;
 import com.realEstate.service.InfrastructureService;
 import lombok.AllArgsConstructor;
-import org.hibernate.mapping.Collection;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 @Service
@@ -104,7 +104,7 @@ public class FlatServiceImpl implements FlatService {
     @Override
     public List<Flat> getFiltered(BigDecimal priceMin, BigDecimal priceMax, Integer yearMin, Integer yearMax,
                                   Integer[] infs, Integer districtsId, Integer countOfRoomsMin,
-                                  Integer countOfRoomsMax, String search) {
+                                  Integer countOfRoomsMax, String search,String heatingType,String materialType) {
         List<Integer> infsIdList;
         List<Integer> districtIdList;
         if(priceMin==null){
@@ -135,6 +135,56 @@ public class FlatServiceImpl implements FlatService {
         if(countOfRoomsMax==null){
             countOfRoomsMax = flatJPA.getMaxCountOfRooms();
         }
+        if(heatingType==null){
+            heatingType = "0";
+        }
+        if(materialType==null){
+            materialType = "0";
+        }
+
+        List<Heating> heatings;
+        List<Material> materials;
+
+        switch (heatingType){
+            case ("HEAT_1"):
+            heatings = Collections.singletonList(Heating.HEAT_1);
+            break;
+            case ("HEAT_2"):
+                heatings = Collections.singletonList(Heating.HEAT_2);
+                break;
+            case ("HEAT_3"):
+                heatings = Collections.singletonList(Heating.HEAT_3);
+                break;
+            default:
+                heatings = new ArrayList<>(Arrays.asList(Heating.values()));
+        }
+
+        switch (materialType){
+            case ("MATERIAL_1"):
+                materials = Collections.singletonList(Material.MATERIAL_1);
+                break;
+            case ("MATERIAL_2"):
+                materials = Collections.singletonList(Material.MATERIAL_2);
+                break;
+            case ("MATERIAL_3"):
+                materials = Collections.singletonList(Material.MATERIAL_3);
+                break;
+            case ("MATERIAL_4"):
+                materials = Collections.singletonList(Material.MATERIAL_4);
+                break;
+            case ("MATERIAL_5"):
+                materials = Collections.singletonList(Material.MATERIAL_5);
+                break;
+            case ("MATERIAL_6"):
+                materials = Collections.singletonList(Material.MATERIAL_6);
+                break;
+            case ("MATERIAL_7"):
+                materials = Collections.singletonList(Material.MATERIAL_7);
+                break;
+            default:
+                materials = new ArrayList<>(Arrays.asList(Material.values()));
+        }
+
         System.out.println("priceMin " + priceMin);
         System.out.println("priceMax " + priceMax);
         System.out.println("yearMin " + yearMin);
@@ -143,12 +193,14 @@ public class FlatServiceImpl implements FlatService {
         System.out.println("districtIdList " + districtIdList);
         System.out.println("countOfRoomsMin " + countOfRoomsMin);
         System.out.println("countOfRoomsMax " + countOfRoomsMax);
+
+
         if(infsIdList==null) {
-            return flatJPA.findByPriceBetweenAndYearOfEndingDevelopmentBetweenAndDistrictIdInAndCountOfRoomsBetween
-                    (priceMin, priceMax, yearMin, yearMax, districtIdList, countOfRoomsMin, countOfRoomsMax);
+            return flatJPA.findByPriceBetweenAndYearOfEndingDevelopmentBetweenAndDistrictIdInAndCountOfRoomsBetweenAndHeatingTypeInAndMaterialTypeIn
+                    (priceMin, priceMax, yearMin, yearMax, districtIdList, countOfRoomsMin, countOfRoomsMax,heatings,materials);
         }else {
-            return flatJPA.findByPriceBetweenAndYearOfEndingDevelopmentBetweenAndInfrastructureListIdInAndDistrictIdInAndCountOfRoomsBetween
-                    (priceMin, priceMax, yearMin, yearMax, infsIdList, districtIdList, countOfRoomsMin, countOfRoomsMax);
+            return flatJPA.findByPriceBetweenAndYearOfEndingDevelopmentBetweenAndInfrastructureListIdInAndDistrictIdInAndCountOfRoomsBetweenAndHeatingTypeInAndMaterialTypeIn
+                    (priceMin, priceMax, yearMin, yearMax, infsIdList, districtIdList, countOfRoomsMin, countOfRoomsMax,heatings,materials);
         }
     }
 
