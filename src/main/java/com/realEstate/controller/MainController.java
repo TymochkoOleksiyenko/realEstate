@@ -5,10 +5,7 @@ import com.realEstate.enums.Role;
 import com.realEstate.entity.Users;
 import com.realEstate.enums.Heating;
 import com.realEstate.enums.Material;
-import com.realEstate.service.DistrictService;
-import com.realEstate.service.FlatService;
-import com.realEstate.service.InfrastructureService;
-import com.realEstate.service.UsersService;
+import com.realEstate.service.*;
 import com.realEstate.serviceImpl.ShulceServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
@@ -30,7 +27,7 @@ public class MainController {
     private final UsersService usersService;
     private final DistrictService districtService;
     private final InfrastructureService infrastructureService;
-    private final ShulceServiceImpl shulceService;
+    private final HistoryViewService historyViewService;
 
     @PostMapping
     public String post(){
@@ -74,6 +71,7 @@ public class MainController {
     @GetMapping("/flat-{id}")
     public String getFlat(@PathVariable int id, Model model){
         model.addAttribute("flat",flatService.findById(id));
+        historyViewService.add(id);
         return "user/flatDetail";
     }
 
