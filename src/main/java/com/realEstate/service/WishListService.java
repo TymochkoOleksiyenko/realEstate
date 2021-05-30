@@ -1,6 +1,6 @@
 package com.realEstate.service;
 
-import com.realEstate.entity.StatusOFWishList;
+import com.realEstate.enums.StatusOFWishList;
 import com.realEstate.entity.WishList;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.realEstate.service;
 
-import com.realEstate.entity.Role;
+import com.realEstate.enums.Role;
 import com.realEstate.entity.Users;
 import org.springframework.web.multipart.MultipartFile;
 

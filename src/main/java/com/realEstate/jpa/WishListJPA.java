@@ -1,6 +1,6 @@
 package com.realEstate.jpa;
 
-import com.realEstate.entity.StatusOFWishList;
+import com.realEstate.enums.StatusOFWishList;
 import com.realEstate.entity.WishList;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

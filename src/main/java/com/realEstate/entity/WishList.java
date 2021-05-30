@@ -1,5 +1,6 @@
 package com.realEstate.entity;
 
+import com.realEstate.enums.StatusOFWishList;
 import lombok.Data;
 
 import javax.persistence.*;

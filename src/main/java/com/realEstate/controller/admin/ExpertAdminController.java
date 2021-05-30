@@ -1,6 +1,6 @@
 package com.realEstate.controller.admin;
 
-import com.realEstate.entity.Role;
+import com.realEstate.enums.Role;
 import com.realEstate.entity.Users;
 import com.realEstate.service.UsersService;
 import lombok.AllArgsConstructor;

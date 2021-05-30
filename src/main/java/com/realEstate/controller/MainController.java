@@ -1,8 +1,7 @@
 package com.realEstate.controller;
 
-import com.realEstate.entity.District;
 import com.realEstate.entity.Flat;
-import com.realEstate.entity.Role;
+import com.realEstate.enums.Role;
 import com.realEstate.entity.Users;
 import com.realEstate.enums.Heating;
 import com.realEstate.enums.Material;

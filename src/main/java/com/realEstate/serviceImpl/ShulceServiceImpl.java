@@ -1,6 +1,7 @@
 package com.realEstate.serviceImpl;
 
 import com.realEstate.entity.*;
+import com.realEstate.enums.StatusOFWishList;
 import com.realEstate.service.SelectedForVotingService;
 import com.realEstate.service.WishListService;
 import lombok.AllArgsConstructor;

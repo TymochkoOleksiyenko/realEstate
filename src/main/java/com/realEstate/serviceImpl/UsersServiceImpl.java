@@ -2,7 +2,7 @@ package com.realEstate.serviceImpl;
 
 import com.realEstate.entity.Feedback;
 import com.realEstate.entity.Image;
-import com.realEstate.entity.Role;
+import com.realEstate.enums.Role;
 import com.realEstate.entity.Users;
 import com.realEstate.jpa.UsersJPA;
 import com.realEstate.service.ImageService;
@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.List;
 import java.util.Optional;
 

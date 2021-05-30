@@ -1,7 +1,7 @@
 package com.realEstate.serviceImpl;
 
 import com.realEstate.entity.SelectedForVoting;
-import com.realEstate.entity.StatusOFWishList;
+import com.realEstate.enums.StatusOFWishList;
 import com.realEstate.entity.Users;
 import com.realEstate.entity.WishList;
 import com.realEstate.jpa.WishListJPA;

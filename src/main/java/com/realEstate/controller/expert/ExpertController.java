@@ -1,11 +1,10 @@
 package com.realEstate.controller.expert;
 
 import com.google.gson.Gson;
-import com.realEstate.entity.StatusOFWishList;
+import com.realEstate.enums.StatusOFWishList;
 import com.realEstate.entity.Users;
 import com.realEstate.entity.WishList;
 import com.realEstate.entity.dto.RateInformationDTO;
-import com.realEstate.entity.dto.RateItemDTO;
 import com.realEstate.service.SelectedForVotingService;
 import com.realEstate.service.UsersService;
 import com.realEstate.service.WishListService;
@@ -14,14 +13,11 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityManager;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 
 @Controller
 @RequestMapping("/expert")
