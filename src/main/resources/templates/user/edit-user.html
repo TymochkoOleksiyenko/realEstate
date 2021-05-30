@@ -57,7 +57,7 @@
                         <!-- Register Form -->
                         <div class="login-form register-form">
                             <!--Login Form-->
-                            <form method="post" action="/account" enctype="multipart/form-data">
+                            <form method="post" action="/account" onsubmit ="return validateForm()" enctype="multipart/form-data">
                                 <input type="number" name="id" th:value="${user.getId()}" hidden="hidden">
                                 <div class="avatar-upload">
                                     <div class="avatar-edit">
@@ -88,12 +88,13 @@
 
                                 <div class="form-group">
                                     <label>Новий пароль</label>
-                                    <input type="password" name="password" placeholder="Пароль..." >
+                                    <input type="password" id="pswd1" name="password" placeholder="Пароль..." >
                                 </div>
 
                                 <div class="form-group">
                                     <label>Підтвердження паролю</label>
-                                    <input type="password" name="confirmPassword" placeholder="Пароль..." >
+                                    <input type="password" id="pswd2" name="confirmPassword" placeholder="Пароль..." >
+                                    <span id = "message2" style="color:red"> </span><br>
                                 </div>
 
                                 <div class="form-group centered">
@@ -247,6 +248,25 @@
         $("#imageUpload").change(function () {
             readURL(this);
         });
+
+        function validateForm() {
+            var pw1 = document.getElementById("pswd1").value;
+            var pw2 = document.getElementById("pswd2").value;
+
+
+            //check empty confirm password field
+            if(pw2 === " ") {
+                document.getElementById("message2").innerHTML = "**Введіть підтвердження паролю!";
+                return false;
+            }
+
+            if(pw1 !== pw2) {
+                document.getElementById("message2").innerHTML = "*Паролі не співпадають";
+                return false;
+            } else {
+
+            }
+        }
     </script>
 </body>
 
