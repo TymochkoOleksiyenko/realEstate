@@ -1,7 +1,7 @@
 package com.realEstate.controller;
 
 import com.realEstate.entity.Feedback;
-import com.realEstate.entity.Role;
+import com.realEstate.enums.Role;
 import com.realEstate.service.FeedbackService;
 import com.realEstate.service.UsersService;
 import lombok.AllArgsConstructor;

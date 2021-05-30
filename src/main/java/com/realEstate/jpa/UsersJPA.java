@@ -1,6 +1,6 @@
 package com.realEstate.jpa;
 
-import com.realEstate.entity.Role;
+import com.realEstate.enums.Role;
 import com.realEstate.entity.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,5 +1,6 @@
 package com.realEstate.entity;
 
+import com.realEstate.enums.Role;
 import lombok.Data;
 import org.hibernate.annotations.Type;
 
