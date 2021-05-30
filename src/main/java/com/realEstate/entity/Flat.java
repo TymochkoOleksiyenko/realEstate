@@ -46,6 +46,8 @@ public class Flat implements Comparable<Flat>{
     @ManyToOne
     private Users createdBy;
 
+    @OneToMany(mappedBy = "flat",cascade = CascadeType.REMOVE)
+    private List<SelectedForVoting> selectedList;
 
     @Override
     public String toString() {

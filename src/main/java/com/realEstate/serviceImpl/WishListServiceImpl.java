@@ -39,12 +39,14 @@ public class WishListServiceImpl implements WishListService {
         }else {
             wishList = users.getWishList();
         }
-        wishList.setUser(users);
-        wishList.setStatus(StatusOFWishList.NOT_RATED);
-        wishList = save(wishList);
-        selectedForVotingService.addNewItem(wishList,flatId);
-        users.setWishList(wishList);
-        usersService.save(users);
+        if(wishList.getList()==null || wishList.getList().size()<10) {
+            wishList.setUser(users);
+            wishList.setStatus(StatusOFWishList.NOT_RATED);
+            wishList = save(wishList);
+            selectedForVotingService.addNewItem(wishList, flatId);
+            users.setWishList(wishList);
+            usersService.save(users);
+        }
         return wishList;
     }
 

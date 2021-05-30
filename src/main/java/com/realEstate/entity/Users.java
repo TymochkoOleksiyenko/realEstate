@@ -53,6 +53,7 @@ public class Users {
                 ", phone='" + phone + '\'' +
                 ", password='" + password + '\'' +
                 ", wishList='" + wishList + '\'' +
+                ", feedback='" + feedbacks + '\'' +
                 ", role=" + role +
                 '}';
     }

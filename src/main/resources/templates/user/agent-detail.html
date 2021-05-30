@@ -116,7 +116,8 @@
                                 </div>
                                 <div class="content-box">
                                     <div class="name" th:text="${f?.getUser()?.getFullName()}">Monija Moro</div>
-                                    <a href="XXX" class="delete-button" data-toggle="tooltip" data-placement="left" title="Видалити відгук"><i class="flaticon-dustbin"></i> </a>
+                                    <a sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{'/deleteFeedback-'+${agent.getId()}+'-'+${f?.getId()}}" class="delete-button" data-toggle="tooltip" data-placement="left" title="Видалити відгук"><i class="flaticon-dustbin"></i> </a>
+                                    <a th:if="${user.getId()==f?.getUser()?.getId()}" th:href="@{'/deleteFeedback-'+${agent.getId()}+'-'+${f?.getId()}}" class="delete-button" data-toggle="tooltip" data-placement="left" title="Видалити відгук"><i class="flaticon-dustbin"></i> </a>
                                     <span class="date"><i class="la la-calendar"></i> <span th:if="${f.getDate()!=null}" th:text="${dateFormat.format(f?.getDate())}"></span></span>
                                     <div class="rating">
                                         <span class="la " th:classappend="${(f.getMark()>=1)?'la-star':'la-star-o'}"></span>

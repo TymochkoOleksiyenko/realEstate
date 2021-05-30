@@ -8,7 +8,9 @@ import com.realEstate.service.UsersService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
 import java.util.Date;
 import java.util.List;
 
@@ -17,6 +19,7 @@ import java.util.List;
 public class FeedbackServiceImpl implements FeedbackService {
     private final FeedbackJPA feedbackJPA;
     private final UsersService usersService;
+    private final EntityManager entityManager;
 
     @Override
     public Feedback save(Feedback feedback) {
@@ -52,7 +55,18 @@ public class FeedbackServiceImpl implements FeedbackService {
     }
 
     @Override
+    @Transactional
     public void deleteByID(int id) {
-        feedbackJPA.deleteById(id);
+        Feedback feedback = findById(id);
+        if(feedback!=null) {
+            Users expert = feedback.getExpert();
+            feedbackJPA.deleteById(id);
+            List<Feedback> feedbacks = expert.getFeedbacks();
+            feedbacks.remove(feedback);
+            expert.setFeedbacks(feedbacks);
+            usersService.save(expert);
+            System.out.println(expert);
+            usersService.countAverageRate(expert.getId());
+        }
     }
 }

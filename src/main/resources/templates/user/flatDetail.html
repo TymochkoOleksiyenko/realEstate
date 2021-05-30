@@ -108,7 +108,7 @@
                                 <div class="info-box">
                                     <h4 class="name" th:text="${flat?.getCreatedBy()?.getFullName()}">Olivia Jeams</h4>
                                     <span class="designation"></span>
-                                    <ul class="contact-info" style="margin-bottom: 2rem;">
+                                    <ul class="contact-info" style="margin-bottom: 2rem;" sec:authorize="isAuthenticated()">
                                         <li><strong>Phone:</strong><span th:text="${flat?.getCreatedBy()?.getPhone()}"></span></li>
                                         <li style="margin-bottom: 0; line-break: anywhere;"><strong>Email:</strong> <span th:text="${flat?.getCreatedBy()?.getMail()}"></span></li>
                                     </ul>

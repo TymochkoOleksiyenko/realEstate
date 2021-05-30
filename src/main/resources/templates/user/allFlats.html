@@ -63,7 +63,7 @@
                                             <figure class="image"><img th:if="${flat.getImages().size()>0}" th:src="@{'/getImg-'+${flat.getImages()?.get(0)?.getId()}}" alt="">
                                             </figure>
                                             <a href="javascript:void(0);" sec:authorize="hasAuthority('USER')" th:id="${flat.getId()}" onclick="addToWishlist(this.id)" class="for">ДО ОБРАНИХ</a>
-                                            <a href="XXX" class="featured" sec:authorize="hasAuthority('ROLE_ADMIN')">Видалити</a>
+                                            <a th:href="@{'/deleteFlat-'+${flat?.getId()}}" class="featured" sec:authorize="hasAuthority('ROLE_ADMIN')">Видалити</a>
                                         </div>
                                         <div class="lower-content">
                                             <div class="thumb"><img th:src="@{'/getImg-'+${flat?.getCreatedBy()?.getImage()?.getId()}}"  alt=""></div>

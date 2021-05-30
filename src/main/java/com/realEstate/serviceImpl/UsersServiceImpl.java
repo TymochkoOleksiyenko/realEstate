@@ -9,8 +9,10 @@ import com.realEstate.service.ImageService;
 import com.realEstate.service.UsersService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.persistence.EntityManager;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
@@ -20,6 +22,8 @@ import java.util.Optional;
 public class UsersServiceImpl implements UsersService {
     private final UsersJPA usersJPA;
     private final ImageService imageService;
+    private final EntityManager entityManager;
+
     @Override
     public Users save(Users user) {
         return usersJPA.save(user);
