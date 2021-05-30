@@ -19,7 +19,7 @@ public class DistrictAdminController {
     @GetMapping
     public String get(Model model){
         model.addAttribute("listOfDistricts",districtService.findAll());
-        return "/admin/districts";
+        return "admin/districts";
     }
 
     @PostMapping("/add")
